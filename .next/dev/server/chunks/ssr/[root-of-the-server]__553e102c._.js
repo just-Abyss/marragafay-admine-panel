@@ -75,7 +75,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$bookings$2f$bo
 ;
 const dynamic = 'force-dynamic';
 async function BookingsPage() {
-    const { data: bookingsData, error } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabase$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["supabase"].from('bookings').select('*').order('created_at', {
+    const { data: bookingsData, error } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabase$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["supabase"].from('bookings').select('id, customer_name, customer_email, phone, package_title, booking_date, guests_count, status, total_price').order('booking_date', {
         ascending: false
     });
     if (error) {
@@ -83,24 +83,24 @@ async function BookingsPage() {
     }
     const bookings = (bookingsData || []).map((row)=>({
             id: row.id.toString(),
-            customer_name: row.customer?.name || 'Unknown',
-            email: row.customer?.email || '',
-            phone: row.customer?.phone || '',
-            package_title: row.package || 'Unknown Package',
+            customer_name: row.customer_name || 'Unknown',
+            email: row.customer_email || '',
+            phone: row.phone || '',
+            package_title: row.package_title || 'Unknown Package',
             status: row.status?.toLowerCase() || 'pending',
             date: row.booking_date || new Date().toISOString().split('T')[0],
-            guests: row.guests || 1,
-            total_price: row.amount || 0,
-            payment_status: row.payment_status || 'unpaid',
-            amount_paid: row.amount_paid || 0,
-            remaining_balance: row.remaining_balance || 0,
-            created_at: row.created_at,
-            notes: row.notes,
-            driver_id: row.driver_id,
-            driver_name: row.driver_name,
-            pickup_time: row.pickup_time,
-            pickup_location: row.pickup_location,
-            activity_type: row.activity_type
+            guests: row.guests_count || 1,
+            total_price: row.total_price || 0,
+            payment_status: 'unpaid',
+            amount_paid: 0,
+            remaining_balance: row.total_price || 0,
+            created_at: new Date().toISOString(),
+            notes: '',
+            driver_id: undefined,
+            driver_name: undefined,
+            pickup_time: undefined,
+            pickup_location: undefined,
+            activity_type: undefined
         }));
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$bookings$2f$bookings$2d$view$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["BookingsView"], {
         initialBookings: bookings
