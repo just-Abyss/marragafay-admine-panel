@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Sheet, SheetContent } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import { mockDrivers } from "@/lib/mock-data"
 import { useToast } from "@/hooks/use-toast"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
@@ -123,6 +123,26 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
       .slice(0, 2)
   }
 
+  const getPickupTimeLabel = (current: Booking) => {
+    const time = current.pickup_time?.trim()
+    if (time) return time
+    return current.status === "pending" ? "New Booking" : "Pending Info"
+  }
+
+  const getCondensedPackageTitle = (title: string) => {
+    if (!title) return "Not set"
+    const [firstPart] = title.split(/[-|]/)
+    return firstPart?.trim() || title.trim()
+  }
+
+  const formatMad = (amount: number) => {
+    if (!Number.isFinite(amount)) return "MAD 0"
+    return `MAD ${amount.toLocaleString("en-US")}`
+  }
+
+  const pickupTimeDisplay = getPickupTimeLabel(currentBooking)
+  const condensedPackageTitle = getCondensedPackageTitle(currentBooking.package_title)
+
   return (
     <Sheet open={open} onOpenChange={handleClose}>
       <SheetContent
@@ -132,6 +152,9 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
           bg-gray-50 border-0 overflow-hidden flex flex-col p-0
         `}
       >
+        <SheetHeader>
+          <SheetTitle className="sr-only">Booking Details</SheetTitle>
+        </SheetHeader>
         {isMobile && (
           <div className="flex justify-center pt-3 pb-1">
             <div className="w-10 h-1 rounded-full bg-gray-300" />
@@ -161,7 +184,7 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                 </Avatar>
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-3xl font-bold text-gray-900">{currentBooking.pickup_time || "TBD"}</span>
+                    <span className="text-3xl font-bold text-gray-900">{pickupTimeDisplay}</span>
                   </div>
                   <h2 className="text-xl font-semibold text-gray-900">{currentBooking.customer_name}</h2>
                   <div className="flex items-center gap-2 mt-2">
@@ -319,10 +342,10 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                           setEditedBooking((prev) =>
                             prev
                               ? {
-                                  ...prev,
-                                  driver_id: value === "none" ? undefined : value,
-                                  driver_name: driver?.name || undefined,
-                                }
+                                ...prev,
+                                driver_id: value === "none" ? undefined : value,
+                                driver_name: driver?.name || undefined,
+                              }
                               : null,
                           )
                         }}
@@ -350,7 +373,9 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                         <Package className="w-5 h-5 text-gray-400 mr-4 flex-shrink-0" />
                         <span className="text-gray-500 text-[15px]">Package</span>
                       </div>
-                      <span className="text-gray-900 font-medium text-[15px]">{currentBooking.package_title}</span>
+                      <span className="text-gray-900 font-medium text-[15px]" title={currentBooking.package_title}>
+                        {condensedPackageTitle}
+                      </span>
                     </div>
                     <div className="flex items-center justify-between px-4 py-3.5 min-h-[52px]">
                       <div className="flex items-center">
@@ -370,9 +395,7 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                         <Clock className="w-5 h-5 text-gray-400 mr-4 flex-shrink-0" />
                         <span className="text-gray-500 text-[15px]">Pickup Time</span>
                       </div>
-                      <span className="text-gray-900 font-medium text-[15px]">
-                        {currentBooking.pickup_time || "TBD"}
-                      </span>
+                      <span className="text-gray-900 font-medium text-[15px]">{pickupTimeDisplay}</span>
                     </div>
                     <div className="flex items-center justify-between px-4 py-3.5 min-h-[52px]">
                       <div className="flex items-center">
@@ -435,10 +458,22 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                         <Input
                           type="number"
                           min="0"
-                          value={editedBooking?.total_price || 0}
+                          step="0.01"
+                          inputMode="decimal"
+                          value={
+                            editedBooking?.total_price !== undefined ? editedBooking.total_price.toString() : ""
+                          }
                           onChange={(e) =>
                             setEditedBooking((prev) =>
-                              prev ? { ...prev, total_price: Number.parseInt(e.target.value) || 0 } : null,
+                              prev
+                                ? {
+                                  ...prev,
+                                  total_price:
+                                    e.target.value === ""
+                                      ? 0
+                                      : Number.parseFloat(e.target.value.replace(/,/g, "")),
+                                }
+                                : null,
                             )
                           }
                           className="mt-1 rounded-xl border-gray-200 bg-gray-50 h-11"
@@ -449,10 +484,22 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                         <Input
                           type="number"
                           min="0"
-                          value={editedBooking?.amount_paid || 0}
+                          step="0.01"
+                          inputMode="decimal"
+                          value={
+                            editedBooking?.amount_paid !== undefined ? editedBooking.amount_paid.toString() : ""
+                          }
                           onChange={(e) =>
                             setEditedBooking((prev) =>
-                              prev ? { ...prev, amount_paid: Number.parseInt(e.target.value) || 0 } : null,
+                              prev
+                                ? {
+                                  ...prev,
+                                  amount_paid:
+                                    e.target.value === ""
+                                      ? 0
+                                      : Number.parseFloat(e.target.value.replace(/,/g, "")),
+                                }
+                                : null,
                             )
                           }
                           className="mt-1 rounded-xl border-gray-200 bg-gray-50 h-11"
@@ -467,8 +514,8 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                         <Banknote className="w-5 h-5 text-gray-400 mr-4 flex-shrink-0" />
                         <span className="text-gray-500 text-[15px]">Total</span>
                       </div>
-                      <span className="text-gray-900 font-semibold text-[15px]">
-                        {currentBooking.total_price.toLocaleString()} MAD
+                      <span className="text-gray-900 font-bold text-base tracking-tight">
+                        {formatMad(currentBooking.total_price)}
                       </span>
                     </div>
                     <div className="flex items-center justify-between px-4 py-3.5 min-h-[52px]">
@@ -477,7 +524,7 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                         <span className="text-gray-500 text-[15px]">Paid</span>
                       </div>
                       <span className="text-emerald-600 font-semibold text-[15px]">
-                        {currentBooking.amount_paid.toLocaleString()} MAD
+                        {formatMad(currentBooking.amount_paid)}
                       </span>
                     </div>
                     {currentBooking.remaining_balance > 0 && (
@@ -487,7 +534,7 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                           <span className="text-amber-700 font-medium text-[15px]">Balance Due</span>
                         </div>
                         <span className="text-amber-700 font-bold text-[15px]">
-                          {currentBooking.remaining_balance.toLocaleString()} MAD
+                          {formatMad(currentBooking.remaining_balance)}
                         </span>
                       </div>
                     )}

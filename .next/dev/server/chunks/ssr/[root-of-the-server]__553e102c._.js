@@ -75,7 +75,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$bookings$2f$bo
 ;
 const dynamic = 'force-dynamic';
 async function BookingsPage() {
-    const { data: bookingsData, error } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabase$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["supabase"].from('bookings').select('id, customer_name, customer_email, phone, package_title, booking_date, guests_count, status, total_price').order('booking_date', {
+    const { data: bookingsData, error } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabase$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["supabase"].from('bookings').select('id, customer_name, customer_email, phone, package_title, booking_date, guests_count, status, total_price, driver, pickup_location, payment_status, deposit_amount').order('booking_date', {
         ascending: false
     });
     if (error) {
@@ -91,22 +91,24 @@ async function BookingsPage() {
             date: row.booking_date || new Date().toISOString().split('T')[0],
             guests: row.guests_count || 1,
             total_price: row.total_price || 0,
-            payment_status: 'unpaid',
-            amount_paid: 0,
-            remaining_balance: row.total_price || 0,
+            payment_status: row.payment_status || 'unpaid',
+            amount_paid: row.deposit_amount || 0,
+            deposit_amount: row.deposit_amount || 0,
+            remaining_balance: (row.total_price || 0) - (row.deposit_amount || 0),
             created_at: new Date().toISOString(),
             notes: '',
             driver_id: undefined,
-            driver_name: undefined,
+            driver_name: row.driver,
+            driver: row.driver,
             pickup_time: undefined,
-            pickup_location: undefined,
+            pickup_location: row.pickup_location,
             activity_type: undefined
         }));
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$bookings$2f$bookings$2d$view$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["BookingsView"], {
         initialBookings: bookings
     }, void 0, false, {
         fileName: "[project]/app/dashboard/bookings/page.tsx",
-        lineNumber: 39,
+        lineNumber: 41,
         columnNumber: 10
     }, this);
 }

@@ -245,7 +245,6 @@
     --color-red-500: #fb2c36;
     --color-red-600: #e40014;
     --color-red-700: #bf000f;
-    --color-red-800: #9f0712;
     --color-amber-50: #fffbeb;
     --color-amber-100: #fef3c6;
     --color-amber-200: #fee685;
@@ -336,7 +335,6 @@
       --color-red-500: lab(55.4814% 75.0732 48.8528);
       --color-red-600: lab(48.4493% 77.4328 61.5452);
       --color-red-700: lab(40.4273% 67.2623 53.7441);
-      --color-red-800: lab(33.7174% 55.8993 41.0293);
       --color-amber-50: lab(98.6252% -.635982 8.42309);
       --color-amber-100: lab(95.916% -1.2165 23.111);
       --color-amber-200: lab(91.7203% -.505269 49.9084);
@@ -2937,10 +2935,6 @@
     color: var(--color-red-700);
   }
 
-  .text-red-800 {
-    color: var(--color-red-800);
-  }
-
   .text-secondary-foreground {
     color: var(--secondary-foreground);
   }
@@ -2963,6 +2957,10 @@
     color: var(--color-slate-200);
   }
 
+  .text-slate-300 {
+    color: var(--color-slate-300);
+  }
+
   .text-slate-600 {
     color: var(--color-slate-600);
   }
@@ -2981,6 +2979,10 @@
 
   .uppercase {
     text-transform: uppercase;
+  }
+
+  .italic {
+    font-style: italic;
   }
 
   .tabular-nums {

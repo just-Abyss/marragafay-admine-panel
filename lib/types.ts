@@ -34,9 +34,11 @@ export interface Booking {
   remaining_balance: number
   driver_id?: string
   driver_name?: string
+  driver?: string // New field
   pickup_time?: string
   pickup_location?: string
   activity_type?: string
+  deposit_amount?: number // New field
 }
 
 export interface Package {
@@ -45,8 +47,8 @@ export interface Package {
   description: string
   price: number
   duration: string
-  includes: string[]
-  tier: "basic" | "premium" | "vip"
+  includes?: string[]
+  tier?: "basic" | "premium" | "vip"
   is_active: boolean
   image_url?: string
 }
@@ -94,7 +96,7 @@ export interface Activity {
   price: number
   duration: string
   image_url?: string
-  is_active: boolean
+  active: boolean
   resource_type: "quad" | "camel" | "buggy" | "horse" | "balloon" | "none"
   capacity_per_session: number
 }

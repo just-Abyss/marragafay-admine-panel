@@ -13,6 +13,8 @@ import { OperationsView } from "@/components/bookings/operations-view"
 import { Button } from "@/components/ui/button"
 import type { Booking, ViewMode, BookingStatus } from "@/lib/types"
 import { cn } from "@/lib/utils"
+import { supabase } from "@/lib/supabase"
+import { toast } from "sonner"
 import { Table, Columns3, CalendarDays, Plus, Loader2, ClipboardList } from "lucide-react"
 
 const viewOptions: { value: ViewMode; icon: typeof Table; label: string }[] = [
@@ -46,26 +48,78 @@ export function BookingsView({ initialBookings }: BookingsViewProps) {
         setDrawerOpen(true)
     }
 
-    const handleStatusChange = (bookingId: string, newStatus: BookingStatus) => {
-        setBookings((prev) => prev.map((b) => (b.id === bookingId ? { ...b, status: newStatus } : b)))
-    }
+    const handleStatusChange = async (bookingId: string, newStatus: BookingStatus) => {
+        try {
+            const { error } = await supabase
+                .from('bookings')
+                .update({ status: newStatus })
+                .eq('id', bookingId)
 
-    const handleDelete = (bookingId: string) => {
-        setBookings((prev) => prev.filter((b) => b.id !== bookingId))
-        setDrawerOpen(false)
-    }
+            if (error) throw error
 
-    const handleSaveBooking = (updatedBooking: Booking) => {
-        setBookings((prev) => prev.map((b) => (b.id === updatedBooking.id ? updatedBooking : b)))
-        setSelectedBooking(updatedBooking)
-    }
-
-    const handleCreateBooking = (newBooking: Omit<Booking, "id" | "created_at">) => {
-        const booking: Booking = {
-            ...newBooking,
-            id: `${Date.now()}`,
-            created_at: new Date().toISOString(),
+            setBookings((prev) => prev.map((b) => (b.id === bookingId ? { ...b, status: newStatus } : b)))
+            toast.success("Status updated")
+            router.refresh()
+        } catch (error) {
+            console.error('Error updating status:', error)
+            toast.error("Failed to update status")
         }
+    }
+
+    const handleDelete = async (bookingId: string) => {
+        try {
+            const { error } = await supabase
+                .from('bookings')
+                .delete()
+                .eq('id', bookingId)
+
+            if (error) throw error
+
+            setBookings((prev) => prev.filter((b) => b.id !== bookingId))
+            setDrawerOpen(false)
+            toast.success("Booking deleted")
+            router.refresh()
+        } catch (error) {
+            console.error('Error deleting booking:', error)
+            toast.error("Failed to delete booking")
+        }
+    }
+
+    const handleSaveBooking = async (updatedBooking: Booking) => {
+        try {
+            const { error } = await supabase
+                .from('bookings')
+                .update({
+                    customer_name: updatedBooking.customer_name,
+                    customer_email: updatedBooking.email,
+                    phone: updatedBooking.phone,
+                    package_title: updatedBooking.package_title,
+                    booking_date: updatedBooking.date,
+                    guests_count: updatedBooking.guests,
+                    status: updatedBooking.status,
+                    total_price: updatedBooking.total_price,
+                    notes: updatedBooking.notes,
+                    driver_id: updatedBooking.driver_id,
+                    driver_name: updatedBooking.driver_name,
+                    pickup_time: updatedBooking.pickup_time,
+                    pickup_location: updatedBooking.pickup_location,
+                    activity_type: updatedBooking.activity_type
+                })
+                .eq('id', updatedBooking.id)
+
+            if (error) throw error
+
+            setBookings((prev) => prev.map((b) => (b.id === updatedBooking.id ? updatedBooking : b)))
+            setSelectedBooking(updatedBooking)
+            toast.success("Booking updated")
+            router.refresh()
+        } catch (error) {
+            console.error('Error updating booking:', error)
+            toast.error("Failed to update booking")
+        }
+    }
+
+    const handleCreateBooking = (booking: Booking) => {
         setBookings((prev) => [booking, ...prev])
     }
 

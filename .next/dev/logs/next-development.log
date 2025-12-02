@@ -1,41 +1,513 @@
-[00:00:04.415] Server  WARN     ⚠ "Found lockfile missing swc dependencies," "patching..."
-[00:00:13.214] Server  LOG      ✓ Ready in 11.2s
-[00:00:16.528] Server  LOG      ○ Compiling / ...
-[00:00:16.849] Server  WARN     ⚠ Lockfile was successfully patched, please run "npm install" to ensure @next/swc dependencies are downloaded
-[00:00:29.572] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:29.906] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:33.018] Server  LOG      ○ Compiling /dashboard ...
-[00:00:34.726] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:34.727] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/bookings","route":"/dashboard/bookings"}
-[00:00:34.727] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764584684333}
-[00:00:35.967] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:35.967] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:35.967] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764584685576}
-[00:00:36.638] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:00:03.522] Server  LOG      ✓ Ready in 2.5s
+[00:00:59.584] Server  LOG      ○ Compiling / ...
+[00:02:09.270] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:12.450] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:12.450] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:02:12.450] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635063287}
+[00:02:12.450] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635063388}
+[00:02:18.457] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:00:36.639] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:02:18.458] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:00:36.639] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764584686004}
-[00:00:42.002] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764584691536}
-[00:00:47.493] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+[00:03:14.135] Browser LOG     Fetching packages and activities...
+[00:03:14.135] Browser LOG     Fetching packages and activities...
+[00:03:14.135] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635124993}
+[00:03:17.256] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:03:17.256] Browser WARN    No activities found, using fallback.
+[00:03:17.432] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:03:17.432] Browser WARN    No activities found, using fallback.
+[00:03:17.974] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635128922}
+[00:03:22.540] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635133478}
+[00:03:24.532] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635135476}
+[00:03:26.077] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635137021}
+[00:03:27.982] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:27.982] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:42.960] Browser ERROR   Error creating activity: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'capacity_per_session' column of 'activities' in the schema cache"}
+[00:03:44.402] Browser ERROR   Error creating activity: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'capacity_per_session' column of 'activities' in the schema cache"}
+[00:03:44.591] Browser ERROR   Error creating activity: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'capacity_per_session' column of 'activities' in the schema cache"}
+[00:03:44.799] Browser ERROR   Error creating activity: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'capacity_per_session' column of 'activities' in the schema cache"}
+[00:03:49.209] Browser LOG     Fetching packages and activities...
+[00:03:49.209] Browser LOG     Fetching packages and activities...
+[00:03:49.209] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635160093}
+[00:03:49.563] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:03:49.563] Browser WARN    No activities found, using fallback.
+[00:03:49.674] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:03:49.674] Browser WARN    No activities found, using fallback.
+[00:03:50.939] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:50.939] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:05:50.241] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635281193}
+[00:05:50.473] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:05:50.473] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:05:53.756] Browser LOG     Fetching packages and activities...
+[00:05:53.756] Browser LOG     Fetching packages and activities...
+[00:05:53.756] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635284660}
+[00:05:54.149] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:05:54.149] Browser WARN    No activities found, using fallback.
+[00:05:54.285] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:05:54.285] Browser WARN    No activities found, using fallback.
+[00:05:56.146] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
 
 If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
 
 For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:00:47.493] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:00:47.493] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+[00:05:56.146] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:05:56.146] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
 
 If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
 
 For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:00:47.493] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:01:00.107] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764584709692}
-[00:01:02.876] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764584712369}
-[00:05:52.077] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:05:53.721] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:05:53.721] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/bookings","route":"/dashboard/bookings"}
-[00:05:53.721] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764585003335}
+[00:05:56.146] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:05:58.779] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:05:58.779] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:05:58.779] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:05:58.779] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:01.792] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:06:01.792] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:01.792] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:06:01.792] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:05.279] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:06:05.279] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:05.279] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:06:05.279] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:09.783] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:06:09.783] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:09.783] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:06:09.783] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:12.496] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:06:12.496] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:12.496] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:06:12.496] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:16.009] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:06:16.009] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:16.009] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:06:16.009] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:23.253] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635314188}
+[00:06:23.432] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:06:23.432] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:06:36.795] Browser LOG     Fetching packages and activities...
+[00:06:36.795] Browser LOG     Fetching packages and activities...
+[00:06:36.795] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635327710}
+[00:06:37.077] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:06:37.077] Browser WARN    No activities found, using fallback.
+[00:06:37.628] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635328577}
+[00:06:38.440] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:06:38.440] Browser WARN    No activities found, using fallback.
+[00:06:49.157] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635340102}
+[00:06:53.665] Browser ERROR   Error updating activity status: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'is_active' column of 'activities' in the schema cache"}
+[00:06:57.603] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635348543}
+[00:06:59.553] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:06:59.553] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:07:04.186] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:07:04.186] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:07:10.290] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:07:10.290] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:07:20.481] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/testimonials color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/testimonials","o":"http://localhost:3000/dashboard/testimonials","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635371419}
+[00:07:25.681] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635376627}
+[00:07:33.002] Browser LOG     Fetching packages and activities...
+[00:07:33.002] Browser LOG     Fetching packages and activities...
+[00:07:33.002] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635383898}
+[00:07:33.358] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:07:33.358] Browser WARN    No activities found, using fallback.
+[00:07:33.465] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:07:33.465] Browser WARN    No activities found, using fallback.
+[00:08:07.667] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635418619}
+[00:09:34.005] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635504949}
+[00:09:39.914] Browser LOG     Fetching packages and activities...
+[00:09:39.914] Browser LOG     Fetching packages and activities...
+[00:09:39.914] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635510789}
+[00:09:42.427] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:09:42.427] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:09:43.939] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:09:43.939] Browser WARN    No activities found, using fallback.
+[00:09:44.106] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:09:44.106] Browser WARN    No activities found, using fallback.
+[00:10:57.619] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635588570}
+[00:10:57.838] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:10:57.838] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:11:00.025] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:11:00.025] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:11:00.026] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:11:00.026] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:11:14.584] Browser LOG     Fetching packages and activities...
+[00:11:14.584] Browser LOG     Fetching packages and activities...
+[00:11:14.584] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635605478}
+[00:11:14.862] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:11:14.862] Browser WARN    No activities found, using fallback.
+[00:11:15.003] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:11:15.003] Browser WARN    No activities found, using fallback.
+[00:11:24.166] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:11:24.166] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:11:24.166] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:11:24.166] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:11:26.167] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:11:26.167] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:11:26.167] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:11:26.167] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:12:40.052] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635690995}
+[00:12:42.848] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635693791}
+[00:12:44.597] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/testimonials color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/testimonials","o":"http://localhost:3000/dashboard/testimonials","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635695544}
+[00:12:45.246] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635696195}
+[00:12:46.438] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635697376}
+[00:13:01.667] Browser LOG     Fetching packages and activities...
+[00:13:01.667] Browser LOG     Fetching packages and activities...
+[00:13:01.667] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635712577}
+[00:13:02.027] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:13:02.027] Browser WARN    No activities found, using fallback.
+[00:13:02.143] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:13:02.143] Browser WARN    No activities found, using fallback.
+[00:13:05.433] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635716376}
+[00:13:08.832] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635719782}
+[00:13:10.916] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635721863}
+[00:13:12.035] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/testimonials color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/testimonials","o":"http://localhost:3000/dashboard/testimonials","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635722983}
+[00:13:13.139] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635724078}
+[00:13:15.610] Browser LOG     Fetching packages and activities...
+[00:13:15.611] Browser LOG     Fetching packages and activities...
+[00:13:15.611] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635726508}
+[00:13:15.893] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:13:15.893] Browser WARN    No activities found, using fallback.
+[00:13:16.020] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:13:16.020] Browser WARN    No activities found, using fallback.
+[00:13:25.260] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:13:25.794] Browser LOG     Fetching packages and activities...
+[00:13:25.794] Browser LOG     Fetching packages and activities...
+[00:13:25.934] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:13:25.934] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/bookings","route":"/dashboard/bookings"}
+[00:13:25.934] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635736878}
+[00:13:26.196] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:13:26.196] Browser WARN    No activities found, using fallback.
+[00:13:26.330] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:13:26.330] Browser WARN    No activities found, using fallback.
+[00:13:32.069] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:13:32.069] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:13:32.069] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:13:32.069] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:14:11.954] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635782899}
+[00:14:13.373] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635784319}
+[00:14:13.655] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:14:13.655] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:14:14.912] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:14:14.912] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:14:14.912] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:14:14.912] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:14:41.199] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:14:41.199] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:14:41.199] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:14:41.199] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:14:49.403] Browser LOG     Fetching packages and activities...
+[00:14:49.403] Browser LOG     Fetching packages and activities...
+[00:14:49.403] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635820296}
+[00:14:49.707] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:14:49.708] Browser WARN    No activities found, using fallback.
+[00:14:49.833] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
+[00:14:49.833] Browser WARN    No activities found, using fallback.
+[00:14:51.424] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:14:51.424] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:14:51.424] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:14:51.424] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:14:53.136] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:14:53.136] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:14:53.136] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:14:53.136] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:14:57.118] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:14:57.118] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:14:57.118] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:14:57.118] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:15:04.203] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:15:04.203] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:15:04.203] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+[00:15:04.203] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:15:06.423] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635837365}
+[00:15:13.884] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635844828}
+[00:15:15.865] Browser ERROR   Error updating activity status: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'is_active' column of 'activities' in the schema cache"}
+[00:15:17.092] Browser ERROR   Error updating activity status: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'is_active' column of 'activities' in the schema cache"}
+[00:15:18.152] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:15:18.152] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:15:20.603] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:15:20.603] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:15:32.636] Browser ERROR   Error creating activity: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'capacity_per_session' column of 'activities' in the schema cache"}
+[00:15:33.545] Browser ERROR   Error creating activity: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'capacity_per_session' column of 'activities' in the schema cache"}
+[00:15:33.777] Browser ERROR   Error creating activity: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'capacity_per_session' column of 'activities' in the schema cache"}
+[00:15:36.312] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635867253}
+[00:15:39.450] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:15:39.451] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:15:48.521] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/testimonials color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/testimonials","o":"http://localhost:3000/dashboard/testimonials","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635879468}
+[00:15:55.037] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635885971}
+[00:20:36.027] Server  LOG      ✓ Compiled in 294ms
+[00:20:39.167] Server  LOG      ✓ Compiled in 219ms
+[00:20:43.214] Server  LOG      ✓ Compiled in 256ms
+[00:20:45.125] Server  LOG      ✓ Compiled in 133ms
+[00:21:23.427] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:21:24.233] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:21:24.233] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/settings","route":"/dashboard/settings"}
+[00:21:24.233] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636215185}
+[00:21:25.782] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636216729}
+[00:21:26.787] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:21:26.787] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:21:28.721] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:21:28.721] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:21:35.483] Browser LOG     Fetching packages and activities...
+[00:21:35.483] Browser LOG     Fetching packages and activities...
+[00:21:35.483] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636226379}
+[00:21:40.951] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:21:40.951] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:21:55.151] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636246098}
+[00:21:58.177] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636249122}
+[00:21:59.076] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636250026}
+[00:22:00.916] Browser ERROR   Supabase Error: Could not find the 'is_active' column of 'activities' in the schema cache
+[00:22:03.806] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:22:03.806] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:22:07.224] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:22:07.224] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:22:42.309] Browser ERROR   Supabase Error: Could not find the 'is_active' column of 'activities' in the schema cache
+[00:22:42.915] Browser ERROR   Supabase Error: Could not find the 'is_active' column of 'activities' in the schema cache
+[00:22:43.338] Browser ERROR   Supabase Error: Could not find the 'is_active' column of 'activities' in the schema cache
+[00:22:43.569] Browser ERROR   Supabase Error: Could not find the 'is_active' column of 'activities' in the schema cache
+[00:22:46.468] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636297400}
+[00:27:17.867] Server  LOG      ✓ Compiled in 251ms
+[00:27:23.709] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636574660}
+[00:27:27.005] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636577948}
+[00:27:29.157] Browser ERROR   Error updating package: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'is_active' column of 'packages' in the schema cache"}
+[00:27:40.579] Browser LOG     Fetching packages and activities...
+[00:27:40.580] Browser LOG     Fetching packages and activities...
+[00:27:40.580] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636591475}
+[00:27:43.271] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636594219}
+[00:27:45.044] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636595989}
+[00:27:49.369] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:27:50.003] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:27:50.003] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/activities","route":"/dashboard/activities"}
+[00:27:50.003] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636600949}
+[00:27:53.294] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:27:53.294] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:28:16.267] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:28:16.267] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:28:23.310] Browser LOG     Fetching packages and activities...
+[00:28:23.310] Browser LOG     Fetching packages and activities...
+[00:28:23.310] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636634189}
+[00:29:03.611] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636674562}
+[00:29:05.381] Browser LOG     Fetching packages and activities...
+[00:29:05.381] Browser LOG     Fetching packages and activities...
+[00:29:05.381] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636676286}
+[00:29:05.961] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636676909}
+[00:31:31.747] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636822697}
+[00:31:33.209] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636824155}
+[00:31:42.368] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:31:42.787] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:31:42.787] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/activities","route":"/dashboard/activities"}
+[00:31:42.787] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636833739}
+[00:31:45.575] Browser LOG     Fetching packages and activities...
+[00:31:45.576] Browser LOG     Fetching packages and activities...
+[00:31:45.576] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636836460}
+[00:31:48.154] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:31:48.154] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:31:58.041] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636848986}
+[00:32:01.909] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636852855}
+[00:32:16.806] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636867754}
+[00:32:25.900] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636876848}
+[00:32:26.054] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636876998}
+[00:32:30.149] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636881097}
+[00:32:30.760] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:32:30.760] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:32:35.177] Browser LOG     Fetching packages and activities...
+[00:32:35.177] Browser LOG     Fetching packages and activities...
+[00:32:35.177] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636886067}
+[00:32:36.339] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636887280}
+[00:32:41.220] Browser LOG     Fetching packages and activities...
+[00:32:41.220] Browser LOG     Fetching packages and activities...
+[00:32:41.220] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636892130}
+[00:32:43.785] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636894728}
+[00:32:44.016] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:32:44.016] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:33:12.839] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:33:12.839] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:42:32.455] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764637483392}
+[00:46:49.886] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764637740835}
+[00:46:50.964] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:46:50.964] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:46:58.852] Browser LOG     Fetching packages and activities...
+[00:46:58.852] Browser LOG     Fetching packages and activities...
+[00:46:58.852] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764637749755}
+[00:47:00.066] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764637751006}
+[00:47:03.795] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/testimonials color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/testimonials","o":"http://localhost:3000/dashboard/testimonials","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764637754741}
+[00:47:06.391] Browser LOG     Fetching packages and activities...
+[00:47:06.391] Browser LOG     Fetching packages and activities...
+[00:47:06.391] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764637757297}

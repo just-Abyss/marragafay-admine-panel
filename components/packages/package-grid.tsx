@@ -50,10 +50,19 @@ export function PackageGrid({ packages, onUpdate }: PackageGridProps) {
     onUpdate({ ...pkg, is_active: !pkg.is_active })
   }
 
+  const getTier = (pkg: Package) => {
+    if (pkg.tier) return pkg.tier
+    const title = pkg.title.toLowerCase()
+    if (title.includes("vip")) return "vip"
+    if (title.includes("premium")) return "premium"
+    return "basic"
+  }
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {packages.map((pkg) => {
-        const TierIcon = tierIcons[pkg.tier]
+        const tier = getTier(pkg)
+        const TierIcon = tierIcons[tier]
         const isEditing = editingId === pkg.id
 
         return (
@@ -63,9 +72,9 @@ export function PackageGrid({ packages, onUpdate }: PackageGridProps) {
           >
             {/* Tier Badge */}
             <div className="absolute top-4 right-4">
-              <Badge className={cn("rounded-full", tierColors[pkg.tier])}>
+              <Badge className={cn("rounded-full", tierColors[tier])}>
                 <TierIcon className="w-3 h-3 mr-1" />
-                {pkg.tier.toUpperCase()}
+                {tier.toUpperCase()}
               </Badge>
             </div>
 
@@ -78,18 +87,17 @@ export function PackageGrid({ packages, onUpdate }: PackageGridProps) {
               <div className="mb-4">
                 {isEditing ? (
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl font-semibold">$</span>
                     <Input
                       type="number"
                       value={editValues.price}
                       onChange={(e) => setEditValues({ price: Number(e.target.value) })}
                       className="w-24 text-2xl font-semibold rounded-xl"
                     />
-                    <span className="text-muted-foreground">/ person</span>
+                    <span className="text-muted-foreground">MAD / person</span>
                   </div>
                 ) : (
                   <div className="flex items-baseline gap-1">
-                    <span className="text-3xl font-semibold">${pkg.price}</span>
+                    <span className="text-3xl font-semibold">{pkg.price.toLocaleString()} MAD</span>
                     <span className="text-muted-foreground">/ person</span>
                   </div>
                 )}
@@ -100,14 +108,25 @@ export function PackageGrid({ packages, onUpdate }: PackageGridProps) {
 
               {/* Includes */}
               <div className="space-y-2 mb-6">
-                {pkg.includes.slice(0, 4).map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 text-sm">
-                    <Check className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                    <span>{item}</span>
+                {(pkg.includes && pkg.includes.length > 0) ? (
+                  <>
+                    {(pkg.includes || []).slice(0, 4).map((item, i) => (
+                      <div key={i} className="flex items-center gap-2 text-sm">
+                        <Check className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                    {(pkg.includes || []).length > 4 && (
+                      <p className="text-sm text-muted-foreground pl-6">
+                        +{(pkg.includes || []).length - 4} more
+                      </p>
+                    )}
+                  </>
+                ) : (
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground italic">
+                    <Check className="w-4 h-4 text-slate-300 flex-shrink-0" />
+                    <span>Includes basic amenities</span>
                   </div>
-                ))}
-                {pkg.includes.length > 4 && (
-                  <p className="text-sm text-muted-foreground pl-6">+{pkg.includes.length - 4} more</p>
                 )}
               </div>
 

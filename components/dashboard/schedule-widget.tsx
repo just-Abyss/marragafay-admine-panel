@@ -6,7 +6,7 @@ import { GlassCard } from "@/components/ui/glass-card"
 import { PaymentBadge } from "@/components/ui/payment-badge"
 import type { ScheduleItem } from "@/lib/types"
 import { Clock, Users, Phone, MapPin, Car, AlertTriangle, MessageCircle, Banknote } from "lucide-react"
-import { Sheet, SheetContent } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 
@@ -105,6 +105,10 @@ export function ScheduleWidget({ schedule }: ScheduleWidgetProps) {
             bg-gray-50 border-0 overflow-hidden flex flex-col p-0
           `}
         >
+          <SheetHeader>
+            <SheetTitle className="sr-only">Trip Details</SheetTitle>
+          </SheetHeader>
+
           {/* iOS-style drag handle on mobile */}
           {isMobile && (
             <div className="flex justify-center pt-3 pb-1">
@@ -138,32 +142,29 @@ export function ScheduleWidget({ schedule }: ScheduleWidgetProps) {
                   <div className="space-y-2">
                     <h4 className="text-xs font-medium text-gray-500 uppercase tracking-wider px-1">Payment Status</h4>
                     <div
-                      className={`rounded-2xl shadow-sm p-4 ${
-                        selectedItem.payment_status === "paid"
+                      className={`rounded-2xl shadow-sm p-4 ${selectedItem.payment_status === "paid"
                           ? "bg-emerald-50 border border-emerald-200"
                           : selectedItem.payment_status === "deposit"
                             ? "bg-amber-50 border border-amber-200"
                             : "bg-red-50 border border-red-200"
-                      }`}
+                        }`}
                     >
                       <div className="flex items-center gap-3">
                         <Banknote
-                          className={`w-5 h-5 ${
-                            selectedItem.payment_status === "paid"
+                          className={`w-5 h-5 ${selectedItem.payment_status === "paid"
                               ? "text-emerald-600"
                               : selectedItem.payment_status === "deposit"
                                 ? "text-amber-600"
                                 : "text-red-600"
-                          }`}
+                            }`}
                         />
                         <span
-                          className={`font-semibold ${
-                            selectedItem.payment_status === "paid"
+                          className={`font-semibold ${selectedItem.payment_status === "paid"
                               ? "text-emerald-700"
                               : selectedItem.payment_status === "deposit"
                                 ? "text-amber-700"
                                 : "text-red-700"
-                          }`}
+                            }`}
                         >
                           {selectedItem.payment_status === "paid"
                             ? "Fully Paid"

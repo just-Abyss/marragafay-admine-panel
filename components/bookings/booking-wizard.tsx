@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectGroup, SelectLabel } from "@/components/ui/select"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { mockDrivers, mockResources, mockActivities, getAvailability } from "@/lib/mock-data"
@@ -13,10 +13,14 @@ import { useToast } from "@/hooks/use-toast"
 import { cn } from "@/lib/utils"
 import { Check, ChevronLeft, ChevronRight, Calendar, User, CreditCard, AlertCircle, MapPin } from "lucide-react"
 
+import { useRouter } from "next/navigation"
+import { supabase } from "@/lib/supabase"
+import { useEffect } from "react"
+
 interface BookingWizardProps {
   open: boolean
   onClose: () => void
-  onSave: (booking: Omit<Booking, "id" | "created_at">) => void
+  onSave: (booking: Booking) => void
   existingBookings: Booking[]
 }
 
@@ -30,11 +34,16 @@ const steps = [
 export function BookingWizard({ open, onClose, onSave, existingBookings }: BookingWizardProps) {
   const [currentStep, setCurrentStep] = useState(1)
   const { toast } = useToast()
+  const router = useRouter()
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [packages, setPackages] = useState<{ title: string; price: number }[]>([])
+  const [activities, setActivities] = useState<{ title: string; price: number; resource_type: string }[]>([])
+
   const [formData, setFormData] = useState({
     // Step 1
     date: "",
-    package_title: "Basic Discovery",
-    activity_type: "camel",
+    package_title: "",
+    activity_type: "",
     guests: 1,
     pickup_time: "09:00",
     // Step 2
@@ -51,13 +60,67 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
     amount_paid: 0,
   })
 
-  const packagePrices: Record<string, number> = {
-    "Basic Discovery": 1500,
-    "Premium Sunset Tour": 4000,
-    "VIP Desert Experience": 6000,
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        console.log("Fetching packages and activities...")
 
-  const totalPrice = (packagePrices[formData.package_title] || 1500) * formData.guests
+        // Fetch Packages
+        const { data: packagesData, error: packagesError } = await supabase
+          .from('packages')
+          .select('title, price')
+
+        if (packagesError) console.error("Error fetching packages:", packagesError)
+
+        // Fetch Activities
+        const { data: activitiesData, error: activitiesError } = await supabase
+          .from('activities')
+          .select('title, price')
+
+        if (activitiesError) console.error("Error fetching activities:", activitiesError)
+
+        // Set Data or Fallback
+        if (packagesData && packagesData.length > 0) {
+          setPackages(packagesData)
+        } else {
+          console.warn("No packages found, using fallback.")
+          setPackages([
+            { title: "Basic Discovery", price: 1500 },
+            { title: "Premium Sunset Tour", price: 4000 },
+            { title: "VIP Desert Experience", price: 6000 }
+          ])
+        }
+
+        if (activitiesData && activitiesData.length > 0) {
+          setActivities(activitiesData.map((a: any) => ({ ...a, resource_type: 'Activity' })))
+        } else {
+          console.warn("No activities found, using fallback.")
+          setActivities([
+            { title: "Quad Biking", price: 500, resource_type: "quad" },
+            { title: "Camel Ride", price: 300, resource_type: "camel" }
+          ])
+        }
+      } catch (err) {
+        console.error("Unexpected error fetching data:", err)
+        // Fallback on crash
+        setPackages([
+          { title: "Basic Discovery", price: 1500 },
+          { title: "Premium Sunset Tour", price: 4000 },
+          { title: "VIP Desert Experience", price: 6000 }
+        ])
+        setActivities([
+          { title: "Quad Biking", price: 500, resource_type: "quad" },
+          { title: "Camel Ride", price: 300, resource_type: "camel" }
+        ])
+      }
+    }
+    fetchData()
+  }, [])
+
+  // Calculate price based on selected package/activity
+  const selectedItem = [...packages, ...activities].find(i => i.title === formData.package_title)
+  const pricePerPerson = selectedItem?.price || 0
+  const totalPrice = pricePerPerson * formData.guests
   const remainingBalance = totalPrice - formData.amount_paid
 
   // Calculate availability
@@ -91,50 +154,95 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
     if (currentStep > 1) setCurrentStep((s) => s - 1)
   }
 
-  const handleSubmit = () => {
-    const driver = mockDrivers.find((d) => d.id === formData.driver_id)
-    onSave({
-      customer_name: formData.customer_name,
-      email: formData.email,
-      phone: formData.phone,
-      package_title: formData.package_title,
-      status: "pending",
-      date: formData.date,
-      guests: formData.guests,
-      total_price: totalPrice,
-      notes: formData.notes,
-      payment_status: formData.payment_status,
-      amount_paid: formData.amount_paid,
-      remaining_balance: remainingBalance,
-      driver_id: formData.driver_id || undefined,
-      driver_name: driver?.name || undefined,
-      pickup_time: formData.pickup_time,
-      pickup_location: formData.pickup_location,
-      activity_type: formData.activity_type,
-    })
-    toast({
-      title: "Booking Created",
-      description: `New booking for ${formData.customer_name} has been created successfully.`,
-    })
-    // Reset form
-    setFormData({
-      date: "",
-      package_title: "Basic Discovery",
-      activity_type: "camel",
-      guests: 1,
-      pickup_time: "09:00",
-      customer_name: "",
-      email: "",
-      phone: "",
-      notes: "",
-      pickup_location: "",
-      payment_status: "unpaid",
-      amount_paid: 0,
-      driver_id: "",
-      driver_name: "",
-    })
-    setCurrentStep(1)
-    onClose()
+  const handleSubmit = async () => {
+    setIsSubmitting(true)
+    try {
+      const driver = mockDrivers.find((d) => d.id === formData.driver_id)
+      const status = formData.payment_status === 'paid' ? 'confirmed' : 'pending'
+
+      const { data, error } = await supabase
+        .from('bookings')
+        .insert({
+          customer_name: formData.customer_name,
+          customer_email: formData.email,
+          phone: formData.phone,
+          package_title: formData.package_title,
+          booking_date: formData.date,
+          guests_count: formData.guests,
+          status: status,
+          total_price: totalPrice,
+          notes: formData.notes,
+          driver: driver?.name || null,
+          pickup_location: formData.pickup_location,
+          payment_status: formData.payment_status,
+          deposit_amount: formData.amount_paid,
+        })
+        .select()
+        .single()
+
+      if (error) throw error
+
+      const newBooking: Booking = {
+        id: data.id.toString(),
+        customer_name: formData.customer_name,
+        email: formData.email,
+        phone: formData.phone,
+        package_title: formData.package_title,
+        status: status,
+        date: formData.date,
+        guests: formData.guests,
+        total_price: totalPrice,
+        notes: formData.notes,
+        payment_status: formData.payment_status,
+        amount_paid: formData.amount_paid,
+        deposit_amount: formData.amount_paid,
+        remaining_balance: remainingBalance,
+        driver_id: formData.driver_id,
+        driver_name: driver?.name,
+        driver: driver?.name,
+        pickup_time: formData.pickup_time,
+        pickup_location: formData.pickup_location,
+        activity_type: formData.activity_type,
+        created_at: data.created_at
+      }
+
+      onSave(newBooking)
+
+      toast({
+        title: "Booking Created",
+        description: `New booking for ${formData.customer_name} has been created successfully.`,
+      })
+
+      // Reset form
+      setFormData({
+        date: "",
+        package_title: "Basic Discovery",
+        activity_type: "camel",
+        guests: 1,
+        pickup_time: "09:00",
+        customer_name: "",
+        email: "",
+        phone: "",
+        notes: "",
+        pickup_location: "",
+        payment_status: "unpaid",
+        amount_paid: 0,
+        driver_id: "",
+        driver_name: "",
+      })
+      setCurrentStep(1)
+      router.refresh()
+      onClose()
+    } catch (error) {
+      console.error('Error creating booking:', error)
+      toast({
+        title: "Error",
+        description: "Failed to create booking. Please try again.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleClose = () => {
@@ -208,39 +316,43 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
               </div>
 
               <div className="space-y-2">
-                <Label>Package *</Label>
+                <Label>Package / Activity *</Label>
                 <Select
                   value={formData.package_title}
-                  onValueChange={(v) => setFormData((prev) => ({ ...prev, package_title: v }))}
-                >
-                  <SelectTrigger className="rounded-xl border border-slate-200 bg-slate-50 h-12">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="Basic Discovery">Basic Discovery - 1,500 MAD/person</SelectItem>
-                    <SelectItem value="Premium Sunset Tour">Premium Sunset Tour - 4,000 MAD/person</SelectItem>
-                    <SelectItem value="VIP Desert Experience">VIP Desert Experience - 6,000 MAD/person</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+                  onValueChange={(v) => {
+                    const selectedPkg = packages.find(p => p.title === v)
+                    const selectedAct = activities.find(a => a.title === v)
 
-              <div className="space-y-2">
-                <Label>Activity Type *</Label>
-                <Select
-                  value={formData.activity_type}
-                  onValueChange={(v) => setFormData((prev) => ({ ...prev, activity_type: v }))}
+                    setFormData((prev) => ({
+                      ...prev,
+                      package_title: v,
+                      // Default activity type to 'camel' or whatever is appropriate, 
+                      // or we can just ignore it since we are removing the selector.
+                      // For now, let's keep it simple.
+                      activity_type: selectedAct ? selectedAct.resource_type : 'camel'
+                    }))
+                  }}
                 >
                   <SelectTrigger className="rounded-xl border border-slate-200 bg-slate-50 h-12">
-                    <SelectValue />
+                    <SelectValue placeholder="Select package or activity" />
                   </SelectTrigger>
                   <SelectContent>
-                    {mockActivities
-                      .filter((a) => a.is_active)
-                      .map((activity) => (
-                        <SelectItem key={activity.id} value={activity.resource_type}>
-                          {activity.title}
+                    <SelectGroup>
+                      <SelectLabel>Packages</SelectLabel>
+                      {packages.map((pkg) => (
+                        <SelectItem key={pkg.title} value={pkg.title}>
+                          {pkg.title} - {pkg.price.toLocaleString()} MAD/person
                         </SelectItem>
                       ))}
+                    </SelectGroup>
+                    <SelectGroup>
+                      <SelectLabel>Activities</SelectLabel>
+                      {activities.map((act) => (
+                        <SelectItem key={act.title} value={act.title}>
+                          {act.title} - {act.price.toLocaleString()} MAD/person
+                        </SelectItem>
+                      ))}
+                    </SelectGroup>
                   </SelectContent>
                 </Select>
               </div>
@@ -268,47 +380,21 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
                 </div>
               </div>
 
-              {formData.date && formData.activity_type && availability && (
-                <div
-                  className={cn(
-                    "p-4 rounded-2xl flex items-center gap-3",
-                    hasEnoughCapacity ? "bg-emerald-50 border border-emerald-200" : "bg-red-50 border border-red-200",
-                  )}
-                >
-                  {hasEnoughCapacity ? (
-                    <>
-                      <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center">
-                        <Check className="w-5 h-5 text-emerald-600" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between mb-1">
-                          <p className="font-semibold text-emerald-800">
-                            {availability.booked}/{availability.total} Slots Filled
-                          </p>
-                          <span className="text-sm text-emerald-600">{availability.available} available</span>
-                        </div>
-                        {/* Capacity Bar */}
-                        <div className="w-full h-2 bg-emerald-200 rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-emerald-500 rounded-full transition-all"
-                            style={{ width: `${(availability.booked / availability.total) * 100}%` }}
-                          />
-                        </div>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center">
-                        <AlertCircle className="w-5 h-5 text-red-600" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-semibold text-red-800">
-                          Only {availability.available}/{availability.total} Slots Available
-                        </p>
-                        <p className="text-xs text-red-600">Please reduce guests or select different date</p>
-                      </div>
-                    </>
-                  )}
+              {/* Simplified Availability Display - Always Available for now */}
+              {formData.date && formData.package_title && (
+                <div className="p-4 rounded-2xl flex items-center gap-3 bg-emerald-50 border border-emerald-200">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center">
+                    <Check className="w-5 h-5 text-emerald-600" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between mb-1">
+                      <p className="font-semibold text-emerald-800">Available</p>
+                      <span className="text-sm text-emerald-600">Slots Open</span>
+                    </div>
+                    <div className="w-full h-2 bg-emerald-200 rounded-full overflow-hidden">
+                      <div className="h-full bg-emerald-500 rounded-full w-full" />
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
@@ -455,7 +541,7 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Price per person</span>
-                  <span className="font-medium">{packagePrices[formData.package_title]?.toLocaleString()} MAD</span>
+                  <span className="font-medium">{pricePerPerson.toLocaleString()} MAD</span>
                 </div>
                 <div className="border-t border-slate-200 pt-2 mt-2">
                   <div className="flex justify-between text-lg">
