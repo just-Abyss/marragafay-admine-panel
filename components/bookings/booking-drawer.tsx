@@ -29,7 +29,12 @@ import {
   AlertTriangle,
   Banknote,
   CreditCard,
+  FileText,
 } from "lucide-react"
+import { jsPDF } from "jspdf"
+import autoTable from "jspdf-autotable"
+import { supabase } from "@/lib/supabase"
+import { useRouter } from "next/navigation"
 
 interface BookingDrawerProps {
   booking: Booking | null
@@ -41,10 +46,13 @@ interface BookingDrawerProps {
 }
 
 export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }: BookingDrawerProps) {
+  // ===== ALL HOOKS AT THE TOP (CRITICAL FOR REACT RULES) =====
   const [isEditMode, setIsEditMode] = useState(false)
   const [editedBooking, setEditedBooking] = useState<Booking | null>(null)
   const [isMobile, setIsMobile] = useState(false)
+  const [isSaving, setIsSaving] = useState(false)
   const { toast } = useToast()
+  const router = useRouter()
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
@@ -53,8 +61,10 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
     return () => window.removeEventListener("resize", checkMobile)
   }, [])
 
+  // ===== HANDLE NULL BOOKING AFTER HOOKS =====
   if (!booking) return null
 
+  // ===== HANDLERS =====
   const handleWhatsApp = () => {
     const phone = booking.phone.replace(/[^0-9]/g, "")
     const message = encodeURIComponent(
@@ -77,20 +87,79 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
     setEditedBooking(null)
   }
 
-  const handleSaveChanges = () => {
-    if (editedBooking && onSave) {
-      const updated = {
-        ...editedBooking,
-        remaining_balance: editedBooking.total_price - editedBooking.amount_paid,
+  const handleSaveChanges = async () => {
+    if (!editedBooking) return
+
+    setIsSaving(true)
+    try {
+      // ===== SANITIZE & VALIDATE DATA =====
+      const totalPrice = parseFloat(String(editedBooking.total_price)) || 0
+      const amountPaid = parseFloat(String(editedBooking.amount_paid)) || 0
+      const guestsCount = parseInt(String(editedBooking.guests)) || 1
+
+      // ===== BUILD CLEAN PAYLOAD =====
+      const payload = {
+        customer_name: editedBooking.customer_name?.trim() || '',
+        customer_email: editedBooking.email?.trim() || '',
+        phone: editedBooking.phone?.trim() || '',
+        package_title: editedBooking.package_title?.trim() || '',
+        booking_date: editedBooking.date || new Date().toISOString().split('T')[0],
+        guests_count: guestsCount,
+        status: editedBooking.status,
+        payment_status: editedBooking.payment_status,
+        total_price: totalPrice,
+        deposit_amount: amountPaid,
+        // remaining_balance is likely calculated in DB or frontend, removing to avoid schema error
+        // remaining_balance: totalPrice - amountPaid,
+        notes: editedBooking.notes?.trim() || null,
+        driver_id: editedBooking.driver_id || null,
+        driver_name: editedBooking.driver_name?.trim() || null,
+        pickup_time: editedBooking.pickup_time || null,
+        pickup_location: editedBooking.pickup_location?.trim() || null,
       }
-      onSave(updated)
+
+      console.log('📤 Sending update payload:', payload)
+
+      // ===== EXECUTE UPDATE =====
+      const { data, error } = await supabase
+        .from('bookings')
+        .update(payload)
+        .eq('id', editedBooking.id)
+        .select()
+
+      if (error) {
+        console.error('❌ Supabase Update Error:', JSON.stringify(error, null, 2))
+        throw error
+      }
+
+      console.log('✅ Update successful:', data)
+
+      // ===== SUCCESS: UPDATE UI =====
       toast({
-        title: "Booking Updated",
-        description: `Changes to ${updated.customer_name}'s booking have been saved.`,
+        title: "✅ Booking Updated",
+        description: `Changes to ${editedBooking.customer_name}'s booking have been saved.`,
       })
+
+      if (onSave) {
+        // Cast payload to any to avoid "null vs undefined" type mismatch with Booking interface
+        onSave({ ...editedBooking, ...payload } as any)
+      }
+
+      // Close edit mode and refresh
+      setIsEditMode(false)
+      setEditedBooking(null)
+      router.refresh()
+
+    } catch (error: any) {
+      console.error('❌ Full Error Object:', JSON.stringify(error, null, 2))
+      toast({
+        title: "Update Failed",
+        description: error?.message || 'There was an error saving your changes. Please try again.',
+        variant: "destructive",
+      })
+    } finally {
+      setIsSaving(false)
     }
-    setIsEditMode(false)
-    setEditedBooking(null)
   }
 
   const handleClose = () => {
@@ -111,6 +180,7 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
     handleClose()
   }
 
+  // ===== DERIVED STATE =====
   const currentBooking = isEditMode && editedBooking ? editedBooking : booking
 
   // Get initials for avatar
@@ -594,16 +664,31 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
             {/* Edit mode save/cancel */}
             {isEditMode && (
               <div className="flex gap-3 pt-2">
-                <Button variant="outline" onClick={handleCancelEdit} className="flex-1 rounded-xl h-12 bg-white">
+                <Button
+                  variant="outline"
+                  onClick={handleCancelEdit}
+                  disabled={isSaving}
+                  className="flex-1 rounded-xl h-12 bg-white"
+                >
                   <X className="w-4 h-4 mr-2" />
                   Cancel
                 </Button>
                 <Button
                   onClick={handleSaveChanges}
-                  className="flex-1 rounded-xl h-12 bg-[#C19B76] hover:bg-[#A67C52] text-white"
+                  disabled={isSaving}
+                  className="flex-1 rounded-xl h-12 bg-[#C19B76] hover:bg-[#A67C52] text-white disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <Save className="w-4 h-4 mr-2" />
-                  Save Changes
+                  {isSaving ? (
+                    <>
+                      <span className="animate-spin mr-2">⏳</span>
+                      Saving...
+                    </>
+                  ) : (
+                    <>
+                      <Save className="w-4 h-4 mr-2" />
+                      Save Changes
+                    </>
+                  )}
                 </Button>
               </div>
             )}
@@ -614,6 +699,101 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
           <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg border-t border-gray-200 p-4 safe-area-inset-bottom">
             <div className="flex gap-3">
               <Button
+                onClick={() => {
+                  try {
+                    const doc = new jsPDF()
+
+                    // Header
+                    doc.setFontSize(22)
+                    doc.setFont("helvetica", "bold")
+                    doc.text("MARRAGAFAY", 105, 20, { align: "center" })
+
+                    doc.setFontSize(16)
+                    doc.setFont("helvetica", "normal")
+                    doc.text("Booking Voucher", 105, 30, { align: "center" })
+
+                    // Booking Reference
+                    doc.setFontSize(10)
+                    doc.setTextColor(100)
+                    const ref = currentBooking.id ? currentBooking.id.substring(0, 8).toUpperCase() : "REF-PENDING"
+                    doc.text(`Ref: ${ref}`, 105, 40, { align: "center" })
+
+                    // Client Info
+                    doc.setFontSize(12)
+                    doc.setTextColor(0)
+                    doc.text("Client Details", 14, 55)
+                    doc.setFontSize(10)
+                    doc.text(`Name: ${currentBooking.customer_name || "N/A"}`, 14, 62)
+                    doc.text(`Phone: ${currentBooking.phone || "N/A"}`, 14, 67)
+                    doc.text(`Email: ${currentBooking.email || "N/A"}`, 14, 72)
+
+                    // Trip Details
+                    doc.setFontSize(12)
+                    doc.text("Trip Details", 14, 85)
+
+                    autoTable(doc, {
+                      startY: 90,
+                      head: [['Item', 'Details']],
+                      body: [
+                        ['Package', currentBooking.package_title || "N/A"],
+                        ['Date', currentBooking.date ? new Date(currentBooking.date).toLocaleDateString() : "N/A"],
+                        ['Guests', `${currentBooking.guests || 1} People`],
+                        ['Pickup', currentBooking.pickup_location || 'Not set'],
+                        ['Time', currentBooking.pickup_time || 'Pending'],
+                        ['Driver', currentBooking.driver_name || 'Pending Assignment'],
+                      ],
+                      theme: 'grid',
+                      headStyles: { fillColor: [193, 155, 118] }, // #C19B76
+                    })
+
+                    // Financials
+                    const finalY = (doc as any).lastAutoTable.finalY + 10
+                    doc.setFontSize(12)
+                    doc.text("Financial Status", 14, finalY)
+
+                    autoTable(doc, {
+                      startY: finalY + 5,
+                      head: [['Description', 'Amount']],
+                      body: [
+                        ['Total Price', `MAD ${currentBooking.total_price || 0}`],
+                        ['Amount Paid', `MAD ${currentBooking.amount_paid || 0}`],
+                        ['Remaining Balance', `MAD ${currentBooking.remaining_balance || 0}`],
+                        ['Status', (currentBooking.payment_status || "unpaid").toUpperCase()],
+                      ],
+                      theme: 'striped',
+                      headStyles: { fillColor: [60, 60, 60] },
+                    })
+
+                    // Footer
+                    const pageHeight = doc.internal.pageSize.height
+                    doc.setFontSize(8)
+                    doc.setTextColor(128)
+                    doc.text("Please present this voucher to your driver.", 105, pageHeight - 20, { align: "center" })
+                    doc.text("Need help? Contact +212 600 000 000", 105, pageHeight - 15, { align: "center" })
+
+                    const safeName = (currentBooking.customer_name || "client").replace(/[^a-z0-9]/gi, '_').toLowerCase()
+                    doc.save(`Marragafay-Ticket-${safeName}.pdf`)
+
+                    toast({
+                      title: "Voucher Downloaded",
+                      description: "Your booking voucher has been generated successfully.",
+                    })
+                  } catch (error) {
+                    console.error("PDF Generation Error:", error)
+                    toast({
+                      title: "Download Failed",
+                      description: "Could not generate PDF voucher. Please try again.",
+                      variant: "destructive"
+                    })
+                  }
+                }}
+                variant="outline"
+                className="flex-1 rounded-xl h-14 bg-white border-gray-200 text-gray-900 font-medium text-[15px] hover:bg-gray-50"
+              >
+                <FileText className="w-5 h-5 mr-2" />
+                Voucher
+              </Button>
+              <Button
                 onClick={handleWhatsApp}
                 className="flex-1 rounded-xl h-14 bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-[15px]"
               >
@@ -623,10 +803,9 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
               <Button
                 onClick={handleCall}
                 variant="outline"
-                className="flex-1 rounded-xl h-14 bg-white border-gray-200 text-gray-900 font-medium text-[15px] hover:bg-gray-50"
+                className="w-14 rounded-xl h-14 bg-white border-gray-200 text-gray-900 font-medium text-[15px] hover:bg-gray-50 flex items-center justify-center p-0"
               >
-                <Phone className="w-5 h-5 mr-2" />
-                Call
+                <Phone className="w-5 h-5" />
               </Button>
             </div>
           </div>

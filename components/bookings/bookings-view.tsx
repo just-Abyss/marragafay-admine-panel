@@ -15,13 +15,15 @@ import type { Booking, ViewMode, BookingStatus } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { supabase } from "@/lib/supabase"
 import { toast } from "sonner"
-import { Table, Columns3, CalendarDays, Plus, Loader2, ClipboardList } from "lucide-react"
+import { Table, Columns3, CalendarDays, Plus, Loader2, ClipboardList, FileText } from "lucide-react"
+import { DailyManifest } from "@/components/bookings/daily-manifest"
 
 const viewOptions: { value: ViewMode; icon: typeof Table; label: string }[] = [
     { value: "table", icon: Table, label: "Table" },
     { value: "kanban", icon: Columns3, label: "Kanban" },
     { value: "calendar", icon: CalendarDays, label: "Calendar" },
     { value: "operations", icon: ClipboardList, label: "Operations" },
+    { value: "manifest", icon: FileText, label: "Manifest" },
 ]
 
 interface BookingsViewProps {
@@ -180,6 +182,7 @@ export function BookingsView({ initialBookings }: BookingsViewProps) {
                     )}
                     {viewMode === "calendar" && <BookingCalendar bookings={bookings} onSelect={handleSelect} />}
                     {viewMode === "operations" && <OperationsView bookings={bookings} onSelect={handleSelect} />}
+                    {viewMode === "manifest" && <DailyManifest bookings={bookings} />}
                 </div>
             </div>
 

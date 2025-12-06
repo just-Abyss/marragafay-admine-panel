@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Search, SlidersHorizontal, ArrowUpDown } from "lucide-react"
+import { startOfDay, endOfDay, addDays, startOfWeek, endOfWeek, isWithinInterval, parseISO } from "date-fns"
 
 interface BookingTableProps {
   bookings: Booking[]
@@ -23,6 +24,7 @@ export function BookingTable({ bookings, onSelect }: BookingTableProps) {
   const [search, setSearch] = useState("")
   const [statusFilter, setStatusFilter] = useState<string>("all")
   const [paymentFilter, setPaymentFilter] = useState<string>("all")
+  const [dateFilter, setDateFilter] = useState<string>("all")
   const [sortField, setSortField] = useState<SortField>("date")
   const [sortOrder, setSortOrder] = useState<SortOrder>("desc")
 
@@ -32,9 +34,41 @@ export function BookingTable({ bookings, onSelect }: BookingTableProps) {
         booking.customer_name.toLowerCase().includes(search.toLowerCase()) ||
         booking.email.toLowerCase().includes(search.toLowerCase()) ||
         booking.package_title.toLowerCase().includes(search.toLowerCase())
+
       const matchesStatus = statusFilter === "all" || booking.status === statusFilter
-      const matchesPayment = paymentFilter === "all" || booking.payment_status === paymentFilter
-      return matchesSearch && matchesStatus && matchesPayment
+
+      let matchesPayment = true
+      if (paymentFilter === "paid") {
+        matchesPayment = booking.payment_status === "paid"
+      } else if (paymentFilter === "unpaid_deposit") {
+        matchesPayment = booking.payment_status === "unpaid" || booking.payment_status === "deposit"
+      }
+
+      let matchesDate = true
+      if (dateFilter !== "all") {
+        const bookingDate = typeof booking.date === 'string' ? parseISO(booking.date) : new Date(booking.date)
+        const today = new Date()
+
+        if (dateFilter === "today") {
+          matchesDate = isWithinInterval(bookingDate, {
+            start: startOfDay(today),
+            end: endOfDay(today)
+          })
+        } else if (dateFilter === "tomorrow") {
+          const tomorrow = addDays(today, 1)
+          matchesDate = isWithinInterval(bookingDate, {
+            start: startOfDay(tomorrow),
+            end: endOfDay(tomorrow)
+          })
+        } else if (dateFilter === "week") {
+          matchesDate = isWithinInterval(bookingDate, {
+            start: startOfWeek(today, { weekStartsOn: 1 }),
+            end: endOfWeek(today, { weekStartsOn: 1 })
+          })
+        }
+      }
+
+      return matchesSearch && matchesStatus && matchesPayment && matchesDate
     })
     .sort((a, b) => {
       let comparison = 0
@@ -64,8 +98,8 @@ export function BookingTable({ bookings, onSelect }: BookingTableProps) {
   return (
     <GlassCard variant="solid" className="overflow-hidden">
       {/* Filters */}
-      <div className="flex flex-col sm:flex-row gap-4 mb-6">
-        <div className="relative flex-1">
+      <div className="flex flex-col sm:flex-row gap-4 mb-6 flex-wrap">
+        <div className="relative flex-1 min-w-[200px]">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <Input
             placeholder="Search bookings..."
@@ -74,8 +108,21 @@ export function BookingTable({ bookings, onSelect }: BookingTableProps) {
             className="pl-10 rounded-xl border border-slate-200 bg-slate-50"
           />
         </div>
+
+        <Select value={dateFilter} onValueChange={setDateFilter}>
+          <SelectTrigger className="w-full sm:w-[140px] rounded-xl border border-slate-200 bg-slate-50">
+            <SelectValue placeholder="Date" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All Time</SelectItem>
+            <SelectItem value="today">Today</SelectItem>
+            <SelectItem value="tomorrow">Tomorrow</SelectItem>
+            <SelectItem value="week">This Week</SelectItem>
+          </SelectContent>
+        </Select>
+
         <Select value={statusFilter} onValueChange={setStatusFilter}>
-          <SelectTrigger className="w-full sm:w-40 rounded-xl border border-slate-200 bg-slate-50">
+          <SelectTrigger className="w-full sm:w-[140px] rounded-xl border border-slate-200 bg-slate-50">
             <SlidersHorizontal className="w-4 h-4 mr-2" />
             <SelectValue placeholder="Status" />
           </SelectTrigger>
@@ -86,15 +133,15 @@ export function BookingTable({ bookings, onSelect }: BookingTableProps) {
             <SelectItem value="cancelled">Cancelled</SelectItem>
           </SelectContent>
         </Select>
+
         <Select value={paymentFilter} onValueChange={setPaymentFilter}>
-          <SelectTrigger className="w-full sm:w-40 rounded-xl border border-slate-200 bg-slate-50">
+          <SelectTrigger className="w-full sm:w-[160px] rounded-xl border border-slate-200 bg-slate-50">
             <SelectValue placeholder="Payment" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All Payments</SelectItem>
             <SelectItem value="paid">Paid</SelectItem>
-            <SelectItem value="deposit">Deposit</SelectItem>
-            <SelectItem value="unpaid">Unpaid</SelectItem>
+            <SelectItem value="unpaid_deposit">Unpaid/Deposit</SelectItem>
           </SelectContent>
         </Select>
       </div>

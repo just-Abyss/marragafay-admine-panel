@@ -1621,9 +1621,17 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Search$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/search.js [app-client] (ecmascript) <export default as Search>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sliders$2d$horizontal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__SlidersHorizontal$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/sliders-horizontal.js [app-client] (ecmascript) <export default as SlidersHorizontal>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$up$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowUpDown$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/arrow-up-down.js [app-client] (ecmascript) <export default as ArrowUpDown>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$startOfDay$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/date-fns/startOfDay.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$endOfDay$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/date-fns/endOfDay.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$addDays$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/date-fns/addDays.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$startOfWeek$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/date-fns/startOfWeek.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$endOfWeek$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/date-fns/endOfWeek.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$isWithinInterval$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/date-fns/isWithinInterval.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$parseISO$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/date-fns/parseISO.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
+;
 ;
 ;
 ;
@@ -1638,13 +1646,45 @@ function BookingTable({ bookings, onSelect }) {
     const [search, setSearch] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [statusFilter, setStatusFilter] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("all");
     const [paymentFilter, setPaymentFilter] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("all");
+    const [dateFilter, setDateFilter] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("all");
     const [sortField, setSortField] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("date");
     const [sortOrder, setSortOrder] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("desc");
     const filteredBookings = bookings.filter((booking)=>{
         const matchesSearch = booking.customer_name.toLowerCase().includes(search.toLowerCase()) || booking.email.toLowerCase().includes(search.toLowerCase()) || booking.package_title.toLowerCase().includes(search.toLowerCase());
         const matchesStatus = statusFilter === "all" || booking.status === statusFilter;
-        const matchesPayment = paymentFilter === "all" || booking.payment_status === paymentFilter;
-        return matchesSearch && matchesStatus && matchesPayment;
+        let matchesPayment = true;
+        if (paymentFilter === "paid") {
+            matchesPayment = booking.payment_status === "paid";
+        } else if (paymentFilter === "unpaid_deposit") {
+            matchesPayment = booking.payment_status === "unpaid" || booking.payment_status === "deposit";
+        }
+        let matchesDate = true;
+        if (dateFilter !== "all") {
+            const bookingDate = typeof booking.date === 'string' ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$parseISO$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["parseISO"])(booking.date) : new Date(booking.date);
+            const today = new Date();
+            if (dateFilter === "today") {
+                matchesDate = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$isWithinInterval$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isWithinInterval"])(bookingDate, {
+                    start: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$startOfDay$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfDay"])(today),
+                    end: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$endOfDay$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["endOfDay"])(today)
+                });
+            } else if (dateFilter === "tomorrow") {
+                const tomorrow = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$addDays$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["addDays"])(today, 1);
+                matchesDate = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$isWithinInterval$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isWithinInterval"])(bookingDate, {
+                    start: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$startOfDay$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfDay"])(tomorrow),
+                    end: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$endOfDay$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["endOfDay"])(tomorrow)
+                });
+            } else if (dateFilter === "week") {
+                matchesDate = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$isWithinInterval$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["isWithinInterval"])(bookingDate, {
+                    start: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$startOfWeek$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["startOfWeek"])(today, {
+                        weekStartsOn: 1
+                    }),
+                    end: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$date$2d$fns$2f$endOfWeek$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["endOfWeek"])(today, {
+                        weekStartsOn: 1
+                    })
+                });
+            }
+        }
+        return matchesSearch && matchesStatus && matchesPayment && matchesDate;
     }).sort((a, b)=>{
         let comparison = 0;
         switch(sortField){
@@ -1673,16 +1713,16 @@ function BookingTable({ bookings, onSelect }) {
         className: "overflow-hidden",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex flex-col sm:flex-row gap-4 mb-6",
+                className: "flex flex-col sm:flex-row gap-4 mb-6 flex-wrap",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "relative flex-1",
+                        className: "relative flex-1 min-w-[200px]",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Search$3e$__["Search"], {
                                 className: "absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground"
                             }, void 0, false, {
                                 fileName: "[project]/components/bookings/booking-table.tsx",
-                                lineNumber: 69,
+                                lineNumber: 103,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -1692,13 +1732,77 @@ function BookingTable({ bookings, onSelect }) {
                                 className: "pl-10 rounded-xl border border-slate-200 bg-slate-50"
                             }, void 0, false, {
                                 fileName: "[project]/components/bookings/booking-table.tsx",
-                                lineNumber: 70,
+                                lineNumber: 104,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/bookings/booking-table.tsx",
-                        lineNumber: 68,
+                        lineNumber: 102,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
+                        value: dateFilter,
+                        onValueChange: setDateFilter,
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectTrigger"], {
+                                className: "w-full sm:w-[140px] rounded-xl border border-slate-200 bg-slate-50",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {
+                                    placeholder: "Date"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/bookings/booking-table.tsx",
+                                    lineNumber: 114,
+                                    columnNumber: 13
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/components/bookings/booking-table.tsx",
+                                lineNumber: 113,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                        value: "all",
+                                        children: "All Time"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/bookings/booking-table.tsx",
+                                        lineNumber: 117,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                        value: "today",
+                                        children: "Today"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/bookings/booking-table.tsx",
+                                        lineNumber: 118,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                        value: "tomorrow",
+                                        children: "Tomorrow"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/bookings/booking-table.tsx",
+                                        lineNumber: 119,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
+                                        value: "week",
+                                        children: "This Week"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/bookings/booking-table.tsx",
+                                        lineNumber: 120,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/components/bookings/booking-table.tsx",
+                                lineNumber: 116,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/components/bookings/booking-table.tsx",
+                        lineNumber: 112,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1706,26 +1810,26 @@ function BookingTable({ bookings, onSelect }) {
                         onValueChange: setStatusFilter,
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectTrigger"], {
-                                className: "w-full sm:w-40 rounded-xl border border-slate-200 bg-slate-50",
+                                className: "w-full sm:w-[140px] rounded-xl border border-slate-200 bg-slate-50",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sliders$2d$horizontal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__SlidersHorizontal$3e$__["SlidersHorizontal"], {
                                         className: "w-4 h-4 mr-2"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                        lineNumber: 79,
+                                        lineNumber: 126,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {
                                         placeholder: "Status"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                        lineNumber: 80,
+                                        lineNumber: 127,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/bookings/booking-table.tsx",
-                                lineNumber: 78,
+                                lineNumber: 125,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1735,7 +1839,7 @@ function BookingTable({ bookings, onSelect }) {
                                         children: "All Status"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                        lineNumber: 83,
+                                        lineNumber: 130,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1743,7 +1847,7 @@ function BookingTable({ bookings, onSelect }) {
                                         children: "Pending"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                        lineNumber: 84,
+                                        lineNumber: 131,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1751,7 +1855,7 @@ function BookingTable({ bookings, onSelect }) {
                                         children: "Confirmed"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                        lineNumber: 85,
+                                        lineNumber: 132,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1759,19 +1863,19 @@ function BookingTable({ bookings, onSelect }) {
                                         children: "Cancelled"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                        lineNumber: 86,
+                                        lineNumber: 133,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/bookings/booking-table.tsx",
-                                lineNumber: 82,
+                                lineNumber: 129,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/bookings/booking-table.tsx",
-                        lineNumber: 77,
+                        lineNumber: 124,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -1779,17 +1883,17 @@ function BookingTable({ bookings, onSelect }) {
                         onValueChange: setPaymentFilter,
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectTrigger"], {
-                                className: "w-full sm:w-40 rounded-xl border border-slate-200 bg-slate-50",
+                                className: "w-full sm:w-[160px] rounded-xl border border-slate-200 bg-slate-50",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {
                                     placeholder: "Payment"
                                 }, void 0, false, {
                                     fileName: "[project]/components/bookings/booking-table.tsx",
-                                    lineNumber: 91,
+                                    lineNumber: 139,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/bookings/booking-table.tsx",
-                                lineNumber: 90,
+                                lineNumber: 138,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -1799,7 +1903,7 @@ function BookingTable({ bookings, onSelect }) {
                                         children: "All Payments"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                        lineNumber: 94,
+                                        lineNumber: 142,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -1807,41 +1911,33 @@ function BookingTable({ bookings, onSelect }) {
                                         children: "Paid"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                        lineNumber: 95,
+                                        lineNumber: 143,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
-                                        value: "deposit",
-                                        children: "Deposit"
+                                        value: "unpaid_deposit",
+                                        children: "Unpaid/Deposit"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                        lineNumber: 96,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
-                                        value: "unpaid",
-                                        children: "Unpaid"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/bookings/booking-table.tsx",
-                                        lineNumber: 97,
+                                        lineNumber: 144,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/bookings/booking-table.tsx",
-                                lineNumber: 93,
+                                lineNumber: 141,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/bookings/booking-table.tsx",
-                        lineNumber: 89,
+                        lineNumber: 137,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/bookings/booking-table.tsx",
-                lineNumber: 67,
+                lineNumber: 101,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1864,25 +1960,25 @@ function BookingTable({ bookings, onSelect }) {
                                                     className: "ml-2 w-3 h-3"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/bookings/booking-table.tsx",
-                                                    lineNumber: 114,
+                                                    lineNumber: 161,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/bookings/booking-table.tsx",
-                                            lineNumber: 108,
+                                            lineNumber: 155,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                        lineNumber: 107,
+                                        lineNumber: 154,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                         children: "Package"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                        lineNumber: 117,
+                                        lineNumber: 164,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1896,39 +1992,39 @@ function BookingTable({ bookings, onSelect }) {
                                                     className: "ml-2 w-3 h-3"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/bookings/booking-table.tsx",
-                                                    lineNumber: 125,
+                                                    lineNumber: 172,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/bookings/booking-table.tsx",
-                                            lineNumber: 119,
+                                            lineNumber: 166,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                        lineNumber: 118,
+                                        lineNumber: 165,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                         children: "Guests"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                        lineNumber: 128,
+                                        lineNumber: 175,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                         children: "Status"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                        lineNumber: 129,
+                                        lineNumber: 176,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
                                         children: "Payment"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                        lineNumber: 130,
+                                        lineNumber: 177,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableHead"], {
@@ -1943,29 +2039,29 @@ function BookingTable({ bookings, onSelect }) {
                                                     className: "ml-2 w-3 h-3"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/bookings/booking-table.tsx",
-                                                    lineNumber: 138,
+                                                    lineNumber: 185,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/bookings/booking-table.tsx",
-                                            lineNumber: 132,
+                                            lineNumber: 179,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                        lineNumber: 131,
+                                        lineNumber: 178,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/bookings/booking-table.tsx",
-                                lineNumber: 106,
+                                lineNumber: 153,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/bookings/booking-table.tsx",
-                            lineNumber: 105,
+                            lineNumber: 152,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableBody"], {
@@ -1982,7 +2078,7 @@ function BookingTable({ bookings, onSelect }) {
                                                         children: booking.customer_name
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                                        lineNumber: 152,
+                                                        lineNumber: 199,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1990,18 +2086,18 @@ function BookingTable({ bookings, onSelect }) {
                                                         children: booking.email
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                                        lineNumber: 153,
+                                                        lineNumber: 200,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/bookings/booking-table.tsx",
-                                                lineNumber: 151,
+                                                lineNumber: 198,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-table.tsx",
-                                            lineNumber: 150,
+                                            lineNumber: 197,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2009,7 +2105,7 @@ function BookingTable({ bookings, onSelect }) {
                                             children: booking.package_title
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-table.tsx",
-                                            lineNumber: 156,
+                                            lineNumber: 203,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2021,7 +2117,7 @@ function BookingTable({ bookings, onSelect }) {
                                             })
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-table.tsx",
-                                            lineNumber: 157,
+                                            lineNumber: 204,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2029,7 +2125,7 @@ function BookingTable({ bookings, onSelect }) {
                                             children: booking.guests
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-table.tsx",
-                                            lineNumber: 164,
+                                            lineNumber: 211,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2037,12 +2133,12 @@ function BookingTable({ bookings, onSelect }) {
                                                 status: booking.status
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bookings/booking-table.tsx",
-                                                lineNumber: 166,
+                                                lineNumber: 213,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-table.tsx",
-                                            lineNumber: 165,
+                                            lineNumber: 212,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2050,12 +2146,12 @@ function BookingTable({ bookings, onSelect }) {
                                                 status: booking.payment_status
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bookings/booking-table.tsx",
-                                                lineNumber: 169,
+                                                lineNumber: 216,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-table.tsx",
-                                            lineNumber: 168,
+                                            lineNumber: 215,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$table$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TableCell"], {
@@ -2070,7 +2166,7 @@ function BookingTable({ bookings, onSelect }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                                        lineNumber: 173,
+                                                        lineNumber: 220,
                                                         columnNumber: 21
                                                     }, this),
                                                     booking.remaining_balance > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2081,40 +2177,40 @@ function BookingTable({ bookings, onSelect }) {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-table.tsx",
-                                                        lineNumber: 175,
+                                                        lineNumber: 222,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/bookings/booking-table.tsx",
-                                                lineNumber: 172,
+                                                lineNumber: 219,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-table.tsx",
-                                            lineNumber: 171,
+                                            lineNumber: 218,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, booking.id, true, {
                                     fileName: "[project]/components/bookings/booking-table.tsx",
-                                    lineNumber: 145,
+                                    lineNumber: 192,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/components/bookings/booking-table.tsx",
-                            lineNumber: 143,
+                            lineNumber: 190,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/bookings/booking-table.tsx",
-                    lineNumber: 104,
+                    lineNumber: 151,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/bookings/booking-table.tsx",
-                lineNumber: 103,
+                lineNumber: 150,
                 columnNumber: 7
             }, this),
             filteredBookings.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2123,22 +2219,22 @@ function BookingTable({ bookings, onSelect }) {
                     children: "No bookings found"
                 }, void 0, false, {
                     fileName: "[project]/components/bookings/booking-table.tsx",
-                    lineNumber: 187,
+                    lineNumber: 234,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/bookings/booking-table.tsx",
-                lineNumber: 186,
+                lineNumber: 233,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/bookings/booking-table.tsx",
-        lineNumber: 65,
+        lineNumber: 99,
         columnNumber: 5
     }, this);
 }
-_s(BookingTable, "8PwiY5xlriA4V1x5KcdYXCYmVGY=");
+_s(BookingTable, "RrBKkFh8uOEYulNVZDfkldyJkdA=");
 _c = BookingTable;
 var _c;
 __turbopack_context__.k.register(_c, "BookingTable");
@@ -3625,9 +3721,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$triangle$2d$alert$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertTriangle$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/triangle-alert.js [app-client] (ecmascript) <export default as AlertTriangle>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$banknote$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Banknote$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/banknote.js [app-client] (ecmascript) <export default as Banknote>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$credit$2d$card$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CreditCard$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/credit-card.js [app-client] (ecmascript) <export default as CreditCard>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/file-text.js [app-client] (ecmascript) <export default as FileText>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jspdf$2f$dist$2f$jspdf$2e$es$2e$min$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/jspdf/dist/jspdf.es.min.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jspdf$2d$autotable$2f$dist$2f$jspdf$2e$plugin$2e$autotable$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/jspdf-autotable/dist/jspdf.plugin.autotable.mjs [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
+;
+;
 ;
 ;
 ;
@@ -3745,12 +3846,12 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                         children: "Booking Details"
                     }, void 0, false, {
                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                        lineNumber: 156,
+                        lineNumber: 159,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/bookings/booking-drawer.tsx",
-                    lineNumber: 155,
+                    lineNumber: 158,
                     columnNumber: 9
                 }, this),
                 isMobile && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3759,12 +3860,12 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                         className: "w-10 h-1 rounded-full bg-gray-300"
                     }, void 0, false, {
                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                        lineNumber: 160,
+                        lineNumber: 163,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/bookings/booking-drawer.tsx",
-                    lineNumber: 159,
+                    lineNumber: 162,
                     columnNumber: 11
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3780,7 +3881,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                         children: "Customer Name"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                        lineNumber: 169,
+                                        lineNumber: 172,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3792,13 +3893,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                         className: "text-xl font-bold rounded-xl border-gray-200 bg-gray-50 h-12"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                        lineNumber: 170,
+                                        lineNumber: 173,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                lineNumber: 168,
+                                lineNumber: 171,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex items-center gap-4",
@@ -3810,12 +3911,12 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                             children: getInitials(currentBooking.customer_name)
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                            lineNumber: 181,
+                                            lineNumber: 184,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                        lineNumber: 180,
+                                        lineNumber: 183,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3828,12 +3929,12 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                     children: pickupTimeDisplay
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                    lineNumber: 187,
+                                                    lineNumber: 190,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                lineNumber: 186,
+                                                lineNumber: 189,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -3841,7 +3942,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                 children: currentBooking.customer_name
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                lineNumber: 189,
+                                                lineNumber: 192,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3851,37 +3952,37 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                         status: currentBooking.status
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 191,
+                                                        lineNumber: 194,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$payment$2d$badge$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PaymentBadge"], {
                                                         status: currentBooking.payment_status
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 192,
+                                                        lineNumber: 195,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                lineNumber: 190,
+                                                lineNumber: 193,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                        lineNumber: 185,
+                                        lineNumber: 188,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                lineNumber: 179,
+                                lineNumber: 182,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                            lineNumber: 166,
+                            lineNumber: 169,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3895,7 +3996,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                             children: "Contact"
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                            lineNumber: 201,
+                                            lineNumber: 204,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3910,7 +4011,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 children: "Email"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 206,
+                                                                lineNumber: 209,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3922,13 +4023,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 className: "mt-1 rounded-xl border-gray-200 bg-gray-50 h-11"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 207,
+                                                                lineNumber: 210,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 205,
+                                                        lineNumber: 208,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3938,7 +4039,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 children: "Phone"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 214,
+                                                                lineNumber: 217,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -3950,19 +4051,19 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 className: "mt-1 rounded-xl border-gray-200 bg-gray-50 h-11"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 215,
+                                                                lineNumber: 218,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 213,
+                                                        lineNumber: 216,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                lineNumber: 204,
+                                                lineNumber: 207,
                                                 columnNumber: 19
                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                                 children: [
@@ -3973,7 +4074,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 className: "w-5 h-5 text-gray-400 mr-4 flex-shrink-0"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 225,
+                                                                lineNumber: 228,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3981,13 +4082,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 children: currentBooking.email
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 226,
+                                                                lineNumber: 229,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 224,
+                                                        lineNumber: 227,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3997,7 +4098,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 className: "w-5 h-5 text-gray-400 mr-4 flex-shrink-0"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 229,
+                                                                lineNumber: 232,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4005,26 +4106,26 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 children: currentBooking.phone
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 230,
+                                                                lineNumber: 233,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 228,
+                                                        lineNumber: 231,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true)
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                            lineNumber: 202,
+                                            lineNumber: 205,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                    lineNumber: 200,
+                                    lineNumber: 203,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4035,7 +4136,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                             children: "Booking Details"
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                            lineNumber: 238,
+                                            lineNumber: 241,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4050,7 +4151,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 children: "Package"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 243,
+                                                                lineNumber: 246,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -4064,12 +4165,12 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         className: "mt-1 rounded-xl border-gray-200 bg-gray-50 h-11",
                                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
                                                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                            lineNumber: 251,
+                                                                            lineNumber: 254,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 250,
+                                                                        lineNumber: 253,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -4079,7 +4180,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                                 children: "Basic Discovery"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                                lineNumber: 254,
+                                                                                lineNumber: 257,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4087,7 +4188,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                                 children: "Premium Sunset Tour"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                                lineNumber: 255,
+                                                                                lineNumber: 258,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4095,25 +4196,25 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                                 children: "VIP Desert Experience"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                                lineNumber: 256,
+                                                                                lineNumber: 259,
                                                                                 columnNumber: 27
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 253,
+                                                                        lineNumber: 256,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 244,
+                                                                lineNumber: 247,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 242,
+                                                        lineNumber: 245,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4126,7 +4227,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         children: "Date"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 262,
+                                                                        lineNumber: 265,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -4139,13 +4240,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         className: "mt-1 rounded-xl border-gray-200 bg-gray-50 h-11"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 263,
+                                                                        lineNumber: 266,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 261,
+                                                                lineNumber: 264,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4155,7 +4256,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         children: "Pickup Time"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 273,
+                                                                        lineNumber: 276,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -4168,19 +4269,19 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         className: "mt-1 rounded-xl border-gray-200 bg-gray-50 h-11"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 274,
+                                                                        lineNumber: 277,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 272,
+                                                                lineNumber: 275,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 260,
+                                                        lineNumber: 263,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4190,7 +4291,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 children: "Guests"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 285,
+                                                                lineNumber: 288,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -4204,13 +4305,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 className: "mt-1 rounded-xl border-gray-200 bg-gray-50 h-11"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 286,
+                                                                lineNumber: 289,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 284,
+                                                        lineNumber: 287,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4220,7 +4321,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 children: "Pickup Location"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 299,
+                                                                lineNumber: 302,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -4236,12 +4337,12 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                             placeholder: "Select location"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                            lineNumber: 307,
+                                                                            lineNumber: 310,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 306,
+                                                                        lineNumber: 309,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -4251,7 +4352,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                                 children: "Gueliz"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                                lineNumber: 310,
+                                                                                lineNumber: 313,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4259,7 +4360,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                                 children: "Medina"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                                lineNumber: 311,
+                                                                                lineNumber: 314,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4267,7 +4368,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                                 children: "Hivernage"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                                lineNumber: 312,
+                                                                                lineNumber: 315,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4275,7 +4376,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                                 children: "Palmeraie"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                                lineNumber: 313,
+                                                                                lineNumber: 316,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4283,25 +4384,25 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                                 children: "Other"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                                lineNumber: 314,
+                                                                                lineNumber: 317,
                                                                                 columnNumber: 27
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 309,
+                                                                        lineNumber: 312,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 300,
+                                                                lineNumber: 303,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 298,
+                                                        lineNumber: 301,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4311,7 +4412,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 children: "Status"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 319,
+                                                                lineNumber: 322,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -4325,12 +4426,12 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         className: "mt-1 rounded-xl border-gray-200 bg-gray-50 h-11",
                                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
                                                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                            lineNumber: 327,
+                                                                            lineNumber: 330,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 326,
+                                                                        lineNumber: 329,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -4340,7 +4441,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                                 children: "Pending"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                                lineNumber: 330,
+                                                                                lineNumber: 333,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4348,7 +4449,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                                 children: "Confirmed"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                                lineNumber: 331,
+                                                                                lineNumber: 334,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4356,25 +4457,25 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                                 children: "Cancelled"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                                lineNumber: 332,
+                                                                                lineNumber: 335,
                                                                                 columnNumber: 27
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 329,
+                                                                        lineNumber: 332,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 320,
+                                                                lineNumber: 323,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 318,
+                                                        lineNumber: 321,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4384,7 +4485,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 children: "Assign Driver"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 337,
+                                                                lineNumber: 340,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -4404,12 +4505,12 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                             placeholder: "Select driver"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                            lineNumber: 354,
+                                                                            lineNumber: 357,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 353,
+                                                                        lineNumber: 356,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -4419,7 +4520,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                                 children: "No driver"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                                lineNumber: 357,
+                                                                                lineNumber: 360,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$mock$2d$data$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["mockDrivers"].filter((d)=>d.is_available).map((driver)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4431,31 +4532,31 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                                     ]
                                                                                 }, driver.id, true, {
                                                                                     fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                                    lineNumber: 361,
+                                                                                    lineNumber: 364,
                                                                                     columnNumber: 31
                                                                                 }, this))
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 356,
+                                                                        lineNumber: 359,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 338,
+                                                                lineNumber: 341,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 336,
+                                                        lineNumber: 339,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                lineNumber: 241,
+                                                lineNumber: 244,
                                                 columnNumber: 19
                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                                 children: [
@@ -4469,7 +4570,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         className: "w-5 h-5 text-gray-400 mr-4 flex-shrink-0"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 373,
+                                                                        lineNumber: 376,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4477,13 +4578,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         children: "Package"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 374,
+                                                                        lineNumber: 377,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 372,
+                                                                lineNumber: 375,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4492,13 +4593,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 children: condensedPackageTitle
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 376,
+                                                                lineNumber: 379,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 371,
+                                                        lineNumber: 374,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4511,7 +4612,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         className: "w-5 h-5 text-gray-400 mr-4 flex-shrink-0"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 382,
+                                                                        lineNumber: 385,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4519,13 +4620,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         children: "Date"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 383,
+                                                                        lineNumber: 386,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 381,
+                                                                lineNumber: 384,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4537,13 +4638,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 })
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 385,
+                                                                lineNumber: 388,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 380,
+                                                        lineNumber: 383,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4556,7 +4657,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         className: "w-5 h-5 text-gray-400 mr-4 flex-shrink-0"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 395,
+                                                                        lineNumber: 398,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4564,13 +4665,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         children: "Pickup Time"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 396,
+                                                                        lineNumber: 399,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 394,
+                                                                lineNumber: 397,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4578,13 +4679,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 children: pickupTimeDisplay
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 398,
+                                                                lineNumber: 401,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 393,
+                                                        lineNumber: 396,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4597,7 +4698,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         className: "w-5 h-5 text-gray-400 mr-4 flex-shrink-0"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 402,
+                                                                        lineNumber: 405,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4605,13 +4706,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         children: "Guests"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 403,
+                                                                        lineNumber: 406,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 401,
+                                                                lineNumber: 404,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4622,13 +4723,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 405,
+                                                                lineNumber: 408,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 400,
+                                                        lineNumber: 403,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4641,7 +4742,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         className: "w-5 h-5 text-gray-400 mr-4 flex-shrink-0"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 409,
+                                                                        lineNumber: 412,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4649,13 +4750,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         children: "Pickup"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 410,
+                                                                        lineNumber: 413,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 408,
+                                                                lineNumber: 411,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4663,13 +4764,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 children: currentBooking.pickup_location || "Not set"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 412,
+                                                                lineNumber: 415,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 407,
+                                                        lineNumber: 410,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4682,7 +4783,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         className: "w-5 h-5 text-gray-400 mr-4 flex-shrink-0"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 418,
+                                                                        lineNumber: 421,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4690,13 +4791,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         children: "Driver"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 419,
+                                                                        lineNumber: 422,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 417,
+                                                                lineNumber: 420,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4704,26 +4805,26 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 children: currentBooking.driver_name || "Not assigned"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 421,
+                                                                lineNumber: 424,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 416,
+                                                        lineNumber: 419,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true)
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                            lineNumber: 239,
+                                            lineNumber: 242,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                    lineNumber: 237,
+                                    lineNumber: 240,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4734,7 +4835,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                             children: "Payment"
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                            lineNumber: 433,
+                                            lineNumber: 436,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4749,7 +4850,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 children: "Payment Status"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 438,
+                                                                lineNumber: 441,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Select"], {
@@ -4763,12 +4864,12 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         className: "mt-1 rounded-xl border-gray-200 bg-gray-50 h-11",
                                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
                                                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                            lineNumber: 446,
+                                                                            lineNumber: 449,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 445,
+                                                                        lineNumber: 448,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -4778,7 +4879,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                                 children: "Paid"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                                lineNumber: 449,
+                                                                                lineNumber: 452,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4786,7 +4887,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                                 children: "Deposit"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                                lineNumber: 450,
+                                                                                lineNumber: 453,
                                                                                 columnNumber: 27
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SelectItem"], {
@@ -4794,25 +4895,25 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                                 children: "Unpaid"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                                lineNumber: 451,
+                                                                                lineNumber: 454,
                                                                                 columnNumber: 27
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 448,
+                                                                        lineNumber: 451,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 439,
+                                                                lineNumber: 442,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 437,
+                                                        lineNumber: 440,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4825,7 +4926,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         children: "Total Price (MAD)"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 457,
+                                                                        lineNumber: 460,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -4841,13 +4942,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         className: "mt-1 rounded-xl border-gray-200 bg-gray-50 h-11"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 458,
+                                                                        lineNumber: 461,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 456,
+                                                                lineNumber: 459,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4857,7 +4958,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         children: "Amount Paid (MAD)"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 483,
+                                                                        lineNumber: 486,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Input"], {
@@ -4873,25 +4974,25 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         className: "mt-1 rounded-xl border-gray-200 bg-gray-50 h-11"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 484,
+                                                                        lineNumber: 487,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 482,
+                                                                lineNumber: 485,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 455,
+                                                        lineNumber: 458,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                lineNumber: 436,
+                                                lineNumber: 439,
                                                 columnNumber: 19
                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                                 children: [
@@ -4905,7 +5006,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         className: "w-5 h-5 text-gray-400 mr-4 flex-shrink-0"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 514,
+                                                                        lineNumber: 517,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4913,13 +5014,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         children: "Total"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 515,
+                                                                        lineNumber: 518,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 513,
+                                                                lineNumber: 516,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4927,13 +5028,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 children: formatMad(currentBooking.total_price)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 517,
+                                                                lineNumber: 520,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 512,
+                                                        lineNumber: 515,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4946,7 +5047,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         className: "w-5 h-5 text-gray-400 mr-4 flex-shrink-0"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 523,
+                                                                        lineNumber: 526,
                                                                         columnNumber: 25
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4954,13 +5055,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         children: "Paid"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 524,
+                                                                        lineNumber: 527,
                                                                         columnNumber: 25
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 522,
+                                                                lineNumber: 525,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4968,13 +5069,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 children: formatMad(currentBooking.amount_paid)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 526,
+                                                                lineNumber: 529,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 521,
+                                                        lineNumber: 524,
                                                         columnNumber: 21
                                                     }, this),
                                                     currentBooking.remaining_balance > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -4987,7 +5088,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         className: "w-5 h-5 text-amber-500 mr-4 flex-shrink-0"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 533,
+                                                                        lineNumber: 536,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -4995,13 +5096,13 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                         children: "Balance Due"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                        lineNumber: 534,
+                                                                        lineNumber: 537,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 532,
+                                                                lineNumber: 535,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -5009,26 +5110,26 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                                 children: formatMad(currentBooking.remaining_balance)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                                lineNumber: 536,
+                                                                lineNumber: 539,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 531,
+                                                        lineNumber: 534,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true)
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                            lineNumber: 434,
+                                            lineNumber: 437,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                    lineNumber: 432,
+                                    lineNumber: 435,
                                     columnNumber: 13
                                 }, this),
                                 currentBooking.notes && !isEditMode && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5039,7 +5140,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                             children: "Client Notes"
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                            lineNumber: 548,
+                                            lineNumber: 551,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5051,7 +5152,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                         className: "w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 551,
+                                                        lineNumber: 554,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -5059,24 +5160,24 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                         children: currentBooking.notes
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                        lineNumber: 552,
+                                                        lineNumber: 555,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                lineNumber: 550,
+                                                lineNumber: 553,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                            lineNumber: 549,
+                                            lineNumber: 552,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                    lineNumber: 547,
+                                    lineNumber: 550,
                                     columnNumber: 15
                                 }, this),
                                 isEditMode && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5087,7 +5188,7 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                             children: "Client Notes"
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                            lineNumber: 561,
+                                            lineNumber: 564,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5102,18 +5203,18 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                 className: "w-full h-24 rounded-xl border border-gray-200 bg-gray-50 p-3 text-[15px] resize-none focus:outline-none focus:ring-2 focus:ring-[#C19B76]"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                lineNumber: 563,
+                                                lineNumber: 566,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                            lineNumber: 562,
+                                            lineNumber: 565,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                    lineNumber: 560,
+                                    lineNumber: 563,
                                     columnNumber: 15
                                 }, this),
                                 !isEditMode && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5128,14 +5229,14 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                     className: "w-4 h-4 mr-2"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                    lineNumber: 581,
+                                                    lineNumber: 584,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Edit"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                            lineNumber: 576,
+                                            lineNumber: 579,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -5146,18 +5247,18 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                 className: "w-4 h-4"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                lineNumber: 589,
+                                                lineNumber: 592,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                            lineNumber: 584,
+                                            lineNumber: 587,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                    lineNumber: 575,
+                                    lineNumber: 578,
                                     columnNumber: 15
                                 }, this),
                                 isEditMode && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5172,14 +5273,14 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                     className: "w-4 h-4 mr-2"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                    lineNumber: 598,
+                                                    lineNumber: 601,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Cancel"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                            lineNumber: 597,
+                                            lineNumber: 600,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -5190,32 +5291,32 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                                     className: "w-4 h-4 mr-2"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                                    lineNumber: 605,
+                                                    lineNumber: 608,
                                                     columnNumber: 19
                                                 }, this),
                                                 "Save Changes"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                            lineNumber: 601,
+                                            lineNumber: 604,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                    lineNumber: 596,
+                                    lineNumber: 599,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/bookings/booking-drawer.tsx",
-                            lineNumber: 199,
+                            lineNumber: 202,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/bookings/booking-drawer.tsx",
-                    lineNumber: 165,
+                    lineNumber: 168,
                     columnNumber: 9
                 }, this),
                 !isEditMode && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -5224,6 +5325,148 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                         className: "flex gap-3",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                onClick: ()=>{
+                                    const doc = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jspdf$2f$dist$2f$jspdf$2e$es$2e$min$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"]();
+                                    // Header
+                                    doc.setFontSize(22);
+                                    doc.setFont("helvetica", "bold");
+                                    doc.text("MARRAGAFAY", 105, 20, {
+                                        align: "center"
+                                    });
+                                    doc.setFontSize(16);
+                                    doc.setFont("helvetica", "normal");
+                                    doc.text("Booking Voucher", 105, 30, {
+                                        align: "center"
+                                    });
+                                    // Booking Reference
+                                    doc.setFontSize(10);
+                                    doc.setTextColor(100);
+                                    doc.text(`Ref: ${currentBooking.id.substring(0, 8).toUpperCase()}`, 105, 40, {
+                                        align: "center"
+                                    });
+                                    // Client Info
+                                    doc.setFontSize(12);
+                                    doc.setTextColor(0);
+                                    doc.text("Client Details", 14, 55);
+                                    doc.setFontSize(10);
+                                    doc.text(`Name: ${currentBooking.customer_name}`, 14, 62);
+                                    doc.text(`Phone: ${currentBooking.phone}`, 14, 67);
+                                    doc.text(`Email: ${currentBooking.email}`, 14, 72);
+                                    // Trip Details
+                                    doc.setFontSize(12);
+                                    doc.text("Trip Details", 14, 85);
+                                    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jspdf$2d$autotable$2f$dist$2f$jspdf$2e$plugin$2e$autotable$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(doc, {
+                                        startY: 90,
+                                        head: [
+                                            [
+                                                'Item',
+                                                'Details'
+                                            ]
+                                        ],
+                                        body: [
+                                            [
+                                                'Package',
+                                                currentBooking.package_title
+                                            ],
+                                            [
+                                                'Date',
+                                                new Date(currentBooking.date).toLocaleDateString()
+                                            ],
+                                            [
+                                                'Guests',
+                                                `${currentBooking.guests} People`
+                                            ],
+                                            [
+                                                'Pickup',
+                                                currentBooking.pickup_location || 'Not set'
+                                            ],
+                                            [
+                                                'Time',
+                                                currentBooking.pickup_time || 'Pending'
+                                            ],
+                                            [
+                                                'Driver',
+                                                currentBooking.driver_name || 'Pending Assignment'
+                                            ]
+                                        ],
+                                        theme: 'grid',
+                                        headStyles: {
+                                            fillColor: [
+                                                193,
+                                                155,
+                                                118
+                                            ]
+                                        }
+                                    });
+                                    // Financials
+                                    const finalY = doc.lastAutoTable.finalY + 10;
+                                    doc.setFontSize(12);
+                                    doc.text("Financial Status", 14, finalY);
+                                    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jspdf$2d$autotable$2f$dist$2f$jspdf$2e$plugin$2e$autotable$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(doc, {
+                                        startY: finalY + 5,
+                                        head: [
+                                            [
+                                                'Description',
+                                                'Amount'
+                                            ]
+                                        ],
+                                        body: [
+                                            [
+                                                'Total Price',
+                                                `MAD ${currentBooking.total_price}`
+                                            ],
+                                            [
+                                                'Amount Paid',
+                                                `MAD ${currentBooking.amount_paid}`
+                                            ],
+                                            [
+                                                'Remaining Balance',
+                                                `MAD ${currentBooking.remaining_balance}`
+                                            ],
+                                            [
+                                                'Status',
+                                                currentBooking.payment_status.toUpperCase()
+                                            ]
+                                        ],
+                                        theme: 'striped',
+                                        headStyles: {
+                                            fillColor: [
+                                                60,
+                                                60,
+                                                60
+                                            ]
+                                        }
+                                    });
+                                    // Footer
+                                    const pageHeight = doc.internal.pageSize.height;
+                                    doc.setFontSize(8);
+                                    doc.setTextColor(128);
+                                    doc.text("Please present this voucher to your driver.", 105, pageHeight - 20, {
+                                        align: "center"
+                                    });
+                                    doc.text("Need help? Contact +212 600 000 000", 105, pageHeight - 15, {
+                                        align: "center"
+                                    });
+                                    doc.save(`Marragafay-Ticket-${currentBooking.customer_name.replace(/\s+/g, '-')}.pdf`);
+                                },
+                                variant: "outline",
+                                className: "flex-1 rounded-xl h-14 bg-white border-gray-200 text-gray-900 font-medium text-[15px] hover:bg-gray-50",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$file$2d$text$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FileText$3e$__["FileText"], {
+                                        className: "w-5 h-5 mr-2"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/bookings/booking-drawer.tsx",
+                                        lineNumber: 695,
+                                        columnNumber: 17
+                                    }, this),
+                                    "Voucher"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/components/bookings/booking-drawer.tsx",
+                                lineNumber: 619,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                                 onClick: handleWhatsApp,
                                 className: "flex-1 rounded-xl h-14 bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-[15px]",
                                 children: [
@@ -5231,55 +5474,52 @@ function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave }) {
                                         className: "w-5 h-5 mr-2"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                        lineNumber: 620,
+                                        lineNumber: 702,
                                         columnNumber: 17
                                     }, this),
                                     "WhatsApp"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                lineNumber: 616,
+                                lineNumber: 698,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                                 onClick: handleCall,
                                 variant: "outline",
-                                className: "flex-1 rounded-xl h-14 bg-white border-gray-200 text-gray-900 font-medium text-[15px] hover:bg-gray-50",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$phone$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Phone$3e$__["Phone"], {
-                                        className: "w-5 h-5 mr-2"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                        lineNumber: 628,
-                                        columnNumber: 17
-                                    }, this),
-                                    "Call"
-                                ]
-                            }, void 0, true, {
+                                className: "w-14 rounded-xl h-14 bg-white border-gray-200 text-gray-900 font-medium text-[15px] hover:bg-gray-50 flex items-center justify-center p-0",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$phone$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Phone$3e$__["Phone"], {
+                                    className: "w-5 h-5"
+                                }, void 0, false, {
+                                    fileName: "[project]/components/bookings/booking-drawer.tsx",
+                                    lineNumber: 710,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
                                 fileName: "[project]/components/bookings/booking-drawer.tsx",
-                                lineNumber: 623,
+                                lineNumber: 705,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/bookings/booking-drawer.tsx",
-                        lineNumber: 615,
+                        lineNumber: 618,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/bookings/booking-drawer.tsx",
-                    lineNumber: 614,
+                    lineNumber: 617,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/bookings/booking-drawer.tsx",
-            lineNumber: 148,
+            lineNumber: 151,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/bookings/booking-drawer.tsx",
-        lineNumber: 147,
+        lineNumber: 150,
         columnNumber: 5
     }, this);
 }
@@ -7879,6 +8119,11 @@ const viewOptions = [
         value: "operations",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clipboard$2d$list$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ClipboardList$3e$__["ClipboardList"],
         label: "Operations"
+    },
+    {
+        value: "manifest",
+        icon: FileText,
+        label: "Manifest"
     }
 ];
 function BookingsView({ initialBookings }) {
@@ -7976,12 +8221,12 @@ function BookingsView({ initialBookings }) {
                 className: "w-8 h-8 animate-spin text-[#C19B76]"
             }, void 0, false, {
                 fileName: "[project]/components/bookings/bookings-view.tsx",
-                lineNumber: 129,
+                lineNumber: 130,
                 columnNumber: 17
             }, this)
         }, void 0, false, {
             fileName: "[project]/components/bookings/bookings-view.tsx",
-            lineNumber: 128,
+            lineNumber: 129,
             columnNumber: 13
         }, this);
     }
@@ -8001,7 +8246,7 @@ function BookingsView({ initialBookings }) {
                                         children: "Bookings"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/bookings-view.tsx",
-                                        lineNumber: 140,
+                                        lineNumber: 141,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -8009,13 +8254,13 @@ function BookingsView({ initialBookings }) {
                                         children: "Manage and track all your reservations"
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/bookings-view.tsx",
-                                        lineNumber: 141,
+                                        lineNumber: 142,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/bookings/bookings-view.tsx",
-                                lineNumber: 139,
+                                lineNumber: 140,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8033,7 +8278,7 @@ function BookingsView({ initialBookings }) {
                                                         className: "w-4 h-4 sm:mr-2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bookings/bookings-view.tsx",
-                                                        lineNumber: 159,
+                                                        lineNumber: 160,
                                                         columnNumber: 37
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -8041,18 +8286,18 @@ function BookingsView({ initialBookings }) {
                                                         children: option.label
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/bookings/bookings-view.tsx",
-                                                        lineNumber: 160,
+                                                        lineNumber: 161,
                                                         columnNumber: 37
                                                     }, this)
                                                 ]
                                             }, option.value, true, {
                                                 fileName: "[project]/components/bookings/bookings-view.tsx",
-                                                lineNumber: 147,
+                                                lineNumber: 148,
                                                 columnNumber: 33
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/components/bookings/bookings-view.tsx",
-                                        lineNumber: 145,
+                                        lineNumber: 146,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -8063,26 +8308,26 @@ function BookingsView({ initialBookings }) {
                                                 className: "w-4 h-4 mr-2"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/bookings/bookings-view.tsx",
-                                                lineNumber: 169,
+                                                lineNumber: 170,
                                                 columnNumber: 29
                                             }, this),
                                             "New Booking"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/bookings/bookings-view.tsx",
-                                        lineNumber: 165,
+                                        lineNumber: 166,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/bookings/bookings-view.tsx",
-                                lineNumber: 144,
+                                lineNumber: 145,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/bookings/bookings-view.tsx",
-                        lineNumber: 138,
+                        lineNumber: 139,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8093,7 +8338,7 @@ function BookingsView({ initialBookings }) {
                                 onSelect: handleSelect
                             }, void 0, false, {
                                 fileName: "[project]/components/bookings/bookings-view.tsx",
-                                lineNumber: 177,
+                                lineNumber: 178,
                                 columnNumber: 46
                             }, this),
                             viewMode === "kanban" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$bookings$2f$booking$2d$kanban$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BookingKanban"], {
@@ -8102,7 +8347,7 @@ function BookingsView({ initialBookings }) {
                                 onStatusChange: handleStatusChange
                             }, void 0, false, {
                                 fileName: "[project]/components/bookings/bookings-view.tsx",
-                                lineNumber: 179,
+                                lineNumber: 180,
                                 columnNumber: 25
                             }, this),
                             viewMode === "calendar" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$bookings$2f$booking$2d$calendar$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BookingCalendar"], {
@@ -8110,7 +8355,7 @@ function BookingsView({ initialBookings }) {
                                 onSelect: handleSelect
                             }, void 0, false, {
                                 fileName: "[project]/components/bookings/bookings-view.tsx",
-                                lineNumber: 181,
+                                lineNumber: 182,
                                 columnNumber: 49
                             }, this),
                             viewMode === "operations" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$bookings$2f$operations$2d$view$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["OperationsView"], {
@@ -8118,19 +8363,26 @@ function BookingsView({ initialBookings }) {
                                 onSelect: handleSelect
                             }, void 0, false, {
                                 fileName: "[project]/components/bookings/bookings-view.tsx",
-                                lineNumber: 182,
+                                lineNumber: 183,
                                 columnNumber: 51
+                            }, this),
+                            viewMode === "manifest" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(DailyManifest, {
+                                bookings: bookings
+                            }, void 0, false, {
+                                fileName: "[project]/components/bookings/bookings-view.tsx",
+                                lineNumber: 184,
+                                columnNumber: 49
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/bookings/bookings-view.tsx",
-                        lineNumber: 176,
+                        lineNumber: 177,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/bookings/bookings-view.tsx",
-                lineNumber: 136,
+                lineNumber: 137,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$bookings$2f$booking$2d$drawer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BookingDrawer"], {
@@ -8141,7 +8393,7 @@ function BookingsView({ initialBookings }) {
                 onSave: handleSaveBooking
             }, void 0, false, {
                 fileName: "[project]/components/bookings/bookings-view.tsx",
-                lineNumber: 187,
+                lineNumber: 189,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$bookings$2f$booking$2d$wizard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BookingWizard"], {
@@ -8151,13 +8403,13 @@ function BookingsView({ initialBookings }) {
                 existingBookings: bookings
             }, void 0, false, {
                 fileName: "[project]/components/bookings/bookings-view.tsx",
-                lineNumber: 195,
+                lineNumber: 197,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/bookings/bookings-view.tsx",
-        lineNumber: 135,
+        lineNumber: 136,
         columnNumber: 9
     }, this);
 }

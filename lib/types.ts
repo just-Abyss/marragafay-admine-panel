@@ -25,7 +25,9 @@ export interface Booking {
   package_title: string
   status: "pending" | "confirmed" | "cancelled"
   date: string
+  booking_date?: string // DB field
   guests: number
+  guests_count?: number // DB field
   total_price: number
   created_at?: string
   notes?: string
@@ -86,7 +88,7 @@ export interface BookingTrend {
   revenue: number
 }
 
-export type ViewMode = "table" | "kanban" | "calendar" | "operations"
+export type ViewMode = "table" | "kanban" | "calendar" | "operations" | "manifest"
 export type BookingStatus = "pending" | "confirmed" | "cancelled"
 
 export interface Activity {

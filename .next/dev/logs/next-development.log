@@ -1,513 +1,1277 @@
-[00:00:03.522] Server  LOG      ✓ Ready in 2.5s
-[00:00:59.584] Server  LOG      ○ Compiling / ...
-[00:02:09.270] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:12.450] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:02:12.450] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:02:12.450] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635063287}
-[00:02:12.450] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635063388}
-[00:02:18.457] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:00:04.878] Server  LOG      ✓ Ready in 3.5s
+[00:01:26.036] Server  LOG      ○ Compiling / ...
+[00:01:30.886] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:34.042] Server  LOG      ○ Compiling /dashboard ...
+[00:01:37.465] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:01:37.465] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:01:37.465] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764721784187}
+[00:01:37.465] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764721784338}
+[00:01:42.783] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:02:18.458] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:01:42.784] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:03:14.135] Browser LOG     Fetching packages and activities...
-[00:03:14.135] Browser LOG     Fetching packages and activities...
-[00:03:14.135] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635124993}
-[00:03:17.256] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:03:17.256] Browser WARN    No activities found, using fallback.
-[00:03:17.432] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:03:17.432] Browser WARN    No activities found, using fallback.
-[00:03:17.974] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635128922}
-[00:03:22.540] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635133478}
-[00:03:24.532] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635135476}
-[00:03:26.077] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635137021}
-[00:03:27.982] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:03:27.982] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:03:42.960] Browser ERROR   Error creating activity: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'capacity_per_session' column of 'activities' in the schema cache"}
-[00:03:44.402] Browser ERROR   Error creating activity: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'capacity_per_session' column of 'activities' in the schema cache"}
-[00:03:44.591] Browser ERROR   Error creating activity: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'capacity_per_session' column of 'activities' in the schema cache"}
-[00:03:44.799] Browser ERROR   Error creating activity: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'capacity_per_session' column of 'activities' in the schema cache"}
-[00:03:49.209] Browser LOG     Fetching packages and activities...
-[00:03:49.209] Browser LOG     Fetching packages and activities...
-[00:03:49.209] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635160093}
-[00:03:49.563] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:03:49.563] Browser WARN    No activities found, using fallback.
-[00:03:49.674] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:03:49.674] Browser WARN    No activities found, using fallback.
-[00:03:50.939] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:03:50.939] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:05:50.241] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635281193}
-[00:05:50.473] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:01:56.308] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:56.558] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:01:56.558] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[00:01:56.558] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764721803453}
+[00:01:56.932] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:05:50.473] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:01:56.932] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:05:53.756] Browser LOG     Fetching packages and activities...
-[00:05:53.756] Browser LOG     Fetching packages and activities...
-[00:05:53.756] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635284660}
-[00:05:54.149] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:05:54.149] Browser WARN    No activities found, using fallback.
-[00:05:54.285] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:05:54.285] Browser WARN    No activities found, using fallback.
-[00:05:56.146] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+[00:03:14.416] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:14.642] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
 
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:05:56.146] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:05:56.146] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
 
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+%s%s https://react.dev/link/hydration-mismatch 
 
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:05:56.146] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:05:58.779] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+                          className="inter_5901b7c6-module__ec5Qua__variable jetbrains_mono_707233f-module__9hS9bG__va..."
+-                         data-jetski-tab-id="1085857636"
+                        >
+                  ...
 
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:05:58.779] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:05:58.779] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:05:58.779] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:01.792] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:06:01.792] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:01.792] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:06:01.792] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:05.279] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:06:05.279] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:05.279] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:06:05.279] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:09.783] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:06:09.783] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:09.783] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:06:09.783] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:12.496] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:06:12.496] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:12.496] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:06:12.496] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:16.009] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:06:16.009] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:16.009] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:06:16.009] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:23.253] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635314188}
-[00:06:23.432] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:03:14.861] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:14.861] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:03:14.861] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764721881752}
+[00:03:15.132] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764721882020}
+[00:03:15.727] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:06:23.432] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:03:15.727] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:06:36.795] Browser LOG     Fetching packages and activities...
-[00:06:36.795] Browser LOG     Fetching packages and activities...
-[00:06:36.795] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635327710}
-[00:06:37.077] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:06:37.077] Browser WARN    No activities found, using fallback.
-[00:06:37.628] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635328577}
-[00:06:38.440] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:06:38.440] Browser WARN    No activities found, using fallback.
-[00:06:49.157] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635340102}
-[00:06:53.665] Browser ERROR   Error updating activity status: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'is_active' column of 'activities' in the schema cache"}
-[00:06:57.603] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635348543}
-[00:06:59.553] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:06:59.553] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:07:04.186] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:07:04.186] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:07:10.290] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:07:10.290] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:07:20.481] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/testimonials color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/testimonials","o":"http://localhost:3000/dashboard/testimonials","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635371419}
-[00:07:25.681] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635376627}
-[00:07:33.002] Browser LOG     Fetching packages and activities...
-[00:07:33.002] Browser LOG     Fetching packages and activities...
-[00:07:33.002] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635383898}
-[00:07:33.358] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:07:33.358] Browser WARN    No activities found, using fallback.
-[00:07:33.465] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:07:33.465] Browser WARN    No activities found, using fallback.
-[00:08:07.667] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635418619}
-[00:09:34.005] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635504949}
-[00:09:39.914] Browser LOG     Fetching packages and activities...
-[00:09:39.914] Browser LOG     Fetching packages and activities...
-[00:09:39.914] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635510789}
-[00:09:42.427] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:09:42.427] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:09:43.939] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:09:43.939] Browser WARN    No activities found, using fallback.
-[00:09:44.106] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:09:44.106] Browser WARN    No activities found, using fallback.
-[00:10:57.619] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635588570}
-[00:10:57.838] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:03:42.619] Browser LOG     Fetching packages and activities...
+[00:03:42.619] Browser LOG     Fetching packages and activities...
+[00:03:42.619] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764721909407}
+[00:03:46.984] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764721913869}
+[00:03:47.272] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:10:57.838] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:03:47.272] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:11:00.025] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+[00:03:50.382] Browser LOG     Fetching packages and activities...
+[00:03:50.382] Browser LOG     Fetching packages and activities...
+[00:03:50.383] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764721917199}
+[00:03:57.533] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:03:57.533] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:04:06.605] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'driver_name' column of 'bookings' in the schema cache"}
+[00:04:10.842] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:11.214] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
 
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:11:00.025] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:11:00.026] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
 
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+%s%s https://react.dev/link/hydration-mismatch 
 
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:11:00.026] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:11:14.584] Browser LOG     Fetching packages and activities...
-[00:11:14.584] Browser LOG     Fetching packages and activities...
-[00:11:14.584] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635605478}
-[00:11:14.862] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:11:14.862] Browser WARN    No activities found, using fallback.
-[00:11:15.003] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:11:15.003] Browser WARN    No activities found, using fallback.
-[00:11:24.166] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/dashboard..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+                          className="inter_5901b7c6-module__ec5Qua__variable jetbrains_mono_707233f-module__9hS9bG__va..."
+-                         data-jetski-tab-id="1085857636"
+                        >
+                  ...
 
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:11:24.166] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:11:24.166] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:11:24.166] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:11:26.167] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:11:26.167] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:11:26.167] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:11:26.167] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:12:40.052] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635690995}
-[00:12:42.848] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635693791}
-[00:12:44.597] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/testimonials color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/testimonials","o":"http://localhost:3000/dashboard/testimonials","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635695544}
-[00:12:45.246] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635696195}
-[00:12:46.438] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635697376}
-[00:13:01.667] Browser LOG     Fetching packages and activities...
-[00:13:01.667] Browser LOG     Fetching packages and activities...
-[00:13:01.667] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635712577}
-[00:13:02.027] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:13:02.027] Browser WARN    No activities found, using fallback.
-[00:13:02.143] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:13:02.143] Browser WARN    No activities found, using fallback.
-[00:13:05.433] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635716376}
-[00:13:08.832] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635719782}
-[00:13:10.916] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635721863}
-[00:13:12.035] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/testimonials color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/testimonials","o":"http://localhost:3000/dashboard/testimonials","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635722983}
-[00:13:13.139] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635724078}
-[00:13:15.610] Browser LOG     Fetching packages and activities...
-[00:13:15.611] Browser LOG     Fetching packages and activities...
-[00:13:15.611] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635726508}
-[00:13:15.893] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:13:15.893] Browser WARN    No activities found, using fallback.
-[00:13:16.020] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:13:16.020] Browser WARN    No activities found, using fallback.
-[00:13:25.260] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:13:25.794] Browser LOG     Fetching packages and activities...
-[00:13:25.794] Browser LOG     Fetching packages and activities...
-[00:13:25.934] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:13:25.934] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/bookings","route":"/dashboard/bookings"}
-[00:13:25.934] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635736878}
-[00:13:26.196] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:13:26.196] Browser WARN    No activities found, using fallback.
-[00:13:26.330] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:13:26.330] Browser WARN    No activities found, using fallback.
-[00:13:32.069] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:13:32.069] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:13:32.069] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:13:32.069] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:14:11.954] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635782899}
-[00:14:13.373] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635784319}
-[00:14:13.655] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:04:11.214] Browser LOG     Fetching packages and activities...
+[00:04:11.214] Browser LOG     Fetching packages and activities...
+[00:04:11.214] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:04:11.214] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/bookings","route":"/dashboard/bookings"}
+[00:04:11.214] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764721938104}
+[00:04:13.178] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:04:13.178] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:04:20.886] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'driver_name' column of 'bookings' in the schema cache"}
+[00:04:31.003] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764721957887}
+[00:04:31.222] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:14:13.655] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:04:31.222] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:14:14.912] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:14:14.912] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:14:14.912] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:14:14.912] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:14:41.199] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:14:41.199] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:14:41.199] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:14:41.199] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:14:49.403] Browser LOG     Fetching packages and activities...
-[00:14:49.403] Browser LOG     Fetching packages and activities...
-[00:14:49.403] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635820296}
-[00:14:49.707] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:14:49.708] Browser WARN    No activities found, using fallback.
-[00:14:49.833] Browser ERROR   Error fetching activities: {"code":"42703","details":null,"hint":null,"message":"column activities.resource_type does not exist"}
-[00:14:49.833] Browser WARN    No activities found, using fallback.
-[00:14:51.424] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:14:51.424] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:14:51.424] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:14:51.424] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:14:53.136] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:14:53.136] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:14:53.136] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:14:53.136] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:14:57.118] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:14:57.118] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:14:57.118] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:14:57.118] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:15:04.203] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:15:04.203] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:15:04.203] Browser ERROR   `DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
-
-If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
-
-For more information, see https://radix-ui.com/primitives/docs/components/dialog
-[00:15:04.203] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:15:06.423] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635837365}
-[00:15:13.884] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635844828}
-[00:15:15.865] Browser ERROR   Error updating activity status: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'is_active' column of 'activities' in the schema cache"}
-[00:15:17.092] Browser ERROR   Error updating activity status: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'is_active' column of 'activities' in the schema cache"}
-[00:15:18.152] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:15:18.152] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:15:20.603] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:15:20.603] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:15:32.636] Browser ERROR   Error creating activity: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'capacity_per_session' column of 'activities' in the schema cache"}
-[00:15:33.545] Browser ERROR   Error creating activity: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'capacity_per_session' column of 'activities' in the schema cache"}
-[00:15:33.777] Browser ERROR   Error creating activity: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'capacity_per_session' column of 'activities' in the schema cache"}
-[00:15:36.312] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635867253}
-[00:15:39.450] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:15:39.451] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:15:48.521] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/testimonials color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/testimonials","o":"http://localhost:3000/dashboard/testimonials","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635879468}
-[00:15:55.037] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764635885971}
-[00:20:36.027] Server  LOG      ✓ Compiled in 294ms
-[00:20:39.167] Server  LOG      ✓ Compiled in 219ms
-[00:20:43.214] Server  LOG      ✓ Compiled in 256ms
-[00:20:45.125] Server  LOG      ✓ Compiled in 133ms
-[00:21:23.427] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:21:24.233] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:21:24.233] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/settings","route":"/dashboard/settings"}
-[00:21:24.233] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636215185}
-[00:21:25.782] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636216729}
-[00:21:26.787] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:05:59.696] Browser LOG     Fetching packages and activities...
+[00:05:59.696] Browser LOG     Fetching packages and activities...
+[00:05:59.696] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722046412}
+[00:06:07.655] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722054536}
+[00:06:19.142] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722066014}
+[00:06:21.769] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/testimonials color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/testimonials","o":"http://localhost:3000/dashboard/testimonials","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722068629}
+[00:06:23.247] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722070087}
+[00:06:24.678] Browser LOG     Fetching packages and activities...
+[00:06:24.678] Browser LOG     Fetching packages and activities...
+[00:06:24.678] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722071486}
+[00:10:18.297] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722305169}
+[00:10:22.040] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:21:26.787] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:10:22.040] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:21:28.721] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:21:28.721] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:21:35.483] Browser LOG     Fetching packages and activities...
-[00:21:35.483] Browser LOG     Fetching packages and activities...
-[00:21:35.483] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636226379}
-[00:21:40.951] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:21:40.951] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:21:55.151] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636246098}
-[00:21:58.177] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636249122}
-[00:21:59.076] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636250026}
-[00:22:00.916] Browser ERROR   Supabase Error: Could not find the 'is_active' column of 'activities' in the schema cache
-[00:22:03.806] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:22:03.806] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:22:07.224] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:22:07.224] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:22:42.309] Browser ERROR   Supabase Error: Could not find the 'is_active' column of 'activities' in the schema cache
-[00:22:42.915] Browser ERROR   Supabase Error: Could not find the 'is_active' column of 'activities' in the schema cache
-[00:22:43.338] Browser ERROR   Supabase Error: Could not find the 'is_active' column of 'activities' in the schema cache
-[00:22:43.569] Browser ERROR   Supabase Error: Could not find the 'is_active' column of 'activities' in the schema cache
-[00:22:46.468] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636297400}
-[00:27:17.867] Server  LOG      ✓ Compiled in 251ms
-[00:27:23.709] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636574660}
-[00:27:27.005] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636577948}
-[00:27:29.157] Browser ERROR   Error updating package: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'is_active' column of 'packages' in the schema cache"}
-[00:27:40.579] Browser LOG     Fetching packages and activities...
-[00:27:40.580] Browser LOG     Fetching packages and activities...
-[00:27:40.580] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636591475}
-[00:27:43.271] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636594219}
-[00:27:45.044] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636595989}
-[00:27:49.369] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:27:50.003] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:27:50.003] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/activities","route":"/dashboard/activities"}
-[00:27:50.003] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636600949}
-[00:27:53.294] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:27:53.294] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:28:16.267] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:28:16.267] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:28:23.310] Browser LOG     Fetching packages and activities...
-[00:28:23.310] Browser LOG     Fetching packages and activities...
-[00:28:23.310] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636634189}
-[00:29:03.611] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636674562}
-[00:29:05.381] Browser LOG     Fetching packages and activities...
-[00:29:05.381] Browser LOG     Fetching packages and activities...
-[00:29:05.381] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636676286}
-[00:29:05.961] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636676909}
-[00:31:31.747] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636822697}
-[00:31:33.209] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636824155}
-[00:31:42.368] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:31:42.787] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:31:42.787] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/activities","route":"/dashboard/activities"}
-[00:31:42.787] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636833739}
-[00:31:45.575] Browser LOG     Fetching packages and activities...
-[00:31:45.576] Browser LOG     Fetching packages and activities...
-[00:31:45.576] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636836460}
-[00:31:48.154] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:31:48.154] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:31:58.041] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636848986}
-[00:32:01.909] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636852855}
-[00:32:16.806] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636867754}
-[00:32:25.900] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636876848}
-[00:32:26.054] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636876998}
-[00:32:30.149] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636881097}
-[00:32:30.760] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:10:55.107] Server  LOG      ✓ Compiled in 621ms
+[00:11:03.050] Server  LOG      ✓ Compiled in 6.2s
+[00:11:24.984] Server  LOG      ✓ Compiled in 3.8s
+[00:11:25.467] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'filter')
+[00:11:33.038] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:33.330] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/dashboard" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+                          className="inter_5901b7c6-module__ec5Qua__variable jetbrains_mono_707233f-module__9hS9bG__va..."
+-                         data-jetski-tab-id="1085857636"
+                        >
+                  ...
+
+[00:11:33.330] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:11:33.330] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[00:11:33.330] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722380220}
+[00:11:33.768] Browser ERROR   uncaughtError: TypeError: Cannot read properties of undefined (reading 'filter')
+[00:11:34.693] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:11:36.081] Server  LOG      ✓ Compiled in 283ms
+[00:11:36.502] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:37.099] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/dashboard" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+                          className="inter_5901b7c6-module__ec5Qua__variable jetbrains_mono_707233f-module__9hS9bG__va..."
+-                         data-jetski-tab-id="1085857636"
+                        >
+                  ...
+
+[00:11:37.099] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:11:37.099] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[00:11:37.099] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722383984}
+[00:11:37.273] Browser ERROR   uncaughtError: ReferenceError: bookings is not defined
+[00:11:38.418] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:11:39.442] Server  LOG      ✓ Compiled in 337ms
+[00:11:39.913] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:11:40.250] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/dashboard" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+                          className="inter_5901b7c6-module__ec5Qua__variable jetbrains_mono_707233f-module__9hS9bG__va..."
+-                         data-jetski-tab-id="1085857636"
+                        >
+                  ...
+
+[00:11:40.250] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:11:40.250] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[00:11:40.250] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722387142}
+[00:11:40.703] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:32:30.760] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:11:40.703] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:32:35.177] Browser LOG     Fetching packages and activities...
-[00:32:35.177] Browser LOG     Fetching packages and activities...
-[00:32:35.177] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636886067}
-[00:32:36.339] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636887280}
-[00:32:41.220] Browser LOG     Fetching packages and activities...
-[00:32:41.220] Browser LOG     Fetching packages and activities...
-[00:32:41.220] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636892130}
-[00:32:43.785] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764636894728}
-[00:32:44.016] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:12:30.584] Server  LOG      ✓ Compiled in 354ms
+[00:12:46.009] Browser ERROR   uncaughtError: ReferenceError: useState is not defined
+[00:12:56.397] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:12:56.901] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/dashboard..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+                          className="inter_5901b7c6-module__ec5Qua__variable jetbrains_mono_707233f-module__9hS9bG__va..."
+-                         data-jetski-tab-id="1085857636"
+                        >
+                  ...
+
+[00:12:56.901] Browser ERROR   uncaughtError: ReferenceError: useState is not defined
+[00:12:57.541] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:12:57.545] Server  LOG      ✓ Compiled in 458ms
+[00:13:00.779] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:13:01.455] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/dashboard..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+                          className="inter_5901b7c6-module__ec5Qua__variable jetbrains_mono_707233f-module__9hS9bG__va..."
+-                         data-jetski-tab-id="1085857636"
+                        >
+                  ...
+
+[00:13:01.455] Browser LOG     Fetching packages and activities...
+[00:13:01.455] Browser LOG     Fetching packages and activities...
+[00:13:01.616] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:13:01.616] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/bookings","route":"/dashboard/bookings"}
+[00:13:01.616] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722468489}
+[00:13:04.469] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722471348}
+[00:13:04.713] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:32:44.016] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:13:04.713] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:33:12.839] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:33:12.839] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
-[00:42:32.455] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764637483392}
-[00:46:49.886] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764637740835}
-[00:46:50.964] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:13:14.750] Server  LOG      ✓ Compiled in 467ms
+[00:13:33.924] Browser LOG     Fetching packages and activities...
+[00:13:33.924] Browser LOG     Fetching packages and activities...
+[00:13:33.924] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722500333}
+[00:14:09.827] Server  LOG      ✓ Compiled in 366ms
+[00:14:22.934] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722549819}
+[00:14:23.244] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:46:50.964] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+[00:14:23.244] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
        please check the style of container, or the props width(100%) and height(100%),
        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
        height and width.
-[00:46:58.852] Browser LOG     Fetching packages and activities...
-[00:46:58.852] Browser LOG     Fetching packages and activities...
-[00:46:58.852] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764637749755}
-[00:47:00.066] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764637751006}
-[00:47:03.795] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/testimonials color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/testimonials","o":"http://localhost:3000/dashboard/testimonials","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764637754741}
-[00:47:06.391] Browser LOG     Fetching packages and activities...
-[00:47:06.391] Browser LOG     Fetching packages and activities...
-[00:47:06.391] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764637757297}
+[00:14:23.790] Server  LOG      ✓ Compiled in 194ms
+[00:14:25.522] Server  LOG      ✓ Compiled in 306ms
+[00:14:26.295] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:26.584] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/dashboard" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+                          className="inter_5901b7c6-module__ec5Qua__variable jetbrains_mono_707233f-module__9hS9bG__va..."
+-                         data-jetski-tab-id="1085857636"
+                        >
+                  ...
+
+[00:14:26.584] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:14:26.584] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[00:14:26.584] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722553469}
+[00:14:26.896] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:14:26.896] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:15:47.653] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:15:47.910] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/dashboard" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+                          className="inter_5901b7c6-module__ec5Qua__variable jetbrains_mono_707233f-module__9hS9bG__va..."
+-                         data-jetski-tab-id="1085857636"
+                        >
+                  ...
+
+[00:15:47.910] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:15:47.910] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[00:15:47.910] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722634802}
+[00:15:48.239] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:15:48.239] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:15:54.371] Browser LOG     Fetching packages and activities...
+[00:15:54.371] Browser LOG     Fetching packages and activities...
+[00:15:54.371] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722641154}
+[00:15:59.402] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722646276}
+[00:16:01.845] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722648729}
+[00:16:02.106] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:16:02.106] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:16:49.030] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:16:49.231] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/dashboard" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+                          className="inter_5901b7c6-module__ec5Qua__variable jetbrains_mono_707233f-module__9hS9bG__va..."
+-                         data-jetski-tab-id="1085857636"
+                        >
+                  ...
+
+[00:16:49.231] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:16:49.231] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[00:16:49.231] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722696122}
+[00:16:50.055] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:16:50.055] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:16:53.076] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722699965}
+[00:16:54.834] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722701723}
+[00:16:55.021] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:16:55.021] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:16:58.839] Browser LOG     Fetching packages and activities...
+[00:16:58.839] Browser LOG     Fetching packages and activities...
+[00:16:58.839] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722705613}
+[00:17:15.268] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722722147}
+[00:17:16.586] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722723475}
+[00:17:19.144] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722726002}
+[00:17:29.059] Browser LOG     Fetching packages and activities...
+[00:17:29.059] Browser LOG     Fetching packages and activities...
+[00:17:29.059] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722735865}
+[00:17:31.058] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722737933}
+[00:17:32.929] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722739814}
+[00:17:34.772] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722741647}
+[00:17:36.996] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/testimonials color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/testimonials","o":"http://localhost:3000/dashboard/testimonials","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722743865}
+[00:17:49.927] Browser LOG     Fetching packages and activities...
+[00:17:49.927] Browser LOG     Fetching packages and activities...
+[00:17:49.927] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722756720}
+[00:20:09.150] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:20:09.150] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:21:01.507] Server  LOG      ✓ Compiled in 198ms
+[00:21:03.804] Server  LOG      ✓ Compiled in 496ms
+[00:21:15.496] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722962376}
+[00:21:15.914] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:21:15.914] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:21:18.705] Browser LOG     Fetching packages and activities...
+[00:21:18.705] Browser LOG     Fetching packages and activities...
+[00:21:18.705] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722965513}
+[00:21:20.089] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:21:20.089] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:21:50.138] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764722997026}
+[00:21:50.425] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:21:50.425] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:21:55.319] Server  LOG      ✓ Compiled in 186ms
+[00:22:04.862] Browser LOG     Fetching packages and activities...
+[00:22:04.862] Browser LOG     Fetching packages and activities...
+[00:22:04.862] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723011647}
+[00:22:07.817] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723014704}
+[00:22:09.761] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723016647}
+[00:22:15.021] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723021902}
+[00:22:15.175] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:22:15.175] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:23:33.828] Browser LOG     Fetching packages and activities...
+[00:23:33.828] Browser LOG     Fetching packages and activities...
+[00:23:33.828] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723100636}
+[00:23:35.037] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723101925}
+[00:23:38.094] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723104983}
+[00:23:40.021] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723106908}
+[00:23:42.395] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723109283}
+[00:23:50.181] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723117061}
+[00:23:55.722] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/testimonials color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/testimonials","o":"http://localhost:3000/dashboard/testimonials","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723122584}
+[00:23:56.951] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723123793}
+[00:23:57.746] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/testimonials color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/testimonials","o":"http://localhost:3000/dashboard/testimonials","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723124599}
+[00:23:58.310] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723125161}
+[00:23:59.227] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/testimonials color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/testimonials","o":"http://localhost:3000/dashboard/testimonials","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723126090}
+[00:24:00.101] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723126948}
+[00:24:00.658] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/testimonials color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/testimonials","o":"http://localhost:3000/dashboard/testimonials","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723127517}
+[00:24:01.575] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723128412}
+[00:24:04.101] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723130988}
+[00:24:09.955] Browser LOG     Fetching packages and activities...
+[00:24:09.955] Browser LOG     Fetching packages and activities...
+[00:24:09.955] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723136760}
+[00:24:48.494] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723175382}
+[00:24:48.865] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:24:48.865] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:25:09.923] Browser LOG     Fetching packages and activities...
+[00:25:09.923] Browser LOG     Fetching packages and activities...
+[00:25:09.923] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723196577}
+[00:25:23.613] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723210495}
+[00:25:26.003] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/activities color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/activities","o":"http://localhost:3000/dashboard/activities","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723212877}
+[00:25:28.030] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/blog color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/blog","o":"http://localhost:3000/dashboard/blog","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723214897}
+[00:25:31.033] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:25:31.033] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:25:43.967] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/testimonials color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/testimonials","o":"http://localhost:3000/dashboard/testimonials","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723230843}
+[00:25:46.563] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/settings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/settings","o":"http://localhost:3000/dashboard/settings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764723233428}
+[00:34:56.568] Server  LOG      ✓ Compiled in 524ms
+[00:40:54.988] Browser LOG     Fetching packages and activities...
+[00:40:54.988] Browser LOG     Fetching packages and activities...
+[00:40:54.988] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764724141711}
+[00:41:12.479] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:41:13.334] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/dashboard..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+                          className="inter_5901b7c6-module__ec5Qua__variable jetbrains_mono_707233f-module__9hS9bG__va..."
+-                         data-jetski-tab-id="1085857636"
+                        >
+                  ...
+
+[00:41:13.334] Browser LOG     Fetching packages and activities...
+[00:41:13.334] Browser LOG     Fetching packages and activities...
+[00:41:13.492] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:41:13.492] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/bookings","route":"/dashboard/bookings"}
+[00:41:13.492] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764724160378}
+[00:47:09.438] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:47:09.827] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/dashboard..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+                          className="inter_5901b7c6-module__ec5Qua__variable jetbrains_mono_707233f-module__9hS9bG__va..."
+-                         data-jetski-tab-id="1085857636"
+                        >
+                  ...
+
+[00:47:09.827] Browser LOG     Fetching packages and activities...
+[00:47:09.827] Browser LOG     Fetching packages and activities...
+[00:47:09.942] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:47:09.942] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/bookings","route":"/dashboard/bookings"}
+[00:47:09.942] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764724516836}
+[00:47:36.740] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764724543615}
+[00:47:37.211] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:47:37.211] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:47:42.536] Browser LOG     Fetching packages and activities...
+[00:47:42.536] Browser LOG     Fetching packages and activities...
+[00:47:42.536] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764724549332}
+[00:47:54.102] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764724560984}
+[00:47:54.537] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:47:54.537] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:48:02.618] Browser LOG     Fetching packages and activities...
+[00:48:02.618] Browser LOG     Fetching packages and activities...
+[00:48:02.618] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764724569406}
+[00:48:14.200] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:48:14.200] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:48:19.303] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:48:19.303] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:48:22.865] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:48:22.866] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:48:25.655] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:48:25.655] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:48:29.057] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:48:29.057] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:48:32.227] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:48:32.227] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[00:48:38.073] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:48:38.385] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/dashboard..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+                          className="inter_5901b7c6-module__ec5Qua__variable jetbrains_mono_707233f-module__9hS9bG__va..."
+-                         data-jetski-tab-id="1085857636"
+                        >
+                  ...
+
+[00:48:38.385] Browser LOG     Fetching packages and activities...
+[00:48:38.385] Browser LOG     Fetching packages and activities...
+[00:48:38.498] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:48:38.498] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/bookings","route":"/dashboard/bookings"}
+[00:48:38.498] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764724605392}
+[00:48:39.687] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764724606568}
+[00:48:39.888] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:48:39.888] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:48:43.095] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:48:43.363] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/dashboard" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+                          className="inter_5901b7c6-module__ec5Qua__variable jetbrains_mono_707233f-module__9hS9bG__va..."
+-                         data-jetski-tab-id="1085857636"
+                        >
+                  ...
+
+[00:48:43.363] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:48:43.363] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[00:48:43.363] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764724610257}
+[00:48:43.591] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:48:43.591] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:49:51.966] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:49:52.188] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/dashboard" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="en"
+                          className="inter_5901b7c6-module__ec5Qua__variable jetbrains_mono_707233f-module__9hS9bG__va..."
+-                         data-jetski-tab-id="1085857636"
+                        >
+                  ...
+
+[00:49:52.188] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:49:52.188] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[00:49:52.188] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764724679082}
+[00:49:52.488] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:49:52.488] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:59:32.033] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:59:32.244] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:59:32.244] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[00:59:32.244] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764725259127}
+[00:59:32.728] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[00:59:32.728] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[01:00:00.105] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:00:00.310] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:00:00.310] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[01:00:00.310] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764725287200}
+[01:00:00.615] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[01:00:00.615] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[01:00:02.145] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:00:02.429] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:00:02.429] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[01:00:02.429] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764725289312}
+[01:00:03.599] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[01:00:03.599] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[01:00:05.922] Browser LOG     Fetching packages and activities...
+[01:00:05.922] Browser LOG     Fetching packages and activities...
+[01:00:05.922] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764725292728}
+[01:00:08.698] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:00:08.698] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:00:18.992] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'driver_name' column of 'bookings' in the schema cache"}
+[01:00:22.203] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:00:22.203] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:00:34.596] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'driver_name' column of 'bookings' in the schema cache"}
+[01:02:02.626] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:02:02.953] Browser LOG     Fetching packages and activities...
+[01:02:02.953] Browser LOG     Fetching packages and activities...
+[01:02:03.060] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:02:03.060] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/bookings","route":"/dashboard/bookings"}
+[01:02:03.061] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764725409954}
+[01:02:07.790] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764725414666}
+[01:02:08.011] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[01:02:08.011] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[01:02:55.156] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:02:55.367] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:02:55.367] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard","route":"/dashboard"}
+[01:02:55.367] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764725462255}
+[01:02:55.791] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[01:02:55.791] Browser WARN    The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+[01:03:00.425] Browser LOG     Fetching packages and activities...
+[01:03:00.425] Browser LOG     Fetching packages and activities...
+[01:03:00.425] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764725467219}
+[01:04:09.220] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:04:09.220] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:04:11.359] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:04:11.359] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:04:40.149] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'driver_id' column of 'bookings' in the schema cache"}
+[01:07:15.302] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:07:15.302] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:11:58.320] Server  LOG      ✓ Compiled in 183ms
+[01:11:58.433] Browser ERROR   uncaughtError: ReferenceError: useRouter is not defined
+[01:12:00.388] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:12:00.817] Server  LOG      ✓ Compiled in 180ms
+[01:12:00.818] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764726007397}
+[01:12:00.818] Browser LOG     Fetching packages and activities...
+[01:12:00.818] Browser LOG     Fetching packages and activities...
+[01:12:01.852] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:12:02.379] Browser LOG     Fetching packages and activities...
+[01:12:02.379] Browser LOG     Fetching packages and activities...
+[01:12:02.562] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:12:02.562] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/bookings","route":"/dashboard/bookings"}
+[01:12:02.562] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764726009457}
+[01:12:49.364] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:12:49.795] Browser LOG     Fetching packages and activities...
+[01:12:49.795] Browser LOG     Fetching packages and activities...
+[01:12:49.795] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:12:49.795] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/bookings","route":"/dashboard/bookings"}
+[01:12:49.795] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764726056688}
+[01:12:51.452] Browser ERROR   React has detected a change in the order of Hooks called by %s. This will lead to bugs and errors if not fixed. For more information, read the Rules of Hooks: https://react.dev/link/rules-of-hooks
+
+   Previous render            Next render
+   ------------------------------------------------------
+%s   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ BookingDrawer 1. useState                   useState
+2. useState                   useState
+3. useState                   useState
+4. useState                   useState
+5. useEffect                  useEffect
+6. useEffect                  useEffect
+7. undefined                  useContext
+
+[01:12:51.452] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:12:51.452] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:13:01.361] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:13:02.390] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:13:02.724] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:13:02.968] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:13:03.162] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:13:03.692] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:13:03.807] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:13:03.907] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:13:04.025] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:13:16.222] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:13:17.550] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:13:17.550] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:13:21.968] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:13:21.968] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:13:24.300] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:13:24.300] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:13:31.902] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:13:39.024] Browser ERROR   Error updating booking: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:15:35.213] Server  LOG      ✓ Compiled in 251ms
+[01:16:08.859] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:16:08.859] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:16:20.120] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:23.203] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:26.793] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:28.751] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:28.932] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:29.152] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:29.356] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:29.565] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:29.792] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:29.996] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:30.169] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:30.415] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:40.877] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:41.391] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:41.606] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:41.813] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:42.001] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:42.201] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:42.328] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:42.536] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:42.803] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:16:43.040] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:17:44.602] Server  LOG      ✓ Compiled in 182ms
+[01:18:27.170] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:18:27.524] Browser LOG     Fetching packages and activities...
+[01:18:27.524] Browser LOG     Fetching packages and activities...
+[01:18:27.660] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:18:27.660] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/bookings","route":"/dashboard/bookings"}
+[01:18:27.660] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764726394554}
+[01:18:29.807] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:18:29.807] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:18:38.042] Browser LOG     Updating booking with payload: {"activity_type":null,"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":null,"driver_name":null,"guests_count":2,"notes":null,"package_title":"Basic Pack - Agafay Marrakech Desert | Marragafay","payment_status":"paid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:18:38.209] Browser ERROR   Supabase Update Error: Could not find the 'activity_type' column of 'bookings' in the schema cache null
+[01:18:38.638] Browser LOG     Updating booking with payload: {"activity_type":null,"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":null,"driver_name":null,"guests_count":2,"notes":null,"package_title":"Basic Pack - Agafay Marrakech Desert | Marragafay","payment_status":"paid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:18:38.781] Browser ERROR   Supabase Update Error: Could not find the 'activity_type' column of 'bookings' in the schema cache null
+[01:18:39.200] Browser LOG     Updating booking with payload: {"activity_type":null,"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":null,"driver_name":null,"guests_count":2,"notes":null,"package_title":"Basic Pack - Agafay Marrakech Desert | Marragafay","payment_status":"paid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:18:39.409] Browser ERROR   Supabase Update Error: Could not find the 'activity_type' column of 'bookings' in the schema cache null
+[01:18:39.409] Browser LOG     Updating booking with payload: {"activity_type":null,"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":null,"driver_name":null,"guests_count":2,"notes":null,"package_title":"Basic Pack - Agafay Marrakech Desert | Marragafay","payment_status":"paid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:18:39.606] Browser ERROR   Supabase Update Error: Could not find the 'activity_type' column of 'bookings' in the schema cache null
+[01:18:39.606] Browser LOG     Updating booking with payload: {"activity_type":null,"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":null,"driver_name":null,"guests_count":2,"notes":null,"package_title":"Basic Pack - Agafay Marrakech Desert | Marragafay","payment_status":"paid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:18:39.841] Browser ERROR   Supabase Update Error: Could not find the 'activity_type' column of 'bookings' in the schema cache null
+[01:18:39.841] Browser LOG     Updating booking with payload: {"activity_type":null,"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":null,"driver_name":null,"guests_count":2,"notes":null,"package_title":"Basic Pack - Agafay Marrakech Desert | Marragafay","payment_status":"paid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:18:40.013] Browser ERROR   Supabase Update Error: Could not find the 'activity_type' column of 'bookings' in the schema cache null
+[01:18:40.013] Browser LOG     Updating booking with payload: {"activity_type":null,"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":null,"driver_name":null,"guests_count":2,"notes":null,"package_title":"Basic Pack - Agafay Marrakech Desert | Marragafay","payment_status":"paid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:18:40.174] Browser ERROR   Supabase Update Error: Could not find the 'activity_type' column of 'bookings' in the schema cache null
+[01:19:06.593] Server  LOG      ✓ Compiled in 217ms
+[01:20:21.725] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:20:21.725] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:20:39.479] Browser LOG     Updating booking with payload: {"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":null,"driver_name":null,"guests_count":2,"notes":null,"package_title":"Basic Pack - Agafay Marrakech Desert | Marragafay","payment_status":"unpaid","phone":"0605972913","pickup_location":"Medina","pickup_time":null,"remaining_balance":800,"status":"confirmed","total_price":800}
+[01:20:39.759] Browser ERROR   Supabase Update Error: Could not find the 'amount_paid' column of 'bookings' in the schema cache null
+[01:25:53.372] Server  LOG      ✓ Compiled in 219ms
+[01:25:53.547] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:25:53.547] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:26:15.779] Server  LOG      ✓ Compiled in 166ms
+[01:28:25.423] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:28:25.840] Browser LOG     Fetching packages and activities...
+[01:28:25.840] Browser LOG     Fetching packages and activities...
+[01:28:26.003] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:28:26.003] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/bookings","route":"/dashboard/bookings"}
+[01:28:26.003] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764726992896}
+[01:28:27.462] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:28:27.462] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:28:33.462] Browser LOG     📤 Sending update payload: {"amount_paid":0,"booking_date":"2025-12-04","customer_email":"imadaitlachger@gmail.com","customer_name":"Imad ait Lachgar","driver_id":null,"driver_name":null,"guests_count":2,"notes":null,"package_title":"Luxe Pack - Agafay Desert | Marragafay","payment_status":"unpaid","phone":"0605372913","pickup_location":null,"pickup_time":null,"remaining_balance":1600,"status":"confirmed","total_price":1600}
+[01:28:34.107] Browser ERROR   ❌ Supabase Update Error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:28:34.108] Browser ERROR   ❌ Full Error Object: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:28:38.362] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:28:38.362] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:28:48.628] Browser LOG     📤 Sending update payload: {"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":"d1","driver_name":"Hassan Amrani","guests_count":2,"notes":null,"package_title":"Basic Pack - Agafay Marrakech Desert | Marragafay","payment_status":"unpaid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:28:48.944] Browser ERROR   ❌ Supabase Update Error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:28:48.944] Browser ERROR   ❌ Full Error Object: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:28:50.005] Browser LOG     📤 Sending update payload: {"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":"d1","driver_name":"Hassan Amrani","guests_count":2,"notes":null,"package_title":"Basic Pack - Agafay Marrakech Desert | Marragafay","payment_status":"unpaid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:28:50.228] Browser ERROR   ❌ Supabase Update Error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:28:50.228] Browser ERROR   ❌ Full Error Object: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:28:50.978] Browser LOG     📤 Sending update payload: {"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":"d1","driver_name":"Hassan Amrani","guests_count":2,"notes":null,"package_title":"Basic Pack - Agafay Marrakech Desert | Marragafay","payment_status":"unpaid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:28:51.212] Browser ERROR   ❌ Supabase Update Error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:28:51.212] Browser ERROR   ❌ Full Error Object: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:28:59.344] Browser LOG     📤 Sending update payload: {"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":"d1","driver_name":"Hassan Amrani","guests_count":2,"notes":null,"package_title":"VIP Desert Experience","payment_status":"unpaid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:28:59.588] Browser ERROR   ❌ Supabase Update Error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:28:59.588] Browser ERROR   ❌ Full Error Object: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:29:15.358] Browser LOG     📤 Sending update payload: {"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":"d1","driver_name":"Hassan Amrani","guests_count":3,"notes":null,"package_title":"VIP Desert Experience","payment_status":"unpaid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:29:15.584] Browser ERROR   ❌ Supabase Update Error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:29:15.584] Browser ERROR   ❌ Full Error Object: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:29:16.338] Browser LOG     📤 Sending update payload: {"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":"d1","driver_name":"Hassan Amrani","guests_count":3,"notes":null,"package_title":"VIP Desert Experience","payment_status":"unpaid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:29:16.579] Browser ERROR   ❌ Supabase Update Error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:29:16.579] Browser ERROR   ❌ Full Error Object: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:29:17.250] Browser LOG     📤 Sending update payload: {"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":"d1","driver_name":"Hassan Amrani","guests_count":3,"notes":null,"package_title":"VIP Desert Experience","payment_status":"unpaid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:29:17.473] Browser ERROR   ❌ Supabase Update Error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:29:17.473] Browser ERROR   ❌ Full Error Object: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:29:18.004] Browser LOG     📤 Sending update payload: {"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":"d1","driver_name":"Hassan Amrani","guests_count":3,"notes":null,"package_title":"VIP Desert Experience","payment_status":"unpaid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:29:18.255] Browser ERROR   ❌ Supabase Update Error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:29:18.255] Browser ERROR   ❌ Full Error Object: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:29:18.441] Browser LOG     📤 Sending update payload: {"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":"d1","driver_name":"Hassan Amrani","guests_count":3,"notes":null,"package_title":"VIP Desert Experience","payment_status":"unpaid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:29:18.705] Browser ERROR   ❌ Supabase Update Error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:29:18.705] Browser ERROR   ❌ Full Error Object: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:29:18.913] Browser LOG     📤 Sending update payload: {"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":"d1","driver_name":"Hassan Amrani","guests_count":3,"notes":null,"package_title":"VIP Desert Experience","payment_status":"unpaid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:29:19.171] Browser ERROR   ❌ Supabase Update Error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:29:19.171] Browser ERROR   ❌ Full Error Object: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:29:19.392] Browser LOG     📤 Sending update payload: {"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":"d1","driver_name":"Hassan Amrani","guests_count":3,"notes":null,"package_title":"VIP Desert Experience","payment_status":"unpaid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:29:19.628] Browser ERROR   ❌ Supabase Update Error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:29:19.628] Browser ERROR   ❌ Full Error Object: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:29:19.761] Browser LOG     📤 Sending update payload: {"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":"d1","driver_name":"Hassan Amrani","guests_count":3,"notes":null,"package_title":"VIP Desert Experience","payment_status":"unpaid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:29:20.018] Browser ERROR   ❌ Supabase Update Error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:29:20.018] Browser ERROR   ❌ Full Error Object: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:32:04.441] Server  LOG      ✓ Compiled in 173ms
+[01:32:40.452] Browser LOG     📤 Sending update payload: {"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","driver_id":"d1","driver_name":"Hassan Amrani","guests_count":3,"notes":null,"package_title":"VIP Desert Experience","payment_status":"unpaid","phone":"0605972913","pickup_location":null,"pickup_time":null,"remaining_balance":800,"status":"pending","total_price":800}
+[01:32:40.944] Browser ERROR   ❌ Supabase Update Error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:32:40.944] Browser ERROR   ❌ Full Error Object: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:33:16.661] Server  LOG      ✓ Compiled in 212ms
+[01:33:40.226] Server  LOG      ✓ Compiled in 154ms
+[01:35:00.640] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:35:00.640] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:35:08.505] Browser LOG     📤 Sending update payload: {"amount_paid":0,"booking_date":"2025-12-03","customer_email":"test@test.com","customer_name":"Ahmed","guests_count":2,"package_title":"Basic Pack - Agafay Marrakech Desert | Marragafay","payment_status":"unpaid","phone":"0605972913","remaining_balance":800,"status":"confirmed","total_price":800}
+[01:35:09.088] Browser ERROR   ❌ Supabase Update Error: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:35:09.088] Browser ERROR   ❌ Full Error Object: {"code":"PGRST204","details":null,"hint":null,"message":"Could not find the 'amount_paid' column of 'bookings' in the schema cache"}
+[01:35:55.184] Server  LOG      ✓ Compiled in 218ms
+[01:41:27.879] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:41:28.339] Browser LOG     Fetching packages and activities...
+[01:41:28.339] Browser LOG     Fetching packages and activities...
+[01:41:28.529] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:41:28.529] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/bookings","route":"/dashboard/bookings"}
+[01:41:28.529] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764727775423}
+[01:41:30.092] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:41:30.093] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:41:36.841] Browser LOG     📤 Sending update payload: {"amount_paid":0,"booking_date":"2025-12-04","customer_email":"imadaitlachger@gmail.com","customer_name":"Imad ait Lachgar","driver_id":null,"driver_name":null,"guests_count":2,"notes":null,"package_title":"Luxe Pack - Agafay Desert | Marragafay","payment_status":"unpaid","phone":"0605372913","pickup_location":null,"pickup_time":null,"remaining_balance":1600,"status":"confirmed","total_price":1600}
+[01:41:37.114] Browser ERROR   ❌ Supabase Update Error: {
+  "code": "PGRST204",
+  "details": null,
+  "hint": null,
+  "message": "Could not find the 'amount_paid' column of 'bookings' in the schema cache"
+}
+[01:41:37.114] Browser ERROR   ❌ Full Error Object: {
+  "code": "PGRST204",
+  "details": null,
+  "hint": null,
+  "message": "Could not find the 'amount_paid' column of 'bookings' in the schema cache"
+}
+[01:42:45.051] Server  LOG      ✓ Compiled in 173ms
+[01:44:58.860] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:44:58.861] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[01:45:09.081] Browser LOG     📤 Sending update payload: {"booking_date":"2025-12-04","customer_email":"imadaitlachger@gmail.com","customer_name":"Imad ait Lachgar","deposit_amount":0,"driver_id":null,"driver_name":null,"guests_count":2,"notes":null,"package_title":"Luxe Pack - Agafay Desert | Marragafay","payment_status":"unpaid","phone":"0605372913","pickup_location":null,"pickup_time":null,"status":"confirmed","total_price":1600}
+[01:45:09.556] Browser ERROR   ❌ Supabase Update Error: {
+  "code": "PGRST204",
+  "details": null,
+  "hint": null,
+  "message": "Could not find the 'driver_id' column of 'bookings' in the schema cache"
+}
+[01:45:09.556] Browser ERROR   ❌ Full Error Object: {
+  "code": "PGRST204",
+  "details": null,
+  "hint": null,
+  "message": "Could not find the 'driver_id' column of 'bookings' in the schema cache"
+}
+[10:36:16.811] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[10:36:17.403] Browser LOG     Fetching packages and activities...
+[10:36:17.403] Browser LOG     Fetching packages and activities...
+[10:36:17.546] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[10:36:17.546] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/bookings","route":"/dashboard/bookings"}
+[10:36:17.546] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764759864427}
+[10:36:21.385] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[10:36:21.385] Browser WARN    Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[10:36:28.410] Browser LOG     📤 Sending update payload: {"booking_date":"2025-12-04","customer_email":"imadaitlachger@gmail.com","customer_name":"Imad ait Lachgar","deposit_amount":0,"driver_id":"d1","driver_name":"Hassan Amrani","guests_count":2,"notes":null,"package_title":"Luxe Pack - Agafay Desert | Marragafay","payment_status":"unpaid","phone":"0605372913","pickup_location":null,"pickup_time":null,"status":"pending","total_price":1600}
+[10:36:28.964] Browser ERROR   ❌ Supabase Update Error: {
+  "code": "PGRST204",
+  "details": null,
+  "hint": null,
+  "message": "Could not find the 'driver_id' column of 'bookings' in the schema cache"
+}
+[10:36:28.965] Browser ERROR   ❌ Full Error Object: {
+  "code": "PGRST204",
+  "details": null,
+  "hint": null,
+  "message": "Could not find the 'driver_id' column of 'bookings' in the schema cache"
+}
+[22:17:15.717] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764801922374}
+[22:17:20.850] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[22:17:21.087] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[22:17:21.087] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/dashboard/packages","route":"/dashboard/packages"}
+[22:17:21.087] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764801927769}
+[22:17:27.012] Browser LOG     Fetching packages and activities...
+[22:17:27.012] Browser LOG     Fetching packages and activities...
+[22:17:27.012] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764801933628}
+[22:20:23.031] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764802109701}
+[22:21:07.745] Browser LOG     Fetching packages and activities...
+[22:21:07.745] Browser LOG     Fetching packages and activities...
+[22:21:07.745] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764802154357}
+[22:23:00.383] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764802267045}
+[22:23:56.563] Browser LOG     Fetching packages and activities...
+[22:23:56.563] Browser LOG     Fetching packages and activities...
+[22:23:56.563] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/bookings color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/bookings","o":"http://localhost:3000/dashboard/bookings","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764802323171}
+[22:23:58.132] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard/packages color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard/packages","o":"http://localhost:3000/dashboard/packages","sdkn":"@vercel/analytics/next","sdkv":"1.5.0","sv":"0.1.3","ts":1764802324794}
