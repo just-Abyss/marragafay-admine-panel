@@ -1,8 +1,7 @@
 'use server'
 
 import { Resend } from 'resend'
-
-import { render } from '@react-email/render' // Trying render first, assuming v2 handles it
+import { renderAsync } from '@react-email/render' // CRITICAL: Use renderAsync for Next.js 16 App Router
 import { BookingNotificationEmail } from '@/emails/new-booking-email'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
@@ -21,87 +20,114 @@ interface BookingEmailData {
 }
 
 export async function sendBookingEmail(booking: BookingEmailData) {
-  console.log("DEBUG: SERVER ACTION STARTED - sendBookingEmail")
+  console.log("🔴 STEP 1: SERVER ACTION STARTED - sendBookingEmail")
+  console.log("🔴 STEP 2: Booking data received:", JSON.stringify(booking, null, 2))
 
-  // 1. TIMEOUT PROTECTION (5 seconds limit)
-  const timeoutPromise = new Promise((_, reject) =>
-    setTimeout(() => reject(new Error("Email process TIMEOUT")), 5000)
-  )
-
-  const emailProcess = async () => {
-    console.log("DEBUG: Checking API Key:", process.env.RESEND_API_KEY ? "EXISTS" : "MISSING")
-
-    // 2. Connectivity Check (Simple Text Email)
-    console.log("DEBUG: Sending Connectivity Check Email (Fire & Forget)...")
-    await resend.emails.send({
-      from: 'Marragafay Bookings <onboarding@resend.dev>',
-      to: ['marragafay@gmail.com'],
-      subject: 'Debug: Server Action Started',
-      text: 'The server action has successfully reached the email provider.'
-    })
-
-    // 3. Render Attempt with Logging
-    let htmlContent = ""
+  try {
+    // CRITICAL CONNECTIVITY TEST (Hardcoded as requested)
+    console.log("🔴 STEP 3: Attempting HARDCODED connectivity test...")
     try {
-      console.log("DEBUG: Attempting to RENDER template...")
-      // In v2, render might be async or sync. We await it just in case it returns a promise.
-      htmlContent = await render(
-        BookingNotificationEmail({
-          name: booking.name,
-          phone_number: booking.phone_number,
-          package_title: booking.package_title,
-          date: booking.date,
-          guests: booking.guests ?? 1,
-          adults: booking.adults ?? 1,
-          children: booking.children ?? 0,
-          total_price: booking.total_price ?? 0,
-          status: booking.status ?? 'Pending',
-          notes: booking.notes
-        })
-      )
-      console.log("DEBUG: RENDER COMPLETE. HTML Length:", htmlContent.length)
-    } catch (renderError) {
-      console.error("DEBUG: RENDER FAILED / CRASHED:", renderError)
-      throw renderError // Let fallback handle it
+      const testResult = await resend.emails.send({
+        from: 'onboarding@resend.dev',
+        to: 'imadaitlachger@gmail.com',
+        subject: 'API TEST',
+        html: '<p>Test</p>'
+      })
+      console.log("✅ STEP 3 SUCCESS: Connectivity test passed:", testResult)
+    } catch (testError) {
+      console.error("❌ STEP 3 FAILED: Connectivity test failed:", testError)
+      throw new Error("Resend API connectivity test failed")
     }
 
-    // 4. Send Email
-    console.log("DEBUG: Sending to Resend API...")
+    // Check API Key
+    console.log("🔴 STEP 4: Checking RESEND_API_KEY:", process.env.RESEND_API_KEY ? "EXISTS" : "❌ MISSING")
+    if (!process.env.RESEND_API_KEY) {
+      throw new Error("RESEND_API_KEY is not defined in environment variables")
+    }
+
+    // Sanitize booking data (convert all to strings/numbers as requested)
+    console.log("🔴 STEP 5: Sanitizing payload...")
+    const sanitizedBooking = {
+      name: String(booking.name || 'Unknown'),
+      phone_number: String(booking.phone_number || 'N/A'),
+      package_title: String(booking.package_title || 'Unknown Package'),
+      date: String(booking.date || new Date().toISOString()),
+      guests: Number(booking.guests) || 1,
+      adults: Number(booking.adults) || 1,
+      children: Number(booking.children) || 0,
+      total_price: Number(booking.total_price) || 0,
+      status: String(booking.status || 'Pending'),
+      notes: booking.notes ? String(booking.notes) : undefined
+    }
+    console.log("✅ STEP 5 SUCCESS: Payload sanitized:", sanitizedBooking)
+
+    // Render Template with ASYNC method (CRITICAL FIX)
+    console.log("🔴 STEP 6: Calling renderAsync() for email template...")
+    let htmlContent = ""
+    try {
+      htmlContent = await renderAsync(
+        BookingNotificationEmail({
+          name: sanitizedBooking.name,
+          phone_number: sanitizedBooking.phone_number,
+          package_title: sanitizedBooking.package_title,
+          date: sanitizedBooking.date,
+          guests: sanitizedBooking.guests,
+          adults: sanitizedBooking.adults,
+          children: sanitizedBooking.children,
+          total_price: sanitizedBooking.total_price,
+          status: sanitizedBooking.status,
+          notes: sanitizedBooking.notes
+        })
+      )
+      console.log("✅ STEP 6 SUCCESS: Template rendered. HTML Length:", htmlContent.length)
+    } catch (renderError) {
+      console.error("❌ STEP 6 FAILED: renderAsync crashed:", renderError)
+      throw renderError
+    }
+
+    // Send Email to ADMIN (explicitly hardcoded as requested)
+    console.log("🔴 STEP 7: Sending email to ADMIN (imadaitlachger@gmail.com)...")
     const { data, error } = await resend.emails.send({
       from: 'Marragafay Bookings <onboarding@resend.dev>',
-      to: ['marragafay@gmail.com'],
-      subject: `New Booking: ${booking.name} - ${booking.package_title}`,
+      to: ['imadaitlachger@gmail.com'], // EXPLICIT admin email as requested
+      subject: `New Booking: ${sanitizedBooking.name} - ${sanitizedBooking.package_title}`,
       html: htmlContent
     })
 
     if (error) {
-      console.error("DEBUG: Resend API responded with ERROR:", error)
+      console.error("❌ STEP 7 FAILED: Resend API returned error:", error)
       throw error
     }
 
-    console.log("DEBUG: Resend SUCCESS:", data)
+    console.log("✅ STEP 7 SUCCESS: Email sent successfully. Resend ID:", data?.id)
+    console.log("✅ ALL STEPS COMPLETE - Email system working")
     return { success: true, data }
-  }
 
-  // Execute with race
-  try {
-    return await Promise.race([emailProcess(), timeoutPromise]) as any
   } catch (err) {
-    console.error("DEBUG: Email System CRITICAL FAILURE (Timeout or Crash):", err)
+    console.error("💥 CRITICAL FAILURE - Email process crashed:", err)
+    console.error("Error details:", {
+      message: err instanceof Error ? err.message : 'Unknown error',
+      stack: err instanceof Error ? err.stack : undefined
+    })
 
-    // ABSOLUTE FALLBACK on Crash/Timeout
-    console.log("DEBUG: Attempting ABSOLUTE FALLBACK (Simple HTML)...")
+    // ABSOLUTE FALLBACK (Simple email without template)
+    console.log("🔴 FALLBACK: Attempting to send simple HTML email...")
     try {
       const { data } = await resend.emails.send({
         from: 'Marragafay Bookings <onboarding@resend.dev>',
-        to: ['marragafay@gmail.com'],
+        to: ['imadaitlachger@gmail.com'],
         subject: `New Booking (FALLBACK): ${booking.name}`,
-        html: `<p>System crashed while sending fancy email.</p><p>Booking: ${JSON.stringify(booking)}</p>`
+        html: `
+          <h2>⚠️ Email System Fallback</h2>
+          <p>The fancy template failed. Here's the raw booking data:</p>
+          <pre>${JSON.stringify(booking, null, 2)}</pre>
+          <p style="color: red;">Error: ${err instanceof Error ? err.message : 'Unknown error'}</p>
+        `
       })
-      console.log("DEBUG: Absolute Fallback Sent:", data)
-      return { success: true, data, note: "Fallback sent" }
+      console.log("✅ FALLBACK SUCCESS: Simple email sent. ID:", data?.id)
+      return { success: true, data, note: "Fallback email sent" }
     } catch (fallbackErr) {
-      console.error("DEBUG: Even fallback failed:", fallbackErr)
+      console.error("💥 FALLBACK ALSO FAILED:", fallbackErr)
       return { success: false, error: fallbackErr }
     }
   }
