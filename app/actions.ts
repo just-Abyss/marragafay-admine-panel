@@ -1,7 +1,7 @@
 'use server'
 
 import { Resend } from 'resend'
-import { renderAsync } from '@react-email/render' // CRITICAL: Use renderAsync for Next.js 16 App Router
+import { render } from '@react-email/render' // In v2.0.0, render() is already async
 import { BookingNotificationEmail } from '@/emails/new-booking-email'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
@@ -61,11 +61,11 @@ export async function sendBookingEmail(booking: BookingEmailData) {
     }
     console.log("✅ STEP 5 SUCCESS: Payload sanitized:", sanitizedBooking)
 
-    // Render Template with ASYNC method (CRITICAL FIX)
-    console.log("🔴 STEP 6: Calling renderAsync() for email template...")
+    // Render Template with ASYNC method (render() returns Promise in v2.0.0)
+    console.log("🔴 STEP 6: Calling render() for email template...")
     let htmlContent = ""
     try {
-      htmlContent = await renderAsync(
+      htmlContent = await render(
         BookingNotificationEmail({
           name: sanitizedBooking.name,
           phone_number: sanitizedBooking.phone_number,

@@ -1,6 +1,6 @@
 import { BookingNotificationEmail } from '@/emails/new-booking-email'
 import { Resend } from 'resend'
-import { renderAsync } from '@react-email/render' // CRITICAL: Use renderAsync for Next.js 16
+import { render } from '@react-email/render' // In v2.0.0, render() is already async
 import { NextResponse } from 'next/server'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
@@ -52,8 +52,8 @@ export async function POST(request: Request) {
 
     // Try sending with React Email Template using renderAsync
     try {
-      console.log("🔴 Rendering email template with renderAsync...")
-      const htmlContent = await renderAsync(
+      console.log("🔴 Rendering email template with render()...")
+      const htmlContent = await render(
         BookingNotificationEmail({
           name: sanitizedBooking.name,
           phone_number: sanitizedBooking.phone_number,
