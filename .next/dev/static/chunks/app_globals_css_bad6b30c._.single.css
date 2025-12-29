@@ -927,13 +927,6 @@
     overflow: hidden;
   }
 
-  .line-clamp-3 {
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    overflow: hidden;
-  }
-
   .block {
     display: block;
   }
@@ -2086,10 +2079,6 @@
     border-color: var(--color-gray-200);
   }
 
-  .border-gray-300 {
-    border-color: var(--color-gray-300);
-  }
-
   .border-green-200 {
     border-color: var(--color-green-200);
   }
@@ -2397,10 +2386,6 @@
 
   .bg-slate-200 {
     background-color: var(--color-slate-200);
-  }
-
-  .bg-slate-300 {
-    background-color: var(--color-slate-300);
   }
 
   .bg-transparent {
