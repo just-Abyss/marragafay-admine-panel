@@ -87,7 +87,10 @@ export function BookingKanban({ bookings, onSelect, onStatusChange }: BookingKan
                   )}
                 >
                   <div className="flex items-start justify-between mb-2">
-                    <p className="font-medium">{booking.customer_name}</p>
+                    <div>
+                      <div className="font-medium">{booking.name}</div>
+                      <div className="text-sm text-gray-500">{booking.phone_number}</div>
+                    </div>
                     <PaymentBadge status={booking.payment_status} size="sm" />
                   </div>
                   <p className="text-sm text-muted-foreground mb-3">{booking.package_title}</p>

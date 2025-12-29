@@ -113,8 +113,8 @@ export function DailyManifest({ bookings }: DailyManifestProps) {
                                     <TableRow key={booking.id} className="hover:bg-gray-50/50">
                                         <TableCell className="font-medium">{booking.pickup_time || "TBA"}</TableCell>
                                         <TableCell>
-                                            <div className="font-medium">{booking.customer_name}</div>
-                                            <div className="text-sm text-gray-500">{booking.phone}</div>
+                                            <div className="font-medium">{booking.name}</div>
+                                            <div className="text-sm text-gray-500">{booking.phone_number}</div>
                                         </TableCell>
                                         <TableCell>{booking.guests}</TableCell>
                                         <TableCell>{booking.pickup_location || "Not set"}</TableCell>

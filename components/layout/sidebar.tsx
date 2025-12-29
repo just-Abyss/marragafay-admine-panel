@@ -1,16 +1,10 @@
 "use client"
 
-import { useState } from "react" // This line is actually being removed in the chunk below, wait.
-// I need to be careful. The previous tool call removed `const [collapsed, setCollapsed] = useState(false)`.
-// But the import `  import { useState } from "react"` is still there at line 3.
-
-// Let's just remove the import and fix the type.
-// just nothing .................
-
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { useAuth } from "@/lib/auth-context"
+import { getUserDisplayName, getUserInitials, getUserRole } from "@/lib/user-utils"
 import {
   LayoutDashboard,
   Calendar,
@@ -23,6 +17,8 @@ import {
   Bike,
   FileText,
   Star,
+  DollarSign,
+  MessageSquare,
 } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
@@ -33,6 +29,7 @@ const navItems = [
   { href: "/dashboard/bookings", icon: Calendar, label: "Bookings" },
   { href: "/dashboard/packages", icon: Package, label: "Packages" },
   { href: "/dashboard/activities", icon: Bike, label: "Activities" },
+  { href: "/dashboard/reviews", icon: MessageSquare, label: "Reviews" },
   { href: "/dashboard/blog", icon: FileText, label: "Blog" },
   { href: "/dashboard/testimonials", icon: Star, label: "Testimonials" },
   { href: "/dashboard/settings", icon: Settings, label: "Settings" },
@@ -132,11 +129,11 @@ export function Sidebar({ collapsed, setCollapsed }: SidebarProps) {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Avatar className="w-10 h-10 cursor-pointer">
-                    <AvatarImage src={user?.avatar || "/placeholder.svg"} />
-                    <AvatarFallback className="bg-[#C19B76] text-white">{user?.name?.charAt(0) || "U"}</AvatarFallback>
+                    <AvatarImage src="/placeholder.svg" />
+                    <AvatarFallback className="bg-[#C19B76] text-white">{getUserInitials(user)}</AvatarFallback>
                   </Avatar>
                 </TooltipTrigger>
-                <TooltipContent side="right">{user?.name}</TooltipContent>
+                <TooltipContent side="right">{getUserDisplayName(user)}</TooltipContent>
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -156,12 +153,12 @@ export function Sidebar({ collapsed, setCollapsed }: SidebarProps) {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Avatar className="w-10 h-10">
-                  <AvatarImage src={user?.avatar || "/placeholder.svg"} />
-                  <AvatarFallback className="bg-[#C19B76] text-white">{user?.name?.charAt(0) || "U"}</AvatarFallback>
+                  <AvatarImage src="/placeholder.svg" />
+                  <AvatarFallback className="bg-[#C19B76] text-white">{getUserInitials(user)}</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col">
-                  <span className="text-sm font-medium">{user?.name}</span>
-                  <span className="text-xs text-muted-foreground capitalize">{user?.role}</span>
+                  <span className="text-sm font-medium">{getUserDisplayName(user)}</span>
+                  <span className="text-xs text-muted-foreground capitalize">{getUserRole(user)}</span>
                 </div>
               </div>
               <Button

@@ -12,11 +12,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { mockResources } from "@/lib/mock-data"
 import { useToast } from "@/hooks/use-toast"
+import { getUserDisplayName, getUserInitials, getUserRole } from "@/lib/user-utils"
 import type { Resource } from "@/lib/types"
 import { Loader2, Camera, Bell, Shield, Building, User, Lock, Package } from "lucide-react"
 
 export default function SettingsPage() {
-  const { user, isLoading, isAutoLogin, toggleAutoLogin } = useAuth()
+  const { user, isLoading } = useAuth()
   const router = useRouter()
   const { toast } = useToast()
   const [activeTab, setActiveTab] = useState("general")
@@ -213,32 +214,39 @@ export default function SettingsPage() {
               <div className="flex items-center gap-6 mb-6">
                 <div className="relative">
                   <Avatar className="w-20 h-20">
-                    <AvatarImage src={user.avatar || "/placeholder.svg"} />
-                    <AvatarFallback className="bg-[#C19B76] text-white text-2xl">{user.name.charAt(0)}</AvatarFallback>
+                    <AvatarImage src="/placeholder.svg" />
+                    <AvatarFallback className="bg-[#C19B76] text-white text-2xl">{getUserInitials(user)}</AvatarFallback>
                   </Avatar>
                   <Button size="icon" variant="secondary" className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full">
                     <Camera className="w-4 h-4" />
                   </Button>
                 </div>
                 <div>
-                  <h4 className="font-medium text-lg">{user.name}</h4>
-                  <p className="text-muted-foreground">{user.email}</p>
-                  <p className="text-sm text-[#C19B76] capitalize mt-1">{user.role}</p>
+                  <h4 className="font-medium text-lg">{getUserDisplayName(user)}</h4>
+                  <p className="text-muted-foreground">{user?.email}</p>
+                  <p className="text-sm text-[#C19B76] capitalize mt-1">{getUserRole(user)}</p>
                 </div>
               </div>
 
               <div className="grid gap-4">
                 <div className="space-y-2">
                   <Label>Full Name</Label>
-                  <Input defaultValue={user.name} className="rounded-xl border border-slate-200 bg-slate-50" />
+                  <Input
+                    defaultValue={user?.user_metadata?.full_name || getUserDisplayName(user)}
+                    className="rounded-xl border border-slate-200 bg-slate-50"
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label>Email</Label>
-                  <Input defaultValue={user.email} className="rounded-xl border border-slate-200 bg-slate-50" />
+                  <Input defaultValue={user?.email || ''} className="rounded-xl border border-slate-200 bg-slate-50" disabled />
                 </div>
                 <div className="space-y-2">
                   <Label>Phone</Label>
-                  <Input defaultValue="+212 6XX XXX XXX" className="rounded-xl border border-slate-200 bg-slate-50" />
+                  <Input
+                    defaultValue={user?.user_metadata?.phone || '+212 6XX XXX XXX'}
+                    className="rounded-xl border border-slate-200 bg-slate-50"
+                    placeholder="+212 6XX XXX XXX"
+                  />
                 </div>
               </div>
             </GlassCard>
@@ -284,19 +292,26 @@ export default function SettingsPage() {
               </div>
             </GlassCard>
 
-            {/* Developer Settings */}
+            {/* Session Info */}
             <GlassCard variant="solid">
               <div className="flex items-center gap-3 mb-6">
                 <Shield className="w-5 h-5 text-[#C19B76]" />
-                <h3 className="font-semibold text-lg">Developer Options</h3>
+                <h3 className="font-semibold text-lg">Session Information</h3>
               </div>
 
-              <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                <div>
-                  <p className="font-medium">Auto-Login Mode</p>
-                  <p className="text-sm text-muted-foreground">Skip authentication for development</p>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                  <div>
+                    <p className="font-medium">User ID</p>
+                    <p className="text-sm text-muted-foreground font-mono">{user?.id?.substring(0, 8)}...</p>
+                  </div>
                 </div>
-                <Switch checked={isAutoLogin} onCheckedChange={toggleAutoLogin} />
+                <div className="flex items-center justify-between p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                  <div>
+                    <p className="font-medium">Account Type</p>
+                    <p className="text-sm text-[#C19B76] capitalize">{getUserRole(user)}</p>
+                  </div>
+                </div>
               </div>
             </GlassCard>
 

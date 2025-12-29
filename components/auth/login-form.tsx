@@ -7,7 +7,6 @@ import { useAuth } from "@/lib/auth-context"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
 import { Compass, Loader2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -15,7 +14,7 @@ export function LoginForm() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
-  const { login, isLoading, isAutoLogin, toggleAutoLogin } = useAuth()
+  const { login, isLoading } = useAuth()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -23,7 +22,7 @@ export function LoginForm() {
 
     const success = await login(email, password)
     if (!success) {
-      setError("Invalid credentials. Please try again.")
+      setError("Invalid credentials. Please check your email and password.")
     }
   }
 
@@ -96,15 +95,11 @@ export function LoginForm() {
             </Button>
           </form>
 
-          {/* Dev Mode Toggle */}
+          {/* Help Text */}
           <div className="mt-6 pt-6 border-t border-border/50">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium">Auto-Login (Dev)</p>
-                <p className="text-xs text-muted-foreground">Skip authentication for development</p>
-              </div>
-              <Switch checked={isAutoLogin} onCheckedChange={toggleAutoLogin} />
-            </div>
+            <p className="text-xs text-muted-foreground text-center">
+              Use your admin credentials created in Supabase
+            </p>
           </div>
         </div>
 

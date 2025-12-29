@@ -8,12 +8,11 @@ import { PackageGrid } from "@/components/packages/package-grid"
 import type { Package } from "@/lib/types"
 import { Loader2 } from "lucide-react"
 import { supabase } from "@/lib/supabase"
-import { useToast } from "@/hooks/use-toast"
+import { toast } from "sonner"
 
 export default function PackagesPage() {
   const { user, isLoading } = useAuth()
   const router = useRouter()
-  const { toast } = useToast()
   const [packages, setPackages] = useState<Package[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -29,23 +28,32 @@ export default function PackagesPage() {
 
   const fetchPackages = async () => {
     try {
+      // Fetch from pricing table with type = 'pack'
       const { data, error } = await supabase
-        .from('packages')
+        .from('pricing')
         .select('*')
+        .eq('type', 'pack')
         .order('price', { ascending: true })
 
       if (error) throw error
 
       if (data) {
-        setPackages(data)
+        // Map pricing data to Package interface
+        const mappedPackages: Package[] = data.map((item) => ({
+          id: item.id,
+          title: item.name,                    // ✅ Using 'name' from database
+          description: item.description || '',
+          price: item.price,
+          duration: item.duration || 'Full Day',
+          includes: [], // Can be added later
+          is_active: true,
+          tier: 'basic' // Can be determined from price or title
+        }))
+        setPackages(mappedPackages)
       }
     } catch (error) {
       console.error('Error fetching packages:', error)
-      toast({
-        title: "Error",
-        description: "Failed to load packages",
-        variant: "destructive",
-      })
+      toast.error('Failed to load packages')
     } finally {
       setLoading(false)
     }
@@ -54,14 +62,12 @@ export default function PackagesPage() {
   const handleUpdate = async (updatedPkg: Package) => {
     try {
       const { error } = await supabase
-        .from('packages')
+        .from('pricing')
         .update({
-          title: updatedPkg.title,
-          description: updatedPkg.description,
+          name: updatedPkg.title,              // ✅ Using 'name' column
           price: updatedPkg.price,
-          duration: updatedPkg.duration,
-          includes: updatedPkg.includes,
-          is_active: updatedPkg.is_active
+          description: updatedPkg.description,
+          duration: updatedPkg.duration
         })
         .eq('id', updatedPkg.id)
 
@@ -69,17 +75,10 @@ export default function PackagesPage() {
 
       setPackages((prev) => prev.map((p) => (p.id === updatedPkg.id ? updatedPkg : p)))
 
-      toast({
-        title: "Package Updated",
-        description: `${updatedPkg.title} has been updated successfully.`,
-      })
+      toast.success(`${updatedPkg.title} has been updated successfully.`)
     } catch (error) {
       console.error('Error updating package:', error)
-      toast({
-        title: "Error",
-        description: "Failed to update package",
-        variant: "destructive",
-      })
+      toast.error('Failed to update package')
     }
   }
 

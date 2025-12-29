@@ -87,38 +87,10 @@ export function BookingsView({ initialBookings }: BookingsViewProps) {
         }
     }
 
-    const handleSaveBooking = async (updatedBooking: Booking) => {
-        try {
-            const { error } = await supabase
-                .from('bookings')
-                .update({
-                    customer_name: updatedBooking.customer_name,
-                    customer_email: updatedBooking.email,
-                    phone: updatedBooking.phone,
-                    package_title: updatedBooking.package_title,
-                    booking_date: updatedBooking.date,
-                    guests_count: updatedBooking.guests,
-                    status: updatedBooking.status,
-                    total_price: updatedBooking.total_price,
-                    notes: updatedBooking.notes,
-                    driver_id: updatedBooking.driver_id,
-                    driver_name: updatedBooking.driver_name,
-                    pickup_time: updatedBooking.pickup_time,
-                    pickup_location: updatedBooking.pickup_location,
-                    activity_type: updatedBooking.activity_type
-                })
-                .eq('id', updatedBooking.id)
-
-            if (error) throw error
-
-            setBookings((prev) => prev.map((b) => (b.id === updatedBooking.id ? updatedBooking : b)))
-            setSelectedBooking(updatedBooking)
-            toast.success("Booking updated")
-            router.refresh()
-        } catch (error) {
-            console.error('Error updating booking:', error)
-            toast.error("Failed to update booking")
-        }
+    const handleSaveBooking = (updatedBooking: Booking) => {
+        setBookings((prev) => prev.map((b) => (b.id === updatedBooking.id ? updatedBooking : b)))
+        setSelectedBooking(updatedBooking)
+        router.refresh()
     }
 
     const handleCreateBooking = (booking: Booking) => {

@@ -111,7 +111,7 @@ export function BookingCalendar({ bookings, onSelect }: BookingCalendarProps) {
                         booking.status === "cancelled" && "bg-red-100 text-red-700",
                       )}
                     >
-                      {booking.customer_name.split(" ")[0]}
+                      {booking.name.split(" ")[0]}
                     </div>
                   ))}
                   {dayBookings.length > 2 && (

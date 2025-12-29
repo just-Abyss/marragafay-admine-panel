@@ -16,6 +16,7 @@ import { Check, ChevronLeft, ChevronRight, Calendar, User, CreditCard, AlertCirc
 import { useRouter } from "next/navigation"
 import { supabase } from "@/lib/supabase"
 import { useEffect } from "react"
+import { sendBookingEmail } from "@/app/actions"
 
 interface BookingWizardProps {
   open: boolean
@@ -36,8 +37,8 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
   const { toast } = useToast()
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [packages, setPackages] = useState<{ title: string; price: number }[]>([])
-  const [activities, setActivities] = useState<{ title: string; price: number; resource_type: string }[]>([])
+  const [pricingItems, setPricingItems] = useState<{ id: string; name: string; price: number; type: string }[]>([])
+  const [drivers, setDrivers] = useState<{ id: string; name: string; vehicle: string; is_available: boolean }[]>([]) // ✅ Added drivers state
 
   const [formData, setFormData] = useState({
     // Step 1
@@ -47,9 +48,9 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
     guests: 1,
     pickup_time: "09:00",
     // Step 2
-    customer_name: "",
+    name: "",
     email: "",
-    phone: "",
+    phone_number: "",
     notes: "",
     // Step 3
     pickup_location: "",
@@ -63,62 +64,40 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log("Fetching packages and activities...")
+        const { data: pricingData, error: pricingError } = await supabase
+          .from('pricing')
+          .select('id, name, price, type')
+          .order('type', { ascending: false })
+          .order('name', { ascending: true })
 
-        // Fetch Packages
-        const { data: packagesData, error: packagesError } = await supabase
-          .from('packages')
-          .select('title, price')
-
-        if (packagesError) console.error("Error fetching packages:", packagesError)
-
-        // Fetch Activities
-        const { data: activitiesData, error: activitiesError } = await supabase
-          .from('activities')
-          .select('title, price')
-
-        if (activitiesError) console.error("Error fetching activities:", activitiesError)
-
-        // Set Data or Fallback
-        if (packagesData && packagesData.length > 0) {
-          setPackages(packagesData)
+        if (pricingError) {
+          console.error("Error fetching pricing:", pricingError)
         } else {
-          console.warn("No packages found, using fallback.")
-          setPackages([
-            { title: "Basic Discovery", price: 1500 },
-            { title: "Premium Sunset Tour", price: 4000 },
-            { title: "VIP Desert Experience", price: 6000 }
-          ])
+          setPricingItems(pricingData || [])
         }
 
-        if (activitiesData && activitiesData.length > 0) {
-          setActivities(activitiesData.map((a: any) => ({ ...a, resource_type: 'Activity' })))
+        // ✅ Fetch Drivers
+        const { data: driversData, error: driversError } = await supabase
+          .from('drivers')
+          .select('id, name, vehicle, is_available')
+          .order('name')
+
+        if (driversError) {
+          console.error("Error fetching drivers:", driversError)
         } else {
-          console.warn("No activities found, using fallback.")
-          setActivities([
-            { title: "Quad Biking", price: 500, resource_type: "quad" },
-            { title: "Camel Ride", price: 300, resource_type: "camel" }
-          ])
+          setDrivers(driversData || [])
         }
+
       } catch (err) {
         console.error("Unexpected error fetching data:", err)
-        // Fallback on crash
-        setPackages([
-          { title: "Basic Discovery", price: 1500 },
-          { title: "Premium Sunset Tour", price: 4000 },
-          { title: "VIP Desert Experience", price: 6000 }
-        ])
-        setActivities([
-          { title: "Quad Biking", price: 500, resource_type: "quad" },
-          { title: "Camel Ride", price: 300, resource_type: "camel" }
-        ])
       }
     }
     fetchData()
   }, [])
 
   // Calculate price based on selected package/activity
-  const selectedItem = [...packages, ...activities].find(i => i.title === formData.package_title)
+  // Calculate price based on selected package/activity
+  const selectedItem = pricingItems.find(i => i.name === formData.package_title)
   const pricePerPerson = selectedItem?.price || 0
   const totalPrice = pricePerPerson * formData.guests
   const remainingBalance = totalPrice - formData.amount_paid
@@ -136,7 +115,7 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
       case 1:
         return formData.date && formData.package_title && formData.activity_type && hasEnoughCapacity
       case 2:
-        return formData.customer_name && formData.email && formData.phone
+        return formData.name && formData.email && formData.phone_number
       case 3:
         return formData.pickup_location
       case 4:
@@ -157,18 +136,20 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
   const handleSubmit = async () => {
     setIsSubmitting(true)
     try {
-      const driver = mockDrivers.find((d) => d.id === formData.driver_id)
+      const driver = drivers.find((d) => d.id === formData.driver_id) // ✅ Use real drivers
       const status = formData.payment_status === 'paid' ? 'confirmed' : 'pending'
 
       const { data, error } = await supabase
         .from('bookings')
         .insert({
-          customer_name: formData.customer_name,
-          customer_email: formData.email,
-          phone: formData.phone,
+          name: formData.name,
+          email: formData.email,
+          phone_number: formData.phone_number,
           package_title: formData.package_title,
-          booking_date: formData.date,
-          guests_count: formData.guests,
+          date: formData.date,
+          guests: formData.guests,
+          adults: formData.guests,          // ✅ Default adults = guests
+          children: 0,                      // ✅ Default children = 0
           status: status,
           total_price: totalPrice,
           notes: formData.notes,
@@ -184,13 +165,15 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
 
       const newBooking: Booking = {
         id: data.id.toString(),
-        customer_name: formData.customer_name,
+        name: formData.name,
         email: formData.email,
-        phone: formData.phone,
+        phone_number: formData.phone_number,
         package_title: formData.package_title,
         status: status,
         date: formData.date,
         guests: formData.guests,
+        adults: formData.guests,           // ✅ Added
+        children: 0,                       // ✅ Added
         total_price: totalPrice,
         notes: formData.notes,
         payment_status: formData.payment_status,
@@ -210,19 +193,42 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
 
       toast({
         title: "Booking Created",
-        description: `New booking for ${formData.customer_name} has been created successfully.`,
+        description: `New booking for ${formData.name} has been created successfully.`,
+      })
+
+      // Send Email Notification (Non-blocking)
+      console.log("DEBUG: Triggering sendBookingEmail action...");
+      sendBookingEmail({
+        name: formData.name,
+        phone_number: formData.phone_number,
+        package_title: formData.package_title,
+        date: formData.date,
+        guests: formData.guests,
+        adults: formData.guests,
+        children: 0,
+        total_price: totalPrice,
+        status: status,
+        notes: formData.notes
+      }).then((res: any) => {
+        if (!res.success) {
+          console.error("Failed to send notification email (Server Action Result):", res.error)
+        } else {
+          console.log("Email sent successfully:", res.data)
+        }
+      }).catch((err) => {
+        console.error("CRITICAL: Failed to invoke Server Action:", err)
       })
 
       // Reset form
       setFormData({
         date: "",
-        package_title: "Basic Discovery",
-        activity_type: "camel",
+        package_title: "",                 // ✅ Empty default, no hardcoded title
+        activity_type: "",                 // ✅ Empty default
         guests: 1,
         pickup_time: "09:00",
-        customer_name: "",
+        name: "",
         email: "",
-        phone: "",
+        phone_number: "",
         notes: "",
         pickup_location: "",
         payment_status: "unpaid",
@@ -320,16 +326,13 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
                 <Select
                   value={formData.package_title}
                   onValueChange={(v) => {
-                    const selectedPkg = packages.find(p => p.title === v)
-                    const selectedAct = activities.find(a => a.title === v)
+                    const selected = pricingItems.find(p => p.name === v)
 
                     setFormData((prev) => ({
                       ...prev,
                       package_title: v,
-                      // Default activity type to 'camel' or whatever is appropriate, 
-                      // or we can just ignore it since we are removing the selector.
-                      // For now, let's keep it simple.
-                      activity_type: selectedAct ? selectedAct.resource_type : 'camel'
+                      // Assign a default activity type if needed
+                      activity_type: selected?.type === 'activity' ? 'activity' : 'pack'
                     }))
                   }}
                 >
@@ -337,22 +340,26 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
                     <SelectValue placeholder="Select package or activity" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectGroup>
-                      <SelectLabel>Packages</SelectLabel>
-                      {packages.map((pkg) => (
-                        <SelectItem key={pkg.title} value={pkg.title}>
-                          {pkg.title} - {pkg.price.toLocaleString()} MAD/person
-                        </SelectItem>
-                      ))}
-                    </SelectGroup>
-                    <SelectGroup>
-                      <SelectLabel>Activities</SelectLabel>
-                      {activities.map((act) => (
-                        <SelectItem key={act.title} value={act.title}>
-                          {act.title} - {act.price.toLocaleString()} MAD/person
-                        </SelectItem>
-                      ))}
-                    </SelectGroup>
+                    {pricingItems.filter(item => item.type === 'pack').length > 0 && (
+                      <SelectGroup>
+                        <SelectLabel>Packages</SelectLabel>
+                        {pricingItems.filter(item => item.type === 'pack').map((pkg) => (
+                          <SelectItem key={pkg.id} value={pkg.name}>
+                            {pkg.name} - {pkg.price.toLocaleString()} MAD/person
+                          </SelectItem>
+                        ))}
+                      </SelectGroup>
+                    )}
+                    {pricingItems.filter(item => item.type === 'activity').length > 0 && (
+                      <SelectGroup>
+                        <SelectLabel>Activities</SelectLabel>
+                        {pricingItems.filter(item => item.type === 'activity').map((act) => (
+                          <SelectItem key={act.id} value={act.name}>
+                            {act.name} - {act.price.toLocaleString()} MAD/person
+                          </SelectItem>
+                        ))}
+                      </SelectGroup>
+                    )}
                   </SelectContent>
                 </Select>
               </div>
@@ -407,8 +414,8 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
                 <Label>Customer Name *</Label>
                 <Input
                   required
-                  value={formData.customer_name}
-                  onChange={(e) => setFormData((prev) => ({ ...prev, customer_name: e.target.value }))}
+                  value={formData.name}
+                  onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
                   placeholder="Enter full name"
                   className="rounded-xl border border-slate-200 bg-slate-50 h-12"
                 />
@@ -432,8 +439,8 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
                   </Select>
                   <Input
                     required
-                    value={formData.phone}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
+                    value={formData.phone_number}
+                    onChange={(e) => setFormData((prev) => ({ ...prev, phone_number: e.target.value }))}
                     placeholder="6XX XXX XXX"
                     className="flex-1 rounded-xl border border-slate-200 bg-slate-50 h-12"
                   />
@@ -488,7 +495,7 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
               <div className="space-y-3">
                 <Label>Assign Driver (Optional)</Label>
                 <div className="space-y-2">
-                  {mockDrivers.map((driver) => (
+                  {drivers.map((driver) => (    // ✅ Use real drivers
                     <div
                       key={driver.id}
                       onClick={() => {

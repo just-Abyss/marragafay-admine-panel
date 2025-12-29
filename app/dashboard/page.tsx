@@ -10,6 +10,7 @@ import { useEffect, useState } from "react"
 import { Loader2 } from "lucide-react"
 import { supabase } from "@/lib/supabase"
 import type { DashboardStats, ScheduleItem, Booking } from "@/lib/types"
+import { getUserFirstName } from "@/lib/user-utils"
 import {
   startOfMonth, endOfMonth, subMonths,
   startOfWeek, endOfWeek, subWeeks,
@@ -45,7 +46,7 @@ export default function DashboardPage() {
         const { data: bookingsData, error } = await supabase
           .from('bookings')
           .select('*')
-          .order('booking_date', { ascending: true })
+          .order('date', { ascending: true })
 
         if (error) throw error
 
@@ -67,8 +68,8 @@ export default function DashboardPage() {
           }
 
           // 1. Revenue Trend (Current Month vs Previous Month)
-          const currentMonthBookings = bookingsData.filter(b => isInInterval(b.booking_date, currentMonthInterval))
-          const prevMonthBookings = bookingsData.filter(b => isInInterval(b.booking_date, prevMonthInterval))
+          const currentMonthBookings = bookingsData.filter(b => isInInterval(b.date, currentMonthInterval))
+          const prevMonthBookings = bookingsData.filter(b => isInInterval(b.date, prevMonthInterval))
 
           const currentMonthRevenue = currentMonthBookings.reduce((sum, b) => sum + (b.total_price || 0), 0)
           const prevMonthRevenue = prevMonthBookings.reduce((sum, b) => sum + (b.total_price || 0), 0)
@@ -83,8 +84,8 @@ export default function DashboardPage() {
             : Math.round(((currentMonthBookings.length - prevMonthBookings.length) / prevMonthBookings.length) * 100)
 
           // 3. Pending Trend (This Week vs Last Week)
-          // Using created_at if available, otherwise booking_date
-          const getRefDate = (b: Booking) => b.created_at || b.booking_date
+          // Using created_at if available, otherwise date
+          const getRefDate = (b: Booking) => b.created_at || b.date
 
           const currentWeekPending = bookingsData.filter(b =>
             b.status === 'pending' && isInInterval(getRefDate(b), currentWeekInterval)
@@ -117,18 +118,18 @@ export default function DashboardPage() {
           })
 
           // Filter Today's Schedule
-          const today = new Date().toISOString().split('T')[0]
-          const todaysBookings = bookingsData.filter(b => b.booking_date === today)
+          const compareDate = new Date().toISOString().split('T')[0]
+          const todaysBookings = bookingsData.filter(b => b.date === compareDate)
 
           const scheduleItems: ScheduleItem[] = todaysBookings.map(b => ({
             id: b.id.toString(),
             time: b.pickup_time || '09:00',
-            customer_name: b.customer_name,
+            name: b.name,
             package_title: b.package_title,
-            guests: b.guests || b.guests_count || 1,
+            guests: b.guests || 1,
             driver_name: b.driver_name || b.driver,
             pickup_location: b.pickup_location,
-            customer_phone: b.phone,
+            phone_number: b.phone_number,
             special_notes: b.notes,
             booking_id: b.id.toString(),
             activity_type: b.activity_type,
@@ -163,7 +164,7 @@ export default function DashboardPage() {
         <div className="animate-fade-in">
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">Command Center</h1>
           <p className="text-muted-foreground mt-1 text-sm sm:text-base">
-            Welcome back, {user.name.split(" ")[0]}. Here&apos;s your overview.
+            Welcome back, {getUserFirstName(user)}. Here&apos;s your overview.
           </p>
         </div>
 

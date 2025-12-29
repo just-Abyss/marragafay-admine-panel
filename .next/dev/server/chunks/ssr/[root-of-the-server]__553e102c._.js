@@ -13,14 +13,20 @@ __turbopack_context__.n(__turbopack_context__.i("[project]/app/layout.tsx [app-r
 "use strict";
 
 __turbopack_context__.s([
+    "createAuthClient",
+    ()=>createAuthClient,
     "supabase",
     ()=>supabase
 ]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$supabase$2f$ssr$2f$dist$2f$module$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/@supabase/ssr/dist/module/index.js [app-rsc] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$supabase$2f$ssr$2f$dist$2f$module$2f$createBrowserClient$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@supabase/ssr/dist/module/createBrowserClient.js [app-rsc] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$supabase$2f$supabase$2d$js$2f$dist$2f$module$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/@supabase/supabase-js/dist/module/index.js [app-rsc] (ecmascript) <locals>");
+;
 ;
 const supabaseUrl = ("TURBOPACK compile-time value", "https://bgjohquanepghmlmdiyd.supabase.co");
 const supabaseAnonKey = ("TURBOPACK compile-time value", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJnam9ocXVhbmVwZ2htbG1kaXlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM2ODI3ODIsImV4cCI6MjA3OTI1ODc4Mn0.O1II649nWTZLgChPDOhITaBd3CJaALE2DZ-otzqG4N8");
 const supabase = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$supabase$2f$supabase$2d$js$2f$dist$2f$module$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__["createClient"])(supabaseUrl, supabaseAnonKey);
+const createAuthClient = ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$supabase$2f$ssr$2f$dist$2f$module$2f$createBrowserClient$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["createBrowserClient"])(supabaseUrl, supabaseAnonKey);
 }),
 "[project]/components/bookings/bookings-view.tsx [app-rsc] (client reference proxy) <module evaluation>", ((__turbopack_context__) => {
 "use strict";
@@ -75,40 +81,51 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$bookings$2f$bo
 ;
 const dynamic = 'force-dynamic';
 async function BookingsPage() {
-    const { data: bookingsData, error } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabase$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["supabase"].from('bookings').select('id, customer_name, customer_email, phone, package_title, booking_date, guests_count, status, total_price, driver, pickup_location, payment_status, deposit_amount').order('booking_date', {
+    const { data: bookingsData, error } = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$supabase$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["supabase"].from('bookings').select('id, name, email, phone_number, package_title, date, guests, adults, children, status, total_price, notes, driver, driver_id, driver_name, pickup_location, pickup_time, payment_status, deposit_amount, amount_paid, remaining_balance, activity_type, created_at').order('date', {
         ascending: false
     });
     if (error) {
         console.error('Error fetching bookings:', error);
     }
-    const bookings = (bookingsData || []).map((row)=>({
+    // Defensive Transformation Layer
+    const bookings = (bookingsData || []).map((row)=>{
+        const adults = typeof row.adults === 'number' ? row.adults : 1;
+        const children = typeof row.children === 'number' ? row.children : 0;
+        const guests = typeof row.guests === 'number' ? row.guests : adults + children;
+        const totalPrice = Number(row.total_price) || 0;
+        const amountPaid = Number(row.amount_paid) || Number(row.deposit_amount) || 0;
+        return {
             id: row.id.toString(),
-            customer_name: row.customer_name || 'Unknown',
-            email: row.customer_email || '',
-            phone: row.phone || '',
-            package_title: row.package_title || 'Unknown Package',
+            name: row.name || 'Guest',
+            email: row.email || '',
+            // CRITICAL: Force string conversion for phone_number which comes as number from DB
+            phone_number: row.phone_number !== null && row.phone_number !== undefined ? String(row.phone_number) : '',
+            package_title: row.package_title || 'Standard Package',
             status: row.status?.toLowerCase() || 'pending',
-            date: row.booking_date || new Date().toISOString().split('T')[0],
-            guests: row.guests_count || 1,
-            total_price: row.total_price || 0,
+            date: row.date || new Date().toISOString().split('T')[0],
+            guests: guests,
+            adults: adults,
+            children: children,
+            total_price: totalPrice,
             payment_status: row.payment_status || 'unpaid',
-            amount_paid: row.deposit_amount || 0,
-            deposit_amount: row.deposit_amount || 0,
-            remaining_balance: (row.total_price || 0) - (row.deposit_amount || 0),
-            created_at: new Date().toISOString(),
-            notes: '',
-            driver_id: undefined,
-            driver_name: row.driver,
-            driver: row.driver,
-            pickup_time: undefined,
-            pickup_location: row.pickup_location,
-            activity_type: undefined
-        }));
+            amount_paid: amountPaid,
+            deposit_amount: amountPaid,
+            remaining_balance: Number(row.remaining_balance) || totalPrice - amountPaid,
+            created_at: row.created_at || new Date().toISOString(),
+            notes: row.notes || '',
+            driver_id: row.driver_id || undefined,
+            driver_name: row.driver_name || row.driver || undefined,
+            driver: row.driver_name || row.driver || undefined,
+            pickup_time: row.pickup_time || undefined,
+            pickup_location: row.pickup_location || undefined,
+            activity_type: row.activity_type || undefined
+        };
+    });
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$bookings$2f$bookings$2d$view$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["BookingsView"], {
         initialBookings: bookings
     }, void 0, false, {
         fileName: "[project]/app/dashboard/bookings/page.tsx",
-        lineNumber: 41,
+        lineNumber: 53,
         columnNumber: 10
     }, this);
 }

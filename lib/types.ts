@@ -19,15 +19,15 @@ export interface Resource {
 
 export interface Booking {
   id: string
-  customer_name: string
+  name: string
   email: string
-  phone: string
+  phone_number: string
   package_title: string
   status: "pending" | "confirmed" | "cancelled"
   date: string
-  booking_date?: string // DB field
   guests: number
-  guests_count?: number // DB field
+  adults: number
+  children: number
   total_price: number
   created_at?: string
   notes?: string
@@ -36,11 +36,11 @@ export interface Booking {
   remaining_balance: number
   driver_id?: string
   driver_name?: string
-  driver?: string // New field
+  driver?: string
   pickup_time?: string
   pickup_location?: string
   activity_type?: string
-  deposit_amount?: number // New field
+  deposit_amount?: number
 }
 
 export interface Package {
@@ -69,12 +69,12 @@ export interface DashboardStats {
 export interface ScheduleItem {
   id: string
   time: string
-  customer_name: string
+  name: string
   package_title: string
   guests: number
   driver_name?: string
   pickup_location?: string
-  customer_phone?: string
+  phone_number?: string
   special_notes?: string
   booking_id?: string
   activity_type?: string
@@ -120,4 +120,25 @@ export interface Testimonial {
   rating: number
   date: string
   status: "approved" | "pending" | "rejected"
+}
+
+export interface Pricing {
+  id: string
+  activity_name: string
+  price: number
+  currency: string
+  duration?: string
+  type: 'activity' | 'pack'
+  created_at?: string
+  updated_at?: string
+}
+
+export interface Review {
+  id: string
+  name: string
+  rating: number
+  comment: string
+  status: "approved" | "pending" | "rejected"
+  created_at: string
+  updated_at?: string
 }

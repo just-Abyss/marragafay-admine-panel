@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import type { Booking } from "@/lib/types"
+import type { Booking, Driver } from "@/lib/types"
 import { StatusBadge } from "@/components/ui/status-badge"
 import { PaymentBadge } from "@/components/ui/payment-badge"
 import { Button } from "@/components/ui/button"
@@ -9,7 +9,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
-import { mockDrivers } from "@/lib/mock-data"
 import { useToast } from "@/hooks/use-toast"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import {
@@ -51,8 +50,52 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
   const [editedBooking, setEditedBooking] = useState<Booking | null>(null)
   const [isMobile, setIsMobile] = useState(false)
   const [isSaving, setIsSaving] = useState(false)
+  const [drivers, setDrivers] = useState<Driver[]>([])
+  const [isLoadingDrivers, setIsLoadingDrivers] = useState(false)
+  const [pricingItems, setPricingItems] = useState<Array<{ id: string, name: string, price: number, type: string }>>([])  // ✅ Added
   const { toast } = useToast()
   const router = useRouter()
+
+  // Fetch drivers and pricing items from Supabase
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoadingDrivers(true)
+      try {
+        // Fetch drivers
+        const { data: driversData, error: driversError } = await supabase
+          .from('drivers')
+          .select('*')
+          .order('name')
+
+        if (driversError) {
+          console.error('Error fetching drivers:', driversError)
+        } else {
+          setDrivers(driversData || [])
+        }
+
+        // ✅ Fetch pricing items (packages + activities)
+        const { data: pricingData, error: pricingError } = await supabase
+          .from('pricing')
+          .select('id, name, price, type')
+          .order('type', { ascending: false })  // packs first
+          .order('name', { ascending: true })
+
+        if (pricingError) {
+          console.error('Error fetching pricing:', pricingError)
+        } else {
+          setPricingItems(pricingData || [])
+        }
+      } catch (err) {
+        console.error('Failed to fetch data:', err)
+      } finally {
+        setIsLoadingDrivers(false)
+      }
+    }
+
+    if (open) {
+      fetchData()
+    }
+  }, [open])
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
@@ -66,15 +109,15 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
 
   // ===== HANDLERS =====
   const handleWhatsApp = () => {
-    const phone = booking.phone.replace(/[^0-9]/g, "")
+    const phone = booking.phone_number.replace(/[^0-9]/g, "")
     const message = encodeURIComponent(
-      `Hello ${booking.customer_name}, this is Marragafay regarding your ${booking.package_title} booking on ${new Date(booking.date).toLocaleDateString()}.`,
+      `Hello ${booking.name}, this is Marragafay regarding your ${booking.package_title} booking on ${new Date(booking.date).toLocaleDateString()}.`,
     )
     window.open(`https://wa.me/${phone}?text=${message}`, "_blank")
   }
 
   const handleCall = () => {
-    window.open(`tel:${booking.phone}`, "_blank")
+    window.open(`tel:${booking.phone_number}`, "_blank")
   }
 
   const handleEditClick = () => {
@@ -99,21 +142,24 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
 
       // ===== BUILD CLEAN PAYLOAD =====
       const payload = {
-        customer_name: editedBooking.customer_name?.trim() || '',
-        customer_email: editedBooking.email?.trim() || '',
-        phone: editedBooking.phone?.trim() || '',
+        name: editedBooking.name?.trim() || '',
+        email: editedBooking.email?.trim() || '',
+        phone_number: editedBooking.phone_number?.trim() || '',
         package_title: editedBooking.package_title?.trim() || '',
-        booking_date: editedBooking.date || new Date().toISOString().split('T')[0],
-        guests_count: guestsCount,
+        date: editedBooking.date || new Date().toISOString().split('T')[0],
+        guests: (editedBooking.adults || 1) + (editedBooking.children || 0),
+        adults: editedBooking.adults || 1,
+        children: editedBooking.children || 0,
         status: editedBooking.status,
         payment_status: editedBooking.payment_status,
         total_price: totalPrice,
+        amount_paid: amountPaid,
+        remaining_balance: totalPrice - amountPaid,
         deposit_amount: amountPaid,
-        // remaining_balance is likely calculated in DB or frontend, removing to avoid schema error
-        // remaining_balance: totalPrice - amountPaid,
         notes: editedBooking.notes?.trim() || null,
         driver_id: editedBooking.driver_id || null,
         driver_name: editedBooking.driver_name?.trim() || null,
+        driver: editedBooking.driver_name?.trim() || null, // Legacy field mapping
         pickup_time: editedBooking.pickup_time || null,
         pickup_location: editedBooking.pickup_location?.trim() || null,
       }
@@ -137,7 +183,7 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
       // ===== SUCCESS: UPDATE UI =====
       toast({
         title: "✅ Booking Updated",
-        description: `Changes to ${editedBooking.customer_name}'s booking have been saved.`,
+        description: `Changes to ${editedBooking.name}'s booking have been saved.`,
       })
 
       if (onSave) {
@@ -173,7 +219,7 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
       onDelete(booking.id)
       toast({
         title: "Booking Deleted",
-        description: `${booking.customer_name}'s booking has been removed.`,
+        description: `${booking.name}'s booking has been removed.`,
         variant: "destructive",
       })
     }
@@ -238,9 +284,9 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
               <div className="space-y-3">
                 <Label className="text-xs text-gray-500 uppercase tracking-wider">Customer Name</Label>
                 <Input
-                  value={editedBooking?.customer_name || ""}
+                  value={editedBooking?.name || ""}
                   onChange={(e) =>
-                    setEditedBooking((prev) => (prev ? { ...prev, customer_name: e.target.value } : null))
+                    setEditedBooking((prev) => (prev ? { ...prev, name: e.target.value } : null))
                   }
                   className="text-xl font-bold rounded-xl border-gray-200 bg-gray-50 h-12"
                 />
@@ -249,14 +295,14 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
               <div className="flex items-center gap-4">
                 <Avatar className="w-16 h-16 border-2 border-white shadow-lg">
                   <AvatarFallback className="bg-[#C19B76] text-white text-xl font-semibold">
-                    {getInitials(currentBooking.customer_name)}
+                    {getInitials(currentBooking.name)}
                   </AvatarFallback>
                 </Avatar>
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-3xl font-bold text-gray-900">{pickupTimeDisplay}</span>
                   </div>
-                  <h2 className="text-xl font-semibold text-gray-900">{currentBooking.customer_name}</h2>
+                  <h2 className="text-xl font-semibold text-gray-900">{currentBooking.name}</h2>
                   <div className="flex items-center gap-2 mt-2">
                     <StatusBadge status={currentBooking.status} />
                     <PaymentBadge status={currentBooking.payment_status} />
@@ -283,8 +329,8 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                     <div>
                       <Label className="text-xs text-gray-500">Phone</Label>
                       <Input
-                        value={editedBooking?.phone || ""}
-                        onChange={(e) => setEditedBooking((prev) => (prev ? { ...prev, phone: e.target.value } : null))}
+                        value={editedBooking?.phone_number || ""}
+                        onChange={(e) => setEditedBooking((prev) => (prev ? { ...prev, phone_number: e.target.value } : null))}
                         className="mt-1 rounded-xl border-gray-200 bg-gray-50 h-11"
                       />
                     </div>
@@ -297,7 +343,7 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                     </div>
                     <div className="flex items-center px-4 py-3.5 min-h-[52px]">
                       <Phone className="w-5 h-5 text-gray-400 mr-4 flex-shrink-0" />
-                      <span className="text-gray-900 text-[15px]">{currentBooking.phone}</span>
+                      <span className="text-gray-900 text-[15px]">{currentBooking.phone_number}</span>
                     </div>
                   </>
                 )}
@@ -310,20 +356,46 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                 {isEditMode ? (
                   <div className="p-4 space-y-3">
                     <div>
-                      <Label className="text-xs text-gray-500">Package</Label>
+                      <Label className="text-xs text-gray-500">Package / Activity</Label>
                       <Select
                         value={editedBooking?.package_title}
-                        onValueChange={(value) =>
-                          setEditedBooking((prev) => (prev ? { ...prev, package_title: value } : null))
-                        }
+                        onValueChange={(value) => {
+                          const selected = pricingItems.find(item => item.name === value)
+                          const totalPrice = selected ? selected.price * (editedBooking?.guests || 1) : editedBooking?.total_price || 0
+                          setEditedBooking((prev) => prev ? {
+                            ...prev,
+                            package_title: value,
+                            total_price: totalPrice
+                          } : null)
+                        }}
                       >
                         <SelectTrigger className="mt-1 rounded-xl border-gray-200 bg-gray-50 h-11">
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="Basic Discovery">Basic Discovery</SelectItem>
-                          <SelectItem value="Premium Sunset Tour">Premium Sunset Tour</SelectItem>
-                          <SelectItem value="VIP Desert Experience">VIP Desert Experience</SelectItem>
+                          {/* Packages Group */}
+                          {pricingItems.filter(item => item.type === 'pack').length > 0 && (
+                            <>
+                              <div className="px-2 py-1.5 text-xs font-semibold text-[#C19B76]">Packages</div>
+                              {pricingItems.filter(item => item.type === 'pack').map((item) => (
+                                <SelectItem key={item.id} value={item.name}>
+                                  {item.name} - {item.price.toLocaleString()} MAD/person
+                                </SelectItem>
+                              ))}
+                            </>
+                          )}
+
+                          {/* Activities Group */}
+                          {pricingItems.filter(item => item.type === 'activity').length > 0 && (
+                            <>
+                              <div className="px-2 py-1.5 text-xs font-semibold text-[#C19B76]">Activities</div>
+                              {pricingItems.filter(item => item.type === 'activity').map((item) => (
+                                <SelectItem key={item.id} value={item.name}>
+                                  {item.name} - {item.price.toLocaleString()} MAD/person
+                                </SelectItem>
+                              ))}
+                            </>
+                          )}
                         </SelectContent>
                       </Select>
                     </div>
@@ -351,19 +423,43 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                         />
                       </div>
                     </div>
-                    <div>
-                      <Label className="text-xs text-gray-500">Guests</Label>
-                      <Input
-                        type="number"
-                        min="1"
-                        value={editedBooking?.guests || 1}
-                        onChange={(e) =>
-                          setEditedBooking((prev) =>
-                            prev ? { ...prev, guests: Number.parseInt(e.target.value) || 1 } : null,
-                          )
-                        }
-                        className="mt-1 rounded-xl border-gray-200 bg-gray-50 h-11"
-                      />
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <Label className="text-xs text-gray-500">Adults</Label>
+                        <Input
+                          type="number"
+                          min="1"
+                          value={editedBooking?.adults || 1}
+                          onChange={(e) => {
+                            const val = parseInt(e.target.value) || 1
+                            const newGuests = val + (editedBooking?.children || 0)
+                            const selected = pricingItems.find(item => item.name === editedBooking?.package_title)
+                            const totalPrice = selected ? selected.price * newGuests : editedBooking?.total_price || 0
+                            setEditedBooking((prev) =>
+                              prev ? { ...prev, adults: val, guests: newGuests, total_price: totalPrice } : null,
+                            )
+                          }}
+                          className="mt-1 rounded-xl border-gray-200 bg-gray-50 h-11"
+                        />
+                      </div>
+                      <div>
+                        <Label className="text-xs text-gray-500">Children</Label>
+                        <Input
+                          type="number"
+                          min="0"
+                          value={editedBooking?.children || 0}
+                          onChange={(e) => {
+                            const val = parseInt(e.target.value) || 0
+                            const newGuests = (editedBooking?.adults || 1) + val
+                            const selected = pricingItems.find(item => item.name === editedBooking?.package_title)
+                            const totalPrice = selected ? selected.price * newGuests : editedBooking?.total_price || 0
+                            setEditedBooking((prev) =>
+                              prev ? { ...prev, children: val, guests: newGuests, total_price: totalPrice } : null,
+                            )
+                          }}
+                          className="mt-1 rounded-xl border-gray-200 bg-gray-50 h-11"
+                        />
+                      </div>
                     </div>
                     <div>
                       <Label className="text-xs text-gray-500">Pickup Location</Label>
@@ -408,24 +504,26 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                       <Select
                         value={editedBooking?.driver_id || "none"}
                         onValueChange={(value) => {
-                          const driver = mockDrivers.find((d) => d.id === value)
+                          const driver = drivers.find((d) => d.id === value)
                           setEditedBooking((prev) =>
                             prev
                               ? {
                                 ...prev,
                                 driver_id: value === "none" ? undefined : value,
                                 driver_name: driver?.name || undefined,
+                                driver: driver?.name || undefined,
                               }
                               : null,
                           )
                         }}
+                        disabled={isLoadingDrivers}
                       >
                         <SelectTrigger className="mt-1 rounded-xl border-gray-200 bg-gray-50 h-11">
-                          <SelectValue placeholder="Select driver" />
+                          <SelectValue placeholder={isLoadingDrivers ? "Loading drivers..." : "Select driver"} />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="none">No driver</SelectItem>
-                          {mockDrivers
+                          {drivers
                             .filter((d) => d.is_available)
                             .map((driver) => (
                               <SelectItem key={driver.id} value={driver.id}>
@@ -434,6 +532,9 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                             ))}
                         </SelectContent>
                       </Select>
+                      {drivers.length === 0 && !isLoadingDrivers && (
+                        <p className="text-xs text-amber-600 mt-1">No drivers available. Add drivers in the database.</p>
+                      )}
                     </div>
                   </div>
                 ) : (
@@ -472,7 +573,9 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                         <Users className="w-5 h-5 text-gray-400 mr-4 flex-shrink-0" />
                         <span className="text-gray-500 text-[15px]">Guests</span>
                       </div>
-                      <span className="text-gray-900 font-medium text-[15px]">{currentBooking.guests} people</span>
+                      <span className="text-gray-900 font-medium text-[15px]">
+                        {currentBooking.guests} ({currentBooking.adults || 1} Ad, {currentBooking.children || 0} Ch)
+                      </span>
                     </div>
                     <div className="flex items-center justify-between px-4 py-3.5 min-h-[52px]">
                       <div className="flex items-center">
@@ -723,8 +826,8 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                     doc.setTextColor(0)
                     doc.text("Client Details", 14, 55)
                     doc.setFontSize(10)
-                    doc.text(`Name: ${currentBooking.customer_name || "N/A"}`, 14, 62)
-                    doc.text(`Phone: ${currentBooking.phone || "N/A"}`, 14, 67)
+                    doc.text(`Name: ${currentBooking.name || "N/A"}`, 14, 62)
+                    doc.text(`Phone: ${currentBooking.phone_number || "N/A"}`, 14, 67)
                     doc.text(`Email: ${currentBooking.email || "N/A"}`, 14, 72)
 
                     // Trip Details
@@ -771,7 +874,7 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                     doc.text("Please present this voucher to your driver.", 105, pageHeight - 20, { align: "center" })
                     doc.text("Need help? Contact +212 600 000 000", 105, pageHeight - 15, { align: "center" })
 
-                    const safeName = (currentBooking.customer_name || "client").replace(/[^a-z0-9]/gi, '_').toLowerCase()
+                    const safeName = (currentBooking.name || "client").replace(/[^a-z0-9]/gi, '_').toLowerCase()
                     doc.save(`Marragafay-Ticket-${safeName}.pdf`)
 
                     toast({

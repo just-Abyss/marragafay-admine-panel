@@ -1,87 +1,124 @@
 "use client"
 
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+import { createAuthClient } from "./supabase"
+import type { User as SupabaseUser } from "@supabase/supabase-js"
+import { useRouter } from "next/navigation"
 
 interface User {
   id: string
-  name: string
   email: string
-  avatar?: string
-  role: "admin" | "manager"
+  role?: string
+  user_metadata?: {
+    full_name?: string
+    name?: string
+    phone?: string
+    [key: string]: any
+  }
 }
 
 interface AuthContextType {
   user: User | null
   isLoading: boolean
-  isAutoLogin: boolean
   login: (email: string, password: string) => Promise<boolean>
-  logout: () => void
-  toggleAutoLogin: () => void
+  logout: () => Promise<void>
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
-const mockUser: User = {
-  id: "1",
-  name: "Sarah Mitchell",
-  email: "sarah@marragafay.com",
-  role: "admin",
-}
-
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [isLoading, setIsLoading] = useState(true)
-  const [isAutoLogin, setIsAutoLogin] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
-    // Check for stored auth state
-    const stored = localStorage.getItem("marragafay_auth")
-    const autoLogin = localStorage.getItem("marragafay_auto_login") === "true"
+    const supabase = createAuthClient()
 
-    setIsAutoLogin(autoLogin)
+    // Check active session
+    const initializeAuth = async () => {
+      try {
+        const { data: { session } } = await supabase.auth.getSession()
 
-    if (stored || autoLogin) {
-      setUser(mockUser)
+        if (session?.user) {
+          setUser({
+            id: session.user.id,
+            email: session.user.email!,
+            role: session.user.user_metadata?.role || 'admin'
+          })
+        }
+      } catch (error) {
+        console.error('Error initializing auth:', error)
+      } finally {
+        setIsLoading(false)
+      }
     }
 
-    setIsLoading(false)
+    initializeAuth()
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (session?.user) {
+        setUser({
+          id: session.user.id,
+          email: session.user.email!,
+          role: session.user.user_metadata?.role || 'admin'
+        })
+      } else {
+        setUser(null)
+      }
+
+      setIsLoading(false)
+    })
+
+    return () => {
+      subscription.unsubscribe()
+    }
   }, [])
 
   const login = async (email: string, password: string): Promise<boolean> => {
     setIsLoading(true)
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 800))
 
-    // Mock validation
-    if (email && password.length >= 4) {
-      setUser(mockUser)
-      localStorage.setItem("marragafay_auth", "true")
+    try {
+      const supabase = createAuthClient()
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+
+      if (error) {
+        console.error('Login error:', error.message)
+        setIsLoading(false)
+        return false
+      }
+
+      if (data.user) {
+        setUser({
+          id: data.user.id,
+          email: data.user.email!,
+          role: data.user.user_metadata?.role || 'admin'
+        })
+        setIsLoading(false)
+        return true
+      }
+
       setIsLoading(false)
-      return true
+      return false
+    } catch (error) {
+      console.error('Login exception:', error)
+      setIsLoading(false)
+      return false
     }
-
-    setIsLoading(false)
-    return false
   }
 
-  const logout = () => {
+  const logout = async () => {
+    const supabase = createAuthClient()
+    await supabase.auth.signOut()
     setUser(null)
-    localStorage.removeItem("marragafay_auth")
-  }
-
-  const toggleAutoLogin = () => {
-    const newValue = !isAutoLogin
-    setIsAutoLogin(newValue)
-    localStorage.setItem("marragafay_auto_login", String(newValue))
-
-    if (newValue && !user) {
-      setUser(mockUser)
-      localStorage.setItem("marragafay_auth", "true")
-    }
+    router.push('/')
   }
 
   return (
-    <AuthContext.Provider value={{ user, isLoading, isAutoLogin, login, logout, toggleAutoLogin }}>
+    <AuthContext.Provider value={{ user, isLoading, login, logout }}>
       {children}
     </AuthContext.Provider>
   )

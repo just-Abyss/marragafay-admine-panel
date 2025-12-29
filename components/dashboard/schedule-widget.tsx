@@ -75,7 +75,7 @@ export function ScheduleWidget({ schedule }: ScheduleWidgetProps) {
                 <div className="text-lg font-semibold text-[#C19B76]">{item.time}</div>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-medium truncate">{item.customer_name}</p>
+                <p className="font-medium truncate">{item.name}</p>
                 <p className="text-sm text-muted-foreground truncate">{item.package_title}</p>
               </div>
               <div className="flex items-center gap-2">
@@ -124,14 +124,14 @@ export function ScheduleWidget({ schedule }: ScheduleWidgetProps) {
                   <div className="flex items-center gap-4">
                     <Avatar className="w-16 h-16 border-2 border-white shadow-lg">
                       <AvatarFallback className="bg-[#C19B76] text-white text-xl font-semibold">
-                        {getInitials(selectedItem.customer_name)}
+                        {getInitials(selectedItem.name)}
                       </AvatarFallback>
                     </Avatar>
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
                         <span className="text-3xl font-bold text-gray-900">{selectedItem.time}</span>
                       </div>
-                      <h2 className="text-xl font-semibold text-gray-900">{selectedItem.customer_name}</h2>
+                      <h2 className="text-xl font-semibold text-gray-900">{selectedItem.name}</h2>
                       <p className="text-gray-500 text-sm mt-0.5">{selectedItem.package_title}</p>
                     </div>
                   </div>
@@ -143,27 +143,27 @@ export function ScheduleWidget({ schedule }: ScheduleWidgetProps) {
                     <h4 className="text-xs font-medium text-gray-500 uppercase tracking-wider px-1">Payment Status</h4>
                     <div
                       className={`rounded-2xl shadow-sm p-4 ${selectedItem.payment_status === "paid"
-                          ? "bg-emerald-50 border border-emerald-200"
-                          : selectedItem.payment_status === "deposit"
-                            ? "bg-amber-50 border border-amber-200"
-                            : "bg-red-50 border border-red-200"
+                        ? "bg-emerald-50 border border-emerald-200"
+                        : selectedItem.payment_status === "deposit"
+                          ? "bg-amber-50 border border-amber-200"
+                          : "bg-red-50 border border-red-200"
                         }`}
                     >
                       <div className="flex items-center gap-3">
                         <Banknote
                           className={`w-5 h-5 ${selectedItem.payment_status === "paid"
-                              ? "text-emerald-600"
-                              : selectedItem.payment_status === "deposit"
-                                ? "text-amber-600"
-                                : "text-red-600"
+                            ? "text-emerald-600"
+                            : selectedItem.payment_status === "deposit"
+                              ? "text-amber-600"
+                              : "text-red-600"
                             }`}
                         />
                         <span
                           className={`font-semibold ${selectedItem.payment_status === "paid"
-                              ? "text-emerald-700"
-                              : selectedItem.payment_status === "deposit"
-                                ? "text-amber-700"
-                                : "text-red-700"
+                            ? "text-emerald-700"
+                            : selectedItem.payment_status === "deposit"
+                              ? "text-amber-700"
+                              : "text-red-700"
                             }`}
                         >
                           {selectedItem.payment_status === "paid"
@@ -205,7 +205,7 @@ export function ScheduleWidget({ schedule }: ScheduleWidgetProps) {
                           <span className="text-gray-500 text-[15px]">Client Phone</span>
                         </div>
                         <span className="text-gray-900 font-medium text-[15px]">
-                          {selectedItem.customer_phone || "N/A"}
+                          {selectedItem.phone_number || "N/A"}
                         </span>
                       </div>
                       <div className="flex items-center justify-between px-4 py-3.5 min-h-[52px]">
@@ -239,8 +239,8 @@ export function ScheduleWidget({ schedule }: ScheduleWidgetProps) {
               <div className="flex gap-3">
                 <Button
                   onClick={() => {
-                    if (selectedItem.customer_phone) {
-                      handleWhatsApp(selectedItem.customer_phone, selectedItem.customer_name)
+                    if (selectedItem.phone_number) {
+                      handleWhatsApp(selectedItem.phone_number, selectedItem.name)
                     }
                   }}
                   className="flex-1 rounded-xl h-14 bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-[15px]"
@@ -250,8 +250,8 @@ export function ScheduleWidget({ schedule }: ScheduleWidgetProps) {
                 </Button>
                 <Button
                   onClick={() => {
-                    if (selectedItem.customer_phone) {
-                      handleCall(selectedItem.customer_phone)
+                    if (selectedItem.phone_number) {
+                      handleCall(selectedItem.phone_number)
                     }
                   }}
                   variant="outline"

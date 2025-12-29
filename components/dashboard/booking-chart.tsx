@@ -18,11 +18,11 @@ export function BookingChart({ bookings }: BookingChartProps) {
 
     return days.map((day) => {
       const count = bookings.filter((booking) => {
-        if (!booking.booking_date) return false
+        if (!booking.date) return false
         // Handle both ISO string and YYYY-MM-DD format
-        const bookingDate = typeof booking.booking_date === 'string'
-          ? parseISO(booking.booking_date)
-          : new Date(booking.booking_date)
+        const bookingDate = typeof booking.date === 'string'
+          ? parseISO(booking.date)
+          : new Date(booking.date)
         return isSameDay(bookingDate, day)
       }).length
 
