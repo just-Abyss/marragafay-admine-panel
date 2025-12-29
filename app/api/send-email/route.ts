@@ -1,124 +1,203 @@
-import { BookingNotificationEmail } from '@/emails/new-booking-email'
 import { Resend } from 'resend'
-import { render } from '@react-email/render' // In v2.0.0, render() is already async
 import { NextResponse } from 'next/server'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(request: Request) {
-  console.log("🔴 API ROUTE STARTED: /api/send-email")
+  console.log("🔴 API Route Started: /api/send-email")
 
   try {
     const booking = await request.json()
-    console.log("🔴 Booking data received:", JSON.stringify(booking, null, 2))
+    console.log("📥 Received booking data:", JSON.stringify(booking, null, 2))
 
-    // Basic validation
+    // Validate required fields
     if (!booking.name || !booking.package_title) {
-      console.error("❌ Validation failed: Missing required fields")
+      console.error("❌ Missing required fields")
       return NextResponse.json(
-        { error: 'Missing required booking fields (name, package_title)' },
+        { error: 'Missing required fields: name and package_title' },
         { status: 400 }
       )
     }
 
-    // HARDCODED CONNECTIVITY TEST
-    console.log("🔴 Running connectivity test...")
-    try {
-      const testResult = await resend.emails.send({
-        from: 'onboarding@resend.dev',
-        to: 'imadaitlachger@gmail.com',
-        subject: 'API TEST (from API route)',
-        html: '<p>API Route Test</p>'
-      })
-      console.log("✅ Connectivity test passed:", testResult)
-    } catch (testError) {
-      console.error("❌ Connectivity test failed:", testError)
-    }
+    // Sanitize data
+    const name = String(booking.name || 'Unknown Customer')
+    const phone = String(booking.phone_number || 'N/A')
+    const phoneClean = phone.replace(/[^0-9]/g, '')
+    const packageTitle = String(booking.package_title || 'Unknown Package')
+    const date = String(booking.date || new Date().toISOString().split('T')[0])
+    const guests = Number(booking.guests) || 1
+    const price = Number(booking.total_price) || 0
+    const status = String(booking.status || 'Pending').toUpperCase()
+    const notes = booking.notes ? String(booking.notes) : ''
 
-    // Sanitize booking data
-    console.log("🔴 Sanitizing payload...")
-    const sanitizedBooking = {
-      name: String(booking.name || 'Unknown'),
-      phone_number: String(booking.phone_number || 'N/A'),
-      package_title: String(booking.package_title || 'Unknown Package'),
-      date: String(booking.date || new Date().toISOString()),
-      guests: Number(booking.guests) || 1,
-      adults: Number(booking.adults) || Number(booking.guests) || 1,
-      children: Number(booking.children) || 0,
-      total_price: Number(booking.total_price) || 0,
-      status: String(booking.status || 'pending'),
-      notes: booking.notes ? String(booking.notes) : undefined
-    }
-
-    // Try sending with React Email Template using renderAsync
+    // Format date
+    let formattedDate = date
     try {
-      console.log("🔴 Rendering email template with render()...")
-      const htmlContent = await render(
-        BookingNotificationEmail({
-          name: sanitizedBooking.name,
-          phone_number: sanitizedBooking.phone_number,
-          package_title: sanitizedBooking.package_title,
-          date: sanitizedBooking.date,
-          guests: sanitizedBooking.guests,
-          adults: sanitizedBooking.adults,
-          children: sanitizedBooking.children,
-          total_price: sanitizedBooking.total_price,
-          status: sanitizedBooking.status,
-          notes: sanitizedBooking.notes
+      const d = new Date(date)
+      if (!isNaN(d.getTime())) {
+        formattedDate = d.toLocaleDateString('en-US', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
         })
-      )
-      console.log("✅ Template rendered successfully. Length:", htmlContent.length)
-
-      console.log("🔴 Sending email to imadaitlachger@gmail.com...")
-      const { data, error } = await resend.emails.send({
-        from: 'Marragafay Bookings <onboarding@resend.dev>',
-        to: ['imadaitlachger@gmail.com'], // Explicit admin email
-        subject: `New Public Booking: ${sanitizedBooking.name} - ${sanitizedBooking.package_title}`,
-        html: htmlContent
-      })
-
-      if (error) {
-        console.error("❌ Resend API error:", error)
-        throw error
       }
-
-      console.log("✅ Email sent successfully. ID:", data?.id)
-      return NextResponse.json({ success: true, data })
-
-    } catch (reactError) {
-      console.error("❌ React email failed, using fallback...", reactError)
-
-      // Fallback to basic HTML
-      console.log("🔴 Sending fallback HTML email...")
-      const { data, error } = await resend.emails.send({
-        from: 'Marragafay Bookings <onboarding@resend.dev>',
-        to: ['imadaitlachger@gmail.com'],
-        subject: `New Public Booking: ${sanitizedBooking.name} - ${sanitizedBooking.package_title} (Fallback)`,
-        html: `
-          <h1>New Public Booking</h1>
-          <p><strong>Customer:</strong> ${sanitizedBooking.name}</p>
-          <p><strong>Phone:</strong> ${sanitizedBooking.phone_number}</p>
-          <p><strong>Package:</strong> ${sanitizedBooking.package_title}</p>
-          <p><strong>Date:</strong> ${sanitizedBooking.date}</p>
-          <p><strong>Guests:</strong> ${sanitizedBooking.guests}</p>
-          <p><strong>Total Price:</strong> ${sanitizedBooking.total_price} MAD</p>
-          ${sanitizedBooking.notes ? `<p><strong>Notes:</strong> ${sanitizedBooking.notes}</p>` : ''}
-          <p style="color: red; font-size: 12px;">Note: The fancy email template failed to render.</p>
-        `
-      })
-
-      if (error) {
-        console.error("❌ Fallback email also failed:", error)
-        return NextResponse.json({ error }, { status: 500 })
-      }
-
-      console.log("✅ Fallback email sent. ID:", data?.id)
-      return NextResponse.json({ success: true, data })
+    } catch (e) {
+      // Use raw date if formatting fails
     }
+
+    const formattedPrice = `${price.toLocaleString()} MAD`
+
+    // Simple HTML Email
+    const htmlEmail = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Public Booking - ${name}</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f5f5f5;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5; padding: 40px 20px;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+          
+          <!-- Header -->
+          <tr>
+            <td style="background-color: #C19B76; padding: 30px 40px; border-radius: 12px 12px 0 0; text-align: center;">
+              <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: bold; letter-spacing: 2px;">MARRAGAFAY</h1>
+              <p style="margin: 10px 0 0; color: #ffffff; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">New Public Booking</p>
+            </td>
+          </tr>
+
+          <!-- Booking Details -->
+          <tr>
+            <td style="padding: 40px;">
+              <table width="100%" cellpadding="8" cellspacing="0" style="border-collapse: collapse;">
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
+                    <strong style="color: #b0b0b0; font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Customer Name</strong><br>
+                    <span style="font-size: 16px; color: #333333; font-weight: 600;">${name}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
+                    <strong style="color: #b0b0b0; font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Phone Number</strong><br>
+                    <span style="font-size: 16px; color: #333333;">${phone}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
+                    <strong style="color: #b0b0b0; font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Package</strong><br>
+                    <span style="font-size: 16px; color: #333333; font-weight: 600;">${packageTitle}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
+                    <strong style="color: #b0b0b0; font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Date</strong><br>
+                    <span style="font-size: 16px; color: #333333;">${formattedDate}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
+                    <strong style="color: #b0b0b0; font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Guests</strong><br>
+                    <span style="font-size: 16px; color: #333333;">${guests} ${guests === 1 ? 'Person' : 'People'}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
+                    <strong style="color: #b0b0b0; font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Total Price</strong><br>
+                    <span style="font-size: 24px; color: #C19B76; font-weight: bold;">${formattedPrice}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0;">
+                    <strong style="color: #b0b0b0; font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Status</strong><br>
+                    <span style="display: inline-block; background-color: #f0fdf4; color: #166534; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-top: 5px;">${status}</span>
+                  </td>
+                </tr>
+                ${notes ? `
+                <tr>
+                  <td style="padding: 20px; background-color: #fdf8f4; border-radius: 8px; margin-top: 15px;">
+                    <strong style="color: #b0b0b0; font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Special Notes</strong><br>
+                    <span style="font-size: 14px; color: #666666; font-style: italic; margin-top: 5px; display: block;">${notes}</span>
+                  </td>
+                </tr>
+                ` : ''}
+              </table>
+
+              <!-- Action Buttons -->
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-top: 30px;">
+                <tr>
+                  <td align="center" style="padding: 10px;">
+                    <a href="tel:${phone}" style="display: inline-block; background-color: #C19B76; color: #ffffff; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-weight: bold; font-size: 14px; margin: 5px;">
+                      📞 Call Customer
+                    </a>
+                  </td>
+                  <td align="center" style="padding: 10px;">
+                    <a href="https://wa.me/${phoneClean}" style="display: inline-block; background-color: #25D366; color: #ffffff; text-decoration: none; padding: 14px 30px; border-radius: 8px; font-weight: bold; font-size: 14px; margin: 5px;">
+                      💬 WhatsApp
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Dashboard Link -->
+              <div style="text-align: center; margin-top: 20px;">
+                <a href="https://marragafay-admin.vercel.app/dashboard/bookings" style="color: #C19B76; text-decoration: none; font-size: 14px; font-weight: 500;">
+                  View in Dashboard →
+                </a>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding: 30px 40px; border-top: 1px solid #f0f0f0; text-align: center;">
+              <p style="margin: 0; font-size: 12px; color: #999999; line-height: 1.6;">
+                Marragafay Travels<br>
+                Marrakech, Morocco<br>
+                <a href="https://marragafay.com" style="color: #999999; text-decoration: underline;">www.marragafay.com</a>
+              </p>
+              <p style="margin: 10px 0 0; font-size: 10px; color: #cccccc;">
+                © ${new Date().getFullYear()} Marragafay. All rights reserved.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+    `
+
+    console.log("🔴 Sending email via Resend API...")
+    console.log("📧 Recipient: imadaitlachger@gmail.com")
+
+    const { data, error } = await resend.emails.send({
+      from: 'Marragafay Bookings <onboarding@resend.dev>',
+      to: ['imadaitlachger@gmail.com'],
+      subject: `New Public Booking: ${name} - ${packageTitle}`,
+      html: htmlEmail
+    })
+
+    if (error) {
+      console.error("❌ Resend API Error:", error)
+      return NextResponse.json({ error }, { status: 500 })
+    }
+
+    console.log("✅ SUCCESS: Email sent to Resend API")
+    console.log("✅ Email ID:", data?.id)
+
+    return NextResponse.json({ success: true, data })
+
   } catch (error) {
     console.error("💥 API Route Exception:", error)
     return NextResponse.json({
-      error: 'Internal Server Error',
+      error: 'Failed to send email',
       details: error instanceof Error ? error.message : 'Unknown error'
     }, { status: 500 })
   }
