@@ -1547,6 +1547,10 @@
     max-width: var(--container-4xl);
   }
 
+  .max-w-\[150px\] {
+    max-width: 150px;
+  }
+
   .max-w-\[calc\(100\%-2rem\)\] {
     max-width: calc(100% - 2rem);
   }
@@ -3953,6 +3957,18 @@
     @supports (color: color-mix(in lab, red, red)) {
       .hover\:bg-amber-500\/20:hover {
         background-color: color-mix(in oklab, var(--color-amber-500) 20%, transparent);
+      }
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:bg-destructive\/10:hover {
+      background-color: var(--destructive);
+    }
+
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:bg-destructive\/10:hover {
+        background-color: color-mix(in oklab, var(--destructive) 10%, transparent);
       }
     }
   }

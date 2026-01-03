@@ -13,7 +13,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { mockBlogPosts } from "@/lib/mock-data"
 import type { BlogPost } from "@/lib/types"
-import { Loader2, Edit, Calendar, User, Save, X, Plus } from "lucide-react"
+import { Loader2, Edit, Calendar, User, Save, X, Plus, Trash2 } from "lucide-react"
+import { toast } from "sonner"
 import { cn } from "@/lib/utils"
 
 export default function BlogPage() {
@@ -39,6 +40,14 @@ export default function BlogPage() {
       setPosts((prev) => prev.map((p) => (p.id === editingPost.id ? editingPost : p)))
       setEditDialogOpen(false)
       setEditingPost(null)
+      toast.success("Post saved successfully")
+    }
+  }
+
+  const handleDelete = (id: string) => {
+    if (window.confirm("Are you sure you want to delete this post?")) {
+      setPosts((prev) => prev.filter((p) => p.id !== id))
+      toast.success("Post deleted successfully")
     }
   }
 
@@ -125,6 +134,14 @@ export default function BlogPage() {
                       <Button variant="ghost" size="sm" className="rounded-xl" onClick={() => handleEdit(post)}>
                         <Edit className="w-4 h-4 mr-1" />
                         Edit
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="rounded-xl text-destructive hover:text-destructive hover:bg-destructive/10 ml-1"
+                        onClick={() => handleDelete(post.id)}
+                      >
+                        <Trash2 className="w-4 h-4" />
                       </Button>
                     </td>
                   </tr>

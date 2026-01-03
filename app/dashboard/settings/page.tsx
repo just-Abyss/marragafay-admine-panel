@@ -11,7 +11,7 @@ import { Switch } from "@/components/ui/switch"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { mockResources } from "@/lib/mock-data"
-import { useToast } from "@/hooks/use-toast"
+import { toast } from "sonner"
 import { getUserDisplayName, getUserInitials, getUserRole } from "@/lib/user-utils"
 import type { Resource } from "@/lib/types"
 import { Loader2, Camera, Bell, Shield, Building, User, Lock, Package } from "lucide-react"
@@ -19,7 +19,6 @@ import { Loader2, Camera, Bell, Shield, Building, User, Lock, Package } from "lu
 export default function SettingsPage() {
   const { user, isLoading } = useAuth()
   const router = useRouter()
-  const { toast } = useToast()
   const [activeTab, setActiveTab] = useState("general")
   const [resources, setResources] = useState<Resource[]>(mockResources)
 
@@ -34,17 +33,11 @@ export default function SettingsPage() {
   }
 
   const handleSaveResources = () => {
-    toast({
-      title: "Resources Saved",
-      description: "Your resource capacity settings have been updated.",
-    })
+    toast.success("Resources saved successfully")
   }
 
   const handleSaveGeneral = () => {
-    toast({
-      title: "Settings Saved",
-      description: "Agency information has been updated.",
-    })
+    toast.success("Settings saved successfully")
   }
 
   if (isLoading || !user) {

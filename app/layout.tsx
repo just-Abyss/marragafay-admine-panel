@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { AuthProvider } from "@/lib/auth-context"
+import { Toaster } from "sonner"
 import "./globals.css"
 
 const inter = Inter({
@@ -38,6 +39,17 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="font-sans antialiased">
         <AuthProvider>{children}</AuthProvider>
+        <Toaster
+          position="bottom-right"
+          richColors
+          expand={true}
+          toastOptions={{
+            style: {
+              background: 'var(--background)',
+              border: '1px solid var(--border)',
+            },
+          }}
+        />
         <Analytics />
       </body>
     </html>

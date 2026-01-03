@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
-import { useToast } from "@/hooks/use-toast"
+import { toast } from "sonner"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import {
   Mail,
@@ -53,7 +53,6 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
   const [drivers, setDrivers] = useState<Driver[]>([])
   const [isLoadingDrivers, setIsLoadingDrivers] = useState(false)
   const [pricingItems, setPricingItems] = useState<Array<{ id: string, name: string, price: number, type: string }>>([])  // ✅ Added
-  const { toast } = useToast()
   const router = useRouter()
 
   // Fetch drivers and pricing items from Supabase
@@ -181,8 +180,7 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
       console.log('✅ Update successful:', data)
 
       // ===== SUCCESS: UPDATE UI =====
-      toast({
-        title: "✅ Booking Updated",
+      toast.success("Booking Updated", {
         description: `Changes to ${editedBooking.name}'s booking have been saved.`,
       })
 
@@ -198,11 +196,7 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
 
     } catch (error: any) {
       console.error('❌ Full Error Object:', JSON.stringify(error, null, 2))
-      toast({
-        title: "Update Failed",
-        description: error?.message || 'There was an error saving your changes. Please try again.',
-        variant: "destructive",
-      })
+      toast.error(error?.message || 'There was an error saving your changes. Please try again.')
     } finally {
       setIsSaving(false)
     }
@@ -217,10 +211,8 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
   const handleDelete = () => {
     if (onDelete) {
       onDelete(booking.id)
-      toast({
-        title: "Booking Deleted",
+      toast.success("Booking Deleted", {
         description: `${booking.name}'s booking has been removed.`,
-        variant: "destructive",
       })
     }
     handleClose()
@@ -877,17 +869,12 @@ export function BookingDrawer({ booking, open, onClose, onEdit, onDelete, onSave
                     const safeName = (currentBooking.name || "client").replace(/[^a-z0-9]/gi, '_').toLowerCase()
                     doc.save(`Marragafay-Ticket-${safeName}.pdf`)
 
-                    toast({
-                      title: "Voucher Downloaded",
+                    toast.success("Voucher Downloaded", {
                       description: "Your booking voucher has been generated successfully.",
                     })
                   } catch (error) {
                     console.error("PDF Generation Error:", error)
-                    toast({
-                      title: "Download Failed",
-                      description: "Could not generate PDF voucher. Please try again.",
-                      variant: "destructive"
-                    })
+                    toast.error("Could not generate PDF voucher. Please try again.")
                   }
                 }}
                 variant="outline"

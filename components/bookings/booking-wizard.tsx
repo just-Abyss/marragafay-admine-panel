@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectGr
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { mockDrivers, mockResources, mockActivities, getAvailability } from "@/lib/mock-data"
-import { useToast } from "@/hooks/use-toast"
+import { toast } from "sonner"
 import { cn } from "@/lib/utils"
 import { Check, ChevronLeft, ChevronRight, Calendar, User, CreditCard, AlertCircle, MapPin } from "lucide-react"
 
@@ -34,7 +34,6 @@ const steps = [
 
 export function BookingWizard({ open, onClose, onSave, existingBookings }: BookingWizardProps) {
   const [currentStep, setCurrentStep] = useState(1)
-  const { toast } = useToast()
   const router = useRouter()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [pricingItems, setPricingItems] = useState<{ id: string; name: string; price: number; type: string }[]>([])
@@ -191,8 +190,7 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
 
       onSave(newBooking)
 
-      toast({
-        title: "Booking Created",
+      toast.success("Booking Created", {
         description: `New booking for ${formData.name} has been created successfully.`,
       })
 
@@ -241,11 +239,7 @@ export function BookingWizard({ open, onClose, onSave, existingBookings }: Booki
       onClose()
     } catch (error) {
       console.error('Error creating booking:', error)
-      toast({
-        title: "Error",
-        description: "Failed to create booking. Please try again.",
-        variant: "destructive",
-      })
+      toast.error("Failed to create booking. Please try again.")
     } finally {
       setIsSubmitting(false)
     }

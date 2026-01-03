@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { supabase } from "@/lib/supabase"
+import { toast } from "sonner"
 import { Review } from "@/lib/types"
 import {
     Table,
@@ -56,8 +57,10 @@ export function ReviewManager() {
             if (error) throw error
 
             await fetchReviews()
+            toast.success(`Review ${newStatus} successfully`)
         } catch (error) {
             console.error("Error updating review:", error)
+            toast.error("Failed to update review status")
         } finally {
             setProcessingId(null)
         }

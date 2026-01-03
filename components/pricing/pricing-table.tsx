@@ -25,8 +25,13 @@ export function PricingTable({ pricing, onRefresh }: PricingTableProps) {
     const [isSubmitting, setIsSubmitting] = useState(false)
 
     const handleCreate = async () => {
-        if (!formData.activity_name || formData.price <= 0) {
+        if (!formData.activity_name) {
             toast.error("Please fill all required fields")
+            return
+        }
+
+        if (formData.price < 0) {
+            toast.error("Price cannot be negative")
             return
         }
 
@@ -56,8 +61,13 @@ export function PricingTable({ pricing, onRefresh }: PricingTableProps) {
     }
 
     const handleUpdate = async () => {
-        if (!editDialog.item || !formData.activity_name || formData.price <= 0) {
+        if (!editDialog.item || !formData.activity_name) {
             toast.error("Please fill all required fields")
+            return
+        }
+
+        if (formData.price < 0) {
+            toast.error("Price cannot be negative")
             return
         }
 
@@ -228,6 +238,7 @@ export function PricingTable({ pricing, onRefresh }: PricingTableProps) {
                             <Input
                                 id="price"
                                 type="number"
+                                min="0"
                                 value={formData.price}
                                 onChange={(e) => setFormData({ ...formData, price: Number(e.target.value) })}
                                 placeholder="e.g., 350"

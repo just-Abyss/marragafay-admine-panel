@@ -4,7 +4,7 @@
       "workers": {
         "app/dashboard/bookings/page": {
           "moduleId": "[project]/.next-internal/server/app/dashboard/bookings/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": true,
+          "async": false,
           "exportedName": "sendBookingEmail",
           "filename": "app/actions.ts"
         }

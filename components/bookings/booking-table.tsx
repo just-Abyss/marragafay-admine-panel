@@ -207,8 +207,18 @@ export function BookingTable({ bookings, onSelect }: BookingTableProps) {
                 </TableCell>
                 <TableCell>
                   <div className="flex flex-col gap-0.5">
-                    <div className="text-sm">{booking.email}</div>
-                    <div className="text-xs text-muted-foreground">{booking.phone_number}</div>
+                    <div
+                      className="text-sm max-w-[150px] truncate"
+                      title={booking.email}
+                    >
+                      {booking.email}
+                    </div>
+                    <div
+                      className="text-xs text-muted-foreground max-w-[150px] truncate"
+                      title={booking.phone_number}
+                    >
+                      {booking.phone_number}
+                    </div>
                   </div>
                 </TableCell>
                 <TableCell className="text-muted-foreground">{booking.package_title}</TableCell>
