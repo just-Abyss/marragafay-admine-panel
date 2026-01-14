@@ -136,9 +136,12 @@ export interface Pricing {
 export interface Review {
   id: string
   name: string
+  email?: string
   rating: number
   comment: string
   status: "approved" | "pending" | "rejected"
   created_at: string
   updated_at?: string
+  image_url?: string
+  images?: string[]
 }

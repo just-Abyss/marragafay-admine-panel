@@ -1,21 +1,5 @@
 {
-  "node": {
-    "4081f1dd4aa8ea82e26767a0ae58c488b12e552900": {
-      "workers": {
-        "app/dashboard/bookings/page": {
-          "moduleId": "[project]/.next-internal/server/app/dashboard/bookings/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "sendBookingEmail",
-          "filename": "app/actions.ts"
-        }
-      },
-      "layer": {
-        "app/dashboard/bookings/page": "action-browser"
-      },
-      "filename": "app/actions.ts",
-      "exportedName": "sendBookingEmail"
-    }
-  },
+  "node": {},
   "edge": {},
   "encryptionKey": "YT4o/9DLnpO5W7Ryz+oi45ZUvEcwLeEh3FwNmsO33Pk="
 }
