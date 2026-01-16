@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { LayoutDashboard, Calendar, Package, Settings, MoreHorizontal } from "lucide-react"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { Bike, FileText, Star } from "lucide-react"
+import { Bike, FileText } from "lucide-react"
 
 const mainNavItems = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Home" },
@@ -16,7 +16,6 @@ const mainNavItems = [
 const moreNavItems = [
   { href: "/dashboard/activities", icon: Bike, label: "Activities" },
   { href: "/dashboard/blog", icon: FileText, label: "Blog" },
-  { href: "/dashboard/testimonials", icon: Star, label: "Testimonials" },
   { href: "/dashboard/settings", icon: Settings, label: "Settings" },
 ]
 

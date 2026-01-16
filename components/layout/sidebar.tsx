@@ -16,9 +16,8 @@ import {
   Compass,
   Bike,
   FileText,
-  Star,
-  DollarSign,
   MessageSquare,
+  DollarSign,
 } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
@@ -31,7 +30,6 @@ const navItems = [
   { href: "/dashboard/activities", icon: Bike, label: "Activities" },
   { href: "/dashboard/reviews", icon: MessageSquare, label: "Reviews" },
   { href: "/dashboard/blog", icon: FileText, label: "Blog" },
-  { href: "/dashboard/testimonials", icon: Star, label: "Testimonials" },
   { href: "/dashboard/settings", icon: Settings, label: "Settings" },
 ]
 

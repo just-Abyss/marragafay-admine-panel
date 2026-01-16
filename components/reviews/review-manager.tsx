@@ -16,8 +16,6 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import {
@@ -41,12 +39,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+
 import {
     Check,
     Trash2,
@@ -58,18 +51,16 @@ import {
     CheckCircle2,
     Clock,
     AlertCircle,
-    Pencil,
     X,
     ChevronLeft,
     ChevronRight,
     TrendingUp,
     Users,
-    MoreVertical,
-    Image as ImageIcon,
     Loader2,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { format } from "date-fns"
+import { ReviewDrawer } from "./review-drawer"
 
 // ============================================================================
 // TYPES
@@ -97,10 +88,10 @@ export function ReviewManager() {
     const [statusFilter, setStatusFilter] = useState<StatusFilter>("all")
     const [ratingFilter, setRatingFilter] = useState<RatingFilter>("all")
 
-    // Modal States
-    const [editingReview, setEditingReview] = useState<Review | null>(null)
-    const [isEditModalOpen, setIsEditModalOpen] = useState(false)
-    const [isSaving, setIsSaving] = useState(false)
+
+    // Drawer State
+    const [selectedReview, setSelectedReview] = useState<Review | null>(null)
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
     // Lightbox
     const [lightboxOpen, setLightboxOpen] = useState(false)
@@ -246,6 +237,64 @@ export function ReviewManager() {
             console.error("❌ Error updating status:", err?.message || error)
             setReviews(previousReviews)
             toast.error(err?.message || "Failed to update status")
+        }
+    }
+
+    const updateReview = async (updatedReview: Review) => {
+        // Optimistic Update
+        const previousReviews = [...reviews]
+        setReviews(prev => prev.map(r => r.id === updatedReview.id ? updatedReview : r))
+        // Also update selected review if it's open
+        setSelectedReview(updatedReview)
+
+        try {
+            // Build update payload with only editable fields
+            const updateData: Record<string, unknown> = {
+                comment: updatedReview.comment,
+                rating: updatedReview.rating,
+                status: updatedReview.status,
+            }
+
+            // Always include images array (even if empty) to support deletion
+            const imagesToSave = updatedReview.images ?? []
+            updateData.images = imagesToSave
+            console.log("🖼️ Images being saved to DB:", imagesToSave)
+
+            // Handle legacy image_url (first image or null)
+            if (updatedReview.image_url !== undefined) {
+                updateData.image_url = updatedReview.image_url || null
+            } else if (imagesToSave.length > 0) {
+                // Sync image_url with first image if not explicitly set
+                updateData.image_url = imagesToSave[0]
+            } else {
+                // Clear image_url if no images
+                updateData.image_url = null
+            }
+
+            console.log("📤 Full update payload:", updateData)
+
+            const { data, error } = await supabase
+                .from("reviews")
+                .update(updateData)
+                .eq("id", updatedReview.id)
+                .select()
+
+            if (error) {
+                console.error("💥 Supabase error:", error.message, error.details)
+                throw error
+            }
+
+            if (!data || data.length === 0) {
+                console.error("💥 RLS BLOCKED: No rows updated")
+                throw new Error("RLS blocked update")
+            }
+
+            console.log("✅ Review updated successfully:", data[0])
+            toast.success("Review updated successfully")
+        } catch (error) {
+            console.error("❌ Error updating review:", error)
+            setReviews(previousReviews)
+            toast.error("Failed to update review")
         }
     }
 
@@ -406,80 +455,9 @@ export function ReviewManager() {
         }
     }
 
-    // ========================================================================
-    // EDIT MODAL
-    // ========================================================================
-    const openEditModal = (review: Review) => {
-        setEditingReview({ ...review })
-        setIsEditModalOpen(true)
-    }
 
-    const saveEditedReview = async () => {
-        if (!editingReview) return
 
-        setIsSaving(true)
-        const previousReviews = [...reviews]
 
-        // Optimistic update
-        setReviews(prev => prev.map(r =>
-            r.id === editingReview.id ? editingReview : r
-        ))
-
-        try {
-            // Only update columns that exist in the database
-            const updateData: Record<string, unknown> = {
-                name: editingReview.name,
-                comment: editingReview.comment,
-                rating: editingReview.rating,
-                status: editingReview.status,
-            }
-
-            // Only include image_url if it's defined (column exists)
-            if (editingReview.image_url !== undefined) {
-                updateData.image_url = editingReview.image_url || null
-            }
-
-            const { data, error } = await supabase
-                .from("reviews")
-                .update(updateData)
-                .eq("id", editingReview.id)
-                .select()
-
-            if (error) {
-                console.error("💥 Supabase error details:", error.message, error.code, error.details)
-                throw new Error(`Supabase error: ${error.message}`)
-            }
-
-            if (!data || data.length === 0) {
-                console.error("💥 RLS BLOCKED: No rows updated")
-                throw new Error("Edit failed: RLS blocked execution or ID mismatch")
-            }
-
-            console.log("✅ Edit successful:", data)
-            toast.success("Review updated successfully")
-            setIsEditModalOpen(false)
-            setEditingReview(null)
-        } catch (error: unknown) {
-            const err = error as { message?: string }
-            console.error("❌ Error saving review:", err?.message || error)
-            setReviews(previousReviews)
-            toast.error(err?.message || "Failed to save changes")
-        } finally {
-            setIsSaving(false)
-        }
-    }
-
-    const removeImageFromEdit = (indexToRemove: number) => {
-        if (!editingReview) return
-        const currentImages = editingReview.images || []
-        const newImages = currentImages.filter((_, i) => i !== indexToRemove)
-        setEditingReview({ ...editingReview, images: newImages })
-    }
-
-    const removeLegacyImage = () => {
-        if (!editingReview) return
-        setEditingReview({ ...editingReview, image_url: undefined })
-    }
 
     // ========================================================================
     // LIGHTBOX
@@ -774,23 +752,21 @@ export function ReviewManager() {
                             <TableHead className="text-xs font-semibold uppercase tracking-wider text-zinc-500 w-[110px]">
                                 Status
                             </TableHead>
-                            <TableHead className="text-xs font-semibold uppercase tracking-wider text-zinc-500 w-[100px] text-right pr-4">
-                                Actions
-                            </TableHead>
+                            {/* Actions column removed for Master-Detail view */}
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         {loading ? (
                             [...Array(5)].map((_, i) => (
                                 <TableRow key={i}>
-                                    <TableCell colSpan={8} className="py-4">
+                                    <TableCell colSpan={7} className="py-4">
                                         <div className="h-10 w-full animate-pulse bg-zinc-100 rounded" />
                                     </TableCell>
                                 </TableRow>
                             ))
                         ) : filteredReviews.length === 0 ? (
                             <TableRow>
-                                <TableCell colSpan={8} className="h-40 text-center">
+                                <TableCell colSpan={7} className="h-40 text-center">
                                     <div className="flex flex-col items-center justify-center text-zinc-400">
                                         <MessageSquare className="h-10 w-10 mb-3 opacity-30" />
                                         <p className="font-medium">No reviews found</p>
@@ -805,9 +781,17 @@ export function ReviewManager() {
                                     <TableRow
                                         key={review.id}
                                         className={cn(
-                                            "group transition-colors",
+                                            "group transition-colors cursor-pointer",
                                             selectedIds.has(review.id) ? "bg-zinc-50" : "hover:bg-zinc-50/50"
                                         )}
+                                        onClick={(e) => {
+                                            // Prevent drawer open if clicking checkbox or other interactive elements
+                                            if ((e.target as HTMLElement).closest('button, [role="checkbox"]')) {
+                                                return
+                                            }
+                                            setSelectedReview(review)
+                                            setIsDrawerOpen(true)
+                                        }}
                                     >
                                         {/* Checkbox */}
                                         <TableCell className="pl-4">
@@ -891,70 +875,7 @@ export function ReviewManager() {
                                             <StatusBadge status={review.status} />
                                         </TableCell>
 
-                                        {/* Actions */}
-                                        <TableCell className="text-right pr-4">
-                                            <div className="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                {/* Quick Approve */}
-                                                {review.status !== "approved" && (
-                                                    <TooltipProvider>
-                                                        <Tooltip>
-                                                            <TooltipTrigger asChild>
-                                                                <Button
-                                                                    variant="ghost"
-                                                                    size="icon"
-                                                                    className="h-8 w-8 text-emerald-600 hover:text-emerald-700 hover:bg-emerald-50"
-                                                                    onClick={() => updateStatus(review.id, "approved")}
-                                                                >
-                                                                    <Check className="h-4 w-4" />
-                                                                </Button>
-                                                            </TooltipTrigger>
-                                                            <TooltipContent>Approve</TooltipContent>
-                                                        </Tooltip>
-                                                    </TooltipProvider>
-                                                )}
-
-                                                {/* Quick Reject */}
-                                                {review.status !== "rejected" && (
-                                                    <TooltipProvider>
-                                                        <Tooltip>
-                                                            <TooltipTrigger asChild>
-                                                                <Button
-                                                                    variant="ghost"
-                                                                    size="icon"
-                                                                    className="h-8 w-8 text-amber-600 hover:text-amber-700 hover:bg-amber-50"
-                                                                    onClick={() => updateStatus(review.id, "rejected")}
-                                                                >
-                                                                    <XCircle className="h-4 w-4" />
-                                                                </Button>
-                                                            </TooltipTrigger>
-                                                            <TooltipContent>Reject</TooltipContent>
-                                                        </Tooltip>
-                                                    </TooltipProvider>
-                                                )}
-
-                                                {/* More Actions */}
-                                                <DropdownMenu>
-                                                    <DropdownMenuTrigger asChild>
-                                                        <Button variant="ghost" size="icon" className="h-8 w-8 text-zinc-400 hover:text-zinc-600">
-                                                            <MoreVertical className="h-4 w-4" />
-                                                        </Button>
-                                                    </DropdownMenuTrigger>
-                                                    <DropdownMenuContent align="end" className="w-40">
-                                                        <DropdownMenuItem onClick={() => openEditModal(review)}>
-                                                            <Pencil className="mr-2 h-4 w-4" />
-                                                            Edit Review
-                                                        </DropdownMenuItem>
-                                                        <DropdownMenuItem
-                                                            className="text-red-600 focus:text-red-600"
-                                                            onClick={() => deleteReview(review.id)}
-                                                        >
-                                                            <Trash2 className="mr-2 h-4 w-4" />
-                                                            Delete
-                                                        </DropdownMenuItem>
-                                                    </DropdownMenuContent>
-                                                </DropdownMenu>
-                                            </div>
-                                        </TableCell>
+                                        {/* Actions cell removed for Master-Detail view */}
                                     </TableRow>
                                 )
                             })
@@ -973,152 +894,27 @@ export function ReviewManager() {
             </div>
 
             {/* ================================================================
-                EDIT MODAL
+                REVIEW DRAWER (Master-Detail)
             ================================================================ */}
-            <Dialog open={isEditModalOpen} onOpenChange={setIsEditModalOpen}>
-                <DialogContent className="max-w-lg">
-                    <DialogHeader>
-                        <DialogTitle className="flex items-center gap-2">
-                            <Pencil className="h-4 w-4" />
-                            Edit Review
-                        </DialogTitle>
-                        <DialogDescription>
-                            Make changes to this review. Be careful with modifications.
-                        </DialogDescription>
-                    </DialogHeader>
-
-                    {editingReview && (
-                        <div className="space-y-5 py-4">
-                            {/* Customer Name */}
-                            <div className="space-y-2">
-                                <Label htmlFor="edit-name">Customer Name</Label>
-                                <Input
-                                    id="edit-name"
-                                    value={editingReview.name}
-                                    onChange={(e) => setEditingReview({ ...editingReview, name: e.target.value })}
-                                />
-                            </div>
-
-                            {/* Comment */}
-                            <div className="space-y-2">
-                                <Label htmlFor="edit-comment">Review Text</Label>
-                                <Textarea
-                                    id="edit-comment"
-                                    value={editingReview.comment}
-                                    onChange={(e) => setEditingReview({ ...editingReview, comment: e.target.value })}
-                                    rows={4}
-                                    className="resize-none"
-                                />
-                            </div>
-
-                            {/* Rating */}
-                            <div className="space-y-2">
-                                <Label>Rating</Label>
-                                <div className="flex items-center gap-1">
-                                    {[1, 2, 3, 4, 5].map((star) => (
-                                        <button
-                                            key={star}
-                                            type="button"
-                                            onClick={() => setEditingReview({ ...editingReview, rating: star })}
-                                            className="p-1 rounded hover:bg-zinc-100 transition-colors"
-                                        >
-                                            <Star
-                                                className={cn(
-                                                    "h-6 w-6 transition-colors",
-                                                    star <= editingReview.rating
-                                                        ? "text-amber-400 fill-amber-400"
-                                                        : "text-zinc-300"
-                                                )}
-                                            />
-                                        </button>
-                                    ))}
-                                    <span className="ml-2 text-sm text-zinc-500">
-                                        {editingReview.rating} star{editingReview.rating !== 1 ? "s" : ""}
-                                    </span>
-                                </div>
-                            </div>
-
-                            {/* Status */}
-                            <div className="space-y-2">
-                                <Label>Status</Label>
-                                <Select
-                                    value={editingReview.status}
-                                    onValueChange={(v) => setEditingReview({ ...editingReview, status: v as Review["status"] })}
-                                >
-                                    <SelectTrigger>
-                                        <SelectValue />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectItem value="pending">Pending</SelectItem>
-                                        <SelectItem value="approved">Approved</SelectItem>
-                                        <SelectItem value="rejected">Rejected</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                            </div>
-
-                            {/* Images Management */}
-                            {(editingReview.images?.length || editingReview.image_url) && (
-                                <div className="space-y-2">
-                                    <Label>Attached Images</Label>
-                                    <div className="grid grid-cols-4 gap-2">
-                                        {/* Legacy single image */}
-                                        {editingReview.image_url && (
-                                            <div className="relative group aspect-square rounded-lg overflow-hidden border">
-                                                <img
-                                                    src={editingReview.image_url}
-                                                    alt=""
-                                                    className="h-full w-full object-cover"
-                                                />
-                                                <button
-                                                    type="button"
-                                                    onClick={removeLegacyImage}
-                                                    className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
-                                                >
-                                                    <Trash2 className="h-5 w-5 text-white" />
-                                                </button>
-                                            </div>
-                                        )}
-                                        {/* Array images */}
-                                        {editingReview.images?.map((img, idx) => (
-                                            <div key={idx} className="relative group aspect-square rounded-lg overflow-hidden border">
-                                                <img
-                                                    src={img}
-                                                    alt=""
-                                                    className="h-full w-full object-cover"
-                                                />
-                                                <button
-                                                    type="button"
-                                                    onClick={() => removeImageFromEdit(idx)}
-                                                    className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
-                                                >
-                                                    <Trash2 className="h-5 w-5 text-white" />
-                                                </button>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <p className="text-xs text-zinc-500">Hover over an image and click to remove it.</p>
-                                </div>
-                            )}
-                        </div>
-                    )}
-
-                    <DialogFooter className="gap-2">
-                        <Button variant="outline" onClick={() => setIsEditModalOpen(false)}>
-                            Cancel
-                        </Button>
-                        <Button onClick={saveEditedReview} disabled={isSaving}>
-                            {isSaving && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                            Save Changes
-                        </Button>
-                    </DialogFooter>
-                </DialogContent>
-            </Dialog>
+            <ReviewDrawer
+                review={selectedReview}
+                open={isDrawerOpen}
+                onClose={() => {
+                    setIsDrawerOpen(false)
+                    setSelectedReview(null)
+                }}
+                onApprove={(id) => updateStatus(id, "approved")}
+                onReject={(id) => updateStatus(id, "rejected")}
+                onDelete={(id) => deleteReview(id)}
+                onUpdate={updateReview}
+            />
 
             {/* ================================================================
                 LIGHTBOX
             ================================================================ */}
             <Dialog open={lightboxOpen} onOpenChange={setLightboxOpen}>
                 <DialogContent className="max-w-3xl p-0 border-none bg-transparent shadow-none">
+                    <DialogTitle className="sr-only">Review Image</DialogTitle>
                     <div className="relative">
                         <img
                             src={lightboxImages[lightboxIndex]}
